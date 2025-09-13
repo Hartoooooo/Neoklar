@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 const AbstractServices = () => {
   const [hoveredService, setHoveredService] = useState<number | null>(null)
@@ -120,9 +121,11 @@ const AbstractServices = () => {
                 
                 {/* Website Preview Image */}
                 <div className="relative h-80 overflow-hidden rounded-t-3xl">
-                  <img 
+                  <Image 
                     src={service.image} 
                     alt={`${service.title} Preview`}
+                    width={400}
+                    height={320}
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                   />
                   
