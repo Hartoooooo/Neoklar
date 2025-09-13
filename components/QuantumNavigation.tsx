@@ -134,7 +134,9 @@ const QuantumNavigation = () => {
         <div className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
           isHologramMode ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="py-4 space-y-2 border-t border-cyan-500/20">
+          <div className={`py-4 space-y-2 border-t border-cyan-500/20 transition-all duration-300 ${
+            isScrolled ? '' : 'bg-black/95 backdrop-blur-xl'
+          }`}>
             {navItems.map((item, index) => (
               <button
                 key={item.id}
