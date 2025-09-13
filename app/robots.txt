@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://neoklar.de/sitemap.xml
+
+# Crawl-delay für freundliche Bot-Behandlung
+Crawl-delay: 1
+
+# Spezifische Bot-Anweisungen
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Blockiere problematische Bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

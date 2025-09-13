@@ -26,7 +26,8 @@ const AbstractServices = () => {
       glowColor: 'shadow-cyan',
       pattern: 'hexagon',
       technology: 'React - Next.js - Tailwind',
-      image: 'https://via.placeholder.com/400x300/1e293b/06b6d4?text=Westendpalais+App+12'
+      image: 'https://via.placeholder.com/400x300/1e293b/06b6d4?text=Westendpalais+App+12',
+      alt: 'Westendpalais App 12 - Moderne Ferienwohnung Website mit Next.js und Tailwind CSS'
     },
     {
       id: '02',
@@ -38,7 +39,8 @@ const AbstractServices = () => {
       glowColor: 'shadow-neo',
       pattern: 'triangle',
       technology: 'Liquid',
-      image: 'https://via.placeholder.com/400x300/312e81/a855f7?text=Corporate+Demo'
+      image: 'https://via.placeholder.com/400x300/312e81/a855f7?text=Corporate+Demo',
+      alt: 'Corporate Website - Professionelle Unternehmenswebseite mit Shopify und Liquid'
     },
     {
       id: '03',
@@ -50,7 +52,8 @@ const AbstractServices = () => {
       glowColor: 'shadow-quantum',
       pattern: 'diamond',
       technology: 'React',
-      image: 'https://via.placeholder.com/400x300/065f46/10b981?text=Portfolio+Demo'
+      image: 'https://via.placeholder.com/400x300/065f46/10b981?text=Portfolio+Demo',
+      alt: 'Portfolio Website - Kreative Portfolio-Webseite mit React und TypeScript für Designer'
     },
     {
       id: '04',
@@ -123,10 +126,11 @@ const AbstractServices = () => {
                 <div className="relative h-80 overflow-hidden rounded-t-3xl">
                   <Image 
                     src={service.image} 
-                    alt={`${service.title} Preview`}
+                    alt={service.alt || `${service.title} Preview - ${service.description}`}
                     width={400}
                     height={320}
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                    priority={service.id === '01'}
                   />
                   
                   {/* Technology Badge */}
