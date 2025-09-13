@@ -63,7 +63,8 @@ const QuantumNavigation = () => {
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-600 blur-lg opacity-30 md:group-hover:opacity-60 transition-all duration-500"></div>
             <h1 className="relative text-3xl font-black bg-gradient-to-r from-white via-cyan-300 to-blue-400 bg-clip-text text-transparent tracking-wider">
-              N&lt;/&gt;K
+              <span className="md:hidden">NEOKLAR</span>
+              <span className="hidden md:inline">N&lt;/&gt;K</span>
             </h1>
             <div className="absolute -inset-2 border border-cyan-500/30 transform rotate-45 opacity-0 md:group-hover:opacity-100 transition-all duration-500"></div>
           </div>

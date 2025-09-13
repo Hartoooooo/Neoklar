@@ -118,31 +118,29 @@ const AbstractServices = () => {
               onMouseLeave={() => window.innerWidth >= 768 && setHoveredService(null)}
             >
               {/* Main Service Card */}
-              <div className={`relative h-[500px] bg-black/40 backdrop-blur-xl border border-gray-700/50 rounded-3xl transition-all duration-500 transform md:group-hover:scale-[1.02] overflow-hidden ${
+              <div className={`relative h-[500px] transition-all duration-500 transform md:group-hover:scale-[1.02] ${
                 hoveredService === index ? `${service.glowColor}` : ''
               }`}>
                 
                 {/* Website Preview Image */}
-                <div className="relative h-80 overflow-hidden rounded-t-3xl">
-                  <Image 
-                    src={service.image} 
-                    alt={service.alt || `${service.title} Preview - ${service.description}`}
-                    width={400}
-                    height={320}
-                    className="w-full h-full object-cover transition-all duration-700 md:group-hover:scale-105"
-                    priority={service.id === '01'}
-                  />
-                  
-                  {/* Technology Badge */}
-                  <div className="absolute top-4 right-4">
-                    <div className={`px-3 py-1 bg-gradient-to-r ${service.color} text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg`}>
-                      {service.technology}
-                    </div>
+                <Image 
+                  src={service.image} 
+                  alt={service.alt || `${service.title} Preview - ${service.description}`}
+                  width={400}
+                  height={320}
+                  className="w-full h-80 object-cover transition-all duration-700 md:group-hover:scale-105"
+                  priority={service.id === '01'}
+                />
+                
+                {/* Technology Badge */}
+                <div className="absolute top-4 right-4">
+                  <div className={`px-3 py-1 bg-gradient-to-r ${service.color} text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg`}>
+                    {service.technology}
                   </div>
-
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-all duration-500"></div>
                 </div>
+
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-all duration-500"></div>
 
                 {/* Floating Icon */}
                 <div className="absolute top-4 left-4 z-10">

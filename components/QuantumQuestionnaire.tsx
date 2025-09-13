@@ -4356,9 +4356,7 @@ const QuantumQuestionnaire = () => {
           <div className="space-y-6">
 
               {/* Design-Stil Vorschau */}
-              <div className="bg-black/40 border border-green-400/30 rounded-2xl p-6">
-                {getProjectSpecificPreview(formData.projectType, formData.designStyle)}
-              </div>
+              {getProjectSpecificPreview(formData.projectType, formData.designStyle)}
 
               {/* Design-Stil Auswahl */}
               <div className="space-y-4">
@@ -4477,7 +4475,7 @@ const QuantumQuestionnaire = () => {
 
             <div className="text-center">
               <div className="text-cyan-400 font-mono text-sm mb-2">
-                SCHRITT {currentStep + 1} VON {questionSteps.length}
+                {currentStep + 1} VON {questionSteps.length}
               </div>
             </div>
 

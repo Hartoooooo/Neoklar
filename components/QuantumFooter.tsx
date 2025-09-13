@@ -13,6 +13,7 @@ const QuantumFooter = () => {
     // Set client flag to enable time rendering after hydration
     setIsClient(true)
     setMounted(true)
+
     
     // Initialize network nodes only on client side
     setNetworkNodes(Array(15).fill(0).map((_, i) => ({
@@ -64,68 +65,46 @@ const QuantumFooter = () => {
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 py-16">
-          
-          {/* Quantum Identity */}
-          <div className="lg:col-span-2 space-y-8">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-cyber blur-xl opacity-30"></div>
-              <h3 className="relative text-4xl font-black bg-gradient-to-r from-white via-cyan-300 to-purple-400 bg-clip-text text-transparent">
-                NEO&lt;/&gt;KLAR
-              </h3>
-            </div>
+        <div className="py-16">
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-8 lg:space-y-0">
             
-            <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-              Wir erschaffen <span className="text-cyan-400">digitale Welten</span> und 
-              <span className="text-purple-400"> innovative Webseiten</span> für Ihr Unternehmen. 
-              Jenseits gewöhnlicher Grenzen entwickeln wir 
-              <span className="text-cyan-400"> individuelle Webpräsenzen</span> am 
-              <span className="text-purple-400"> Schnittpunkt von Technologie und Kreativität</span>.
-            </p>
-
-          </div>
-
-          {/* Navigation Matrix */}
-          <div>
-            <h4 className="text-cyan-400 font-mono text-sm uppercase tracking-wider mb-6 flex items-center">
-              <span className="text-cyan-400 mr-2">◊</span>
-              NAVIGATIONS.MATRIX
-            </h4>
-            
-            <div className="space-y-4">
-              {quickLinks.map((link, index) => (
-                <button
-                  key={index}
-                  onClick={() => scrollToSection(link.href)}
-                  className="group block w-full text-left text-gray-300 hover:text-cyan-400 transition-all duration-300 font-mono"
-                >
-                  <div className="flex items-center space-x-2">
-                    <span className="text-xs text-gray-600">{'>'}</span>
-                    <span className="group-hover:translate-x-2 transition-transform duration-300">
-                      {link.label}
-                    </span>
-                  </div>
-                </button>
-              ))}
+            {/* Quantum Identity */}
+            <div className="space-y-8">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-cyber blur-xl opacity-30"></div>
+                <h3 className="relative text-4xl font-black bg-gradient-to-r from-white via-cyan-300 to-purple-400 bg-clip-text text-transparent">
+                  NEO&lt;/&gt;KLAR
+                </h3>
+              </div>
+              
+              <p className="text-gray-300 text-lg leading-relaxed max-w-md">
+                Wir erschaffen <span className="text-cyan-400">digitale Welten</span> und 
+                <span className="text-purple-400"> innovative Webseiten</span> für Ihr Unternehmen.
+              </p>
             </div>
 
-          </div>
-
-          {/* Quantum Clock */}
-          <div>
-            <div className="space-y-6">
-              {/* Quantum Clock */}
-              <div className="bg-black/60 border border-cyan-500/30 rounded-lg p-4">
-                <div className="text-cyan-400 font-mono text-xs mb-2">TEMPORAL.SYNCHRON</div>
-                <div className="text-white font-mono text-lg">
-                  {isClient ? currentTime.toLocaleTimeString('de-DE', { 
-                    hour12: false,
-                    timeZone: 'Europe/Berlin'
-                  }) : '--:--:--'}
-                </div>
-                <div className="text-gray-400 font-mono text-xs">
-                  {isClient ? currentTime.toLocaleDateString('de-DE') : '--.--.----'}
-                </div>
+            {/* Navigation Matrix */}
+            <div>
+              <h4 className="text-cyan-400 font-mono text-sm uppercase tracking-wider mb-6 flex items-center">
+                <span className="text-cyan-400 mr-2">◊</span>
+                SCHNELLZUGRIFF
+              </h4>
+              
+              <div className="space-y-4">
+                {quickLinks.map((link, index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollToSection(link.href)}
+                    className="group block w-full text-left text-gray-300 hover:text-cyan-400 transition-all duration-300 font-mono"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <span className="text-xs text-gray-600">{'>'}</span>
+                      <span className="group-hover:translate-x-2 transition-transform duration-300">
+                        {link.label}
+                      </span>
+                    </div>
+                  </button>
+                ))}
               </div>
             </div>
           </div>
