@@ -49,16 +49,21 @@ const ImpressumPage = () => {
                 </div>
                 
                 <div>
+                  <div className="text-white font-semibold mb-2">Inhaber:</div>
+                  <div>Timon Hartmann</div>
+                </div>
+                
+                <div>
                   <div className="text-white font-semibold mb-2">Anschrift:</div>
-                  <div>[Ihre Straße und Hausnummer]</div>
-                  <div>[Ihre PLZ und Stadt]</div>
+                  <div>Jungfernstr. 18</div>
+                  <div>15344 Strausberg</div>
                   <div>Deutschland</div>
                 </div>
                 
                 <div>
                   <div className="text-white font-semibold mb-2">Kontakt:</div>
-                  <div>E-Mail: info@neoklar.de</div>
-                  <div>Telefon: [Ihre Telefonnummer]</div>
+                  <div>E-Mail: neoklar.info@gmail.com</div>
+                  <div>Website: www.neoklar.de</div>
                 </div>
               </div>
             </div>
@@ -70,9 +75,9 @@ const ImpressumPage = () => {
               </h2>
               <div className="space-y-4 text-gray-300">
                 <div>
-                  <div>[Ihr vollständiger Name]</div>
-                  <div>[Ihre Straße und Hausnummer]</div>
-                  <div>[Ihre PLZ und Stadt]</div>
+                  <div>Timon Hartmann</div>
+                  <div>Jungfernstr. 18</div>
+                  <div>15344 Strausberg</div>
                 </div>
               </div>
             </div>
@@ -148,8 +153,8 @@ const ImpressumPage = () => {
               <p>Stand: {new Date().toLocaleDateString('de-DE')}</p>
               <p className="mt-2">
                 Bei Fragen zum Impressum wenden Sie sich gerne an: 
-                <a href="mailto:info@neoklar.de" className="text-cyan-400 hover:text-cyan-300 ml-1">
-                  info@neoklar.de
+                <a href="mailto:neoklar.info@gmail.com" className="text-cyan-400 hover:text-cyan-300 ml-1">
+                  neoklar.info@gmail.com
                 </a>
               </p>
             </div>

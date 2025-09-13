@@ -5,6 +5,8 @@ import GlobalBackground from '@/components/GlobalBackground'
 import StructuredData from '@/components/StructuredData'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import PerformanceMonitor from '@/components/PerformanceMonitor'
+import SecurityMonitor from '@/components/SecurityMonitor'
+import SEOOptimizer from '@/components/SEOOptimizer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -62,6 +64,10 @@ export const metadata: Metadata = {
     google: 'your-google-verification-code',
     yandex: 'your-yandex-verification-code',
     yahoo: 'your-yahoo-verification-code',
+    other: {
+      'msvalidate.01': 'your-bing-verification-code',
+      'facebook-domain-verification': 'your-facebook-verification-code'
+    }
   },
   alternates: {
     canonical: 'https://neoklar.de',
@@ -87,6 +93,8 @@ export default function RootLayout({
       <body className={`${inter.className} bg-black`}>
         <GoogleAnalytics />
         <PerformanceMonitor />
+        <SecurityMonitor />
+        <SEOOptimizer />
         <GlobalBackground />
         <div className="relative z-10">
           {children}
