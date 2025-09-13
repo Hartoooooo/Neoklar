@@ -16,6 +16,14 @@ const nextConfig = {
     minimumCacheTTL: 31536000, // 1 Jahr
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   
   // Enhanced Security Headers
