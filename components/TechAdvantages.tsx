@@ -10,6 +10,16 @@ const TechAdvantages = () => {
   const [businessValuesVisible, setBusinessValuesVisible] = useState(false)
 
   useEffect(() => {
+    // Skip animations on mobile devices for better performance
+    const isMobile = window.innerWidth < 768
+    if (isMobile) {
+      setIsVisible(true)
+      setFirstTwoVisible(true)
+      setLastTwoVisible(true)
+      setBusinessValuesVisible(true)
+      return
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

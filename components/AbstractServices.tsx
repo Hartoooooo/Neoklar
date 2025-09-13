@@ -114,11 +114,11 @@ const AbstractServices = () => {
             <div
               key={service.id}
               className="group relative"
-              onMouseEnter={() => setHoveredService(index)}
-              onMouseLeave={() => setHoveredService(null)}
+              onMouseEnter={() => window.innerWidth >= 768 && setHoveredService(index)}
+              onMouseLeave={() => window.innerWidth >= 768 && setHoveredService(null)}
             >
               {/* Main Service Card */}
-              <div className={`relative h-[500px] bg-black/40 backdrop-blur-xl border border-gray-700/50 rounded-3xl transition-all duration-500 transform group-hover:scale-[1.02] overflow-hidden ${
+              <div className={`relative h-[500px] bg-black/40 backdrop-blur-xl border border-gray-700/50 rounded-3xl transition-all duration-500 transform md:group-hover:scale-[1.02] overflow-hidden ${
                 hoveredService === index ? `${service.glowColor}` : ''
               }`}>
                 
@@ -129,7 +129,7 @@ const AbstractServices = () => {
                     alt={service.alt || `${service.title} Preview - ${service.description}`}
                     width={400}
                     height={320}
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-all duration-700 md:group-hover:scale-105"
                     priority={service.id === '01'}
                   />
                   
@@ -141,14 +141,14 @@ const AbstractServices = () => {
                   </div>
 
                   {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-all duration-500"></div>
                 </div>
 
                 {/* Floating Icon */}
                 <div className="absolute top-4 left-4 z-10">
-                  <div className={`relative w-12 h-12 flex items-center justify-center border-2 border-gray-600 bg-black/80 backdrop-blur-md rounded-xl transition-all duration-500 group-hover:border-cyan-400 group-hover:shadow-cyan`}>
+                  <div className={`relative w-12 h-12 flex items-center justify-center border-2 border-gray-600 bg-black/80 backdrop-blur-md rounded-xl transition-all duration-500 md:group-hover:border-cyan-400 md:group-hover:shadow-cyan`}>
                     <span className="text-lg text-cyan-400">{service.icon}</span>
-                    <div className="absolute inset-0 border border-cyan-400/30 transform scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-xl"></div>
+                    <div className="absolute inset-0 border border-cyan-400/30 transform scale-150 opacity-0 md:group-hover:opacity-100 transition-all duration-500 rounded-xl"></div>
                   </div>
                 </div>
 
@@ -161,7 +161,7 @@ const AbstractServices = () => {
                 <div className="flex flex-col justify-between p-6 h-[calc(100%-320px)]">
                   <div>
                     <div className="mb-3">
-                      <h3 className="text-xl font-black text-white mb-2 group-hover:text-cyan-400 transition-colors duration-500">
+                      <h3 className="text-xl font-black text-white mb-2 md:group-hover:text-cyan-400 transition-colors duration-500">
                         {service.title}
                       </h3>
                       <p className="text-cyan-400 font-mono text-sm uppercase tracking-wider">
