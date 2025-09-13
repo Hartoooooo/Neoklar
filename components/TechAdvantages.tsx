@@ -305,7 +305,9 @@ const TechAdvantages = () => {
                 <div className="space-y-3">
                   {advantage.benefits.map((benefit, i) => (
                     <div key={i} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                      <svg className="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
                       <span className="text-gray-200 font-medium">{benefit}</span>
                     </div>
                   ))}
@@ -366,7 +368,9 @@ const TechAdvantages = () => {
                 <div className="space-y-3">
                   {advantage.benefits.map((benefit, i) => (
                     <div key={i} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                      <svg className="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
                       <span className="text-gray-200 font-medium">{benefit}</span>
                     </div>
                   ))}

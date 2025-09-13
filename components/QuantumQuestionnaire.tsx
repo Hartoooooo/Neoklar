@@ -47,6 +47,11 @@ const QuantumQuestionnaire = () => {
     preferredContact: '',
     additionalInfo: ''
   })
+
+  // Debug: Log formData changes
+  useEffect(() => {
+    console.log('FormData updated:', formData)
+  }, [formData])
   
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isCompleted, setIsCompleted] = useState(false)
@@ -2940,15 +2945,19 @@ const QuantumQuestionnaire = () => {
   ]
 
   const handleInputChange = (field: string, value: any) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }))
-    
-    // Debug logging for companyName
-    if (field === 'companyName') {
-      console.log('Company name changed:', value)
-    }
+    setFormData(prev => {
+      const newData = {
+        ...prev,
+        [field]: value
+      }
+      
+      // Debug logging for specific fields
+      if (field === 'companyName' || field === 'timeline' || field === 'budget' || field === 'domain' || field === 'existingDomain' || field === 'desiredDomain') {
+        console.log(`${field} changed:`, value, 'New formData:', newData)
+      }
+      
+      return newData
+    })
     
     // Trigger domain check for desired domain
     if (field === 'desiredDomain' && value) {
@@ -3140,7 +3149,14 @@ const QuantumQuestionnaire = () => {
       case 2: // DESIGN
         return formData.designStyle !== '' && (formData.colors.length > 0 || formData.customColors.length > 0)
       case 3: // TECH
-        return formData.timeline !== '' && formData.budget !== '' && formData.domain !== ''
+        const techValid = formData.timeline !== '' && formData.budget !== '' && formData.domain !== ''
+        console.log('Tech validation:', {
+          timeline: formData.timeline,
+          budget: formData.budget,
+          domain: formData.domain,
+          isValid: techValid
+        })
+        return techValid
       case 4: // SYSTEM
         return formData.accessibility !== ''
       case 5: // ABSCHLUSS
@@ -3347,8 +3363,12 @@ const QuantumQuestionnaire = () => {
               </label>
               <input
                 type="text"
+                name="companyName"
                 value={formData.companyName}
-                onChange={(e) => handleInputChange('companyName', e.target.value)}
+                onChange={(e) => {
+                  console.log('Input onChange triggered:', e.target.value)
+                  handleInputChange('companyName', e.target.value)
+                }}
                 className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-white placeholder-gray-400 transition-all duration-300 text-base"
                 placeholder="Ihr Unternehmen..."
                 autoComplete="organization"
@@ -3797,7 +3817,10 @@ const QuantumQuestionnaire = () => {
                 ].map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => handleInputChange('timeline', option.value)}
+                    onClick={() => {
+                      console.log('Timeline button clicked:', option.value)
+                      handleInputChange('timeline', option.value)
+                    }}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 flex items-center ${
                       formData.timeline === option.value
                         ? 'border-orange-400 bg-orange-400/10 text-orange-400'
@@ -3811,9 +3834,13 @@ const QuantumQuestionnaire = () => {
                 {/* Custom Timeline Input - at the end */}
                 <input
                   type="text"
+                  name="timeline"
                   placeholder="Eigene"
                   value={formData.timeline === '2weeks' || formData.timeline === '1month' || formData.timeline === '3months' ? '' : formData.timeline || ''}
-                  onChange={(e) => handleInputChange('timeline', e.target.value)}
+                  onChange={(e) => {
+                    console.log('Timeline input onChange triggered:', e.target.value)
+                    handleInputChange('timeline', e.target.value)
+                  }}
                   className="p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 bg-black/40 border-gray-600 text-gray-300 placeholder-gray-500 focus:border-orange-400/50 focus:outline-none"
                 />
               </div>
@@ -3831,7 +3858,10 @@ const QuantumQuestionnaire = () => {
                 ].map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => handleInputChange('budget', option.value)}
+                    onClick={() => {
+                      console.log('Budget button clicked:', option.value)
+                      handleInputChange('budget', option.value)
+                    }}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 flex items-center ${
                       formData.budget === option.value
                         ? 'border-orange-400 bg-orange-400/10 text-orange-400'
@@ -3846,9 +3876,13 @@ const QuantumQuestionnaire = () => {
                 {/* Direct Budget Input Field */}
                 <input
                   type="text"
+                  name="customBudget"
                   placeholder="Ihr Budget"
                   value={formData.customBudget || ''}
-                  onChange={(e) => handleInputChange('customBudget', e.target.value)}
+                  onChange={(e) => {
+                    console.log('Budget input onChange triggered:', e.target.value)
+                    handleInputChange('customBudget', e.target.value)
+                  }}
                   className="p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 bg-black/40 border-gray-600 text-gray-300 placeholder-gray-500 focus:border-orange-400/50 focus:outline-none"
                   style={{ fontSize: '13px' }}
                 />
@@ -3867,7 +3901,10 @@ const QuantumQuestionnaire = () => {
                 ].map((option) => (
                   <button
                     key={option.value}
-                    onClick={() => handleInputChange('domain', option.value)}
+                    onClick={() => {
+                      console.log('Domain button clicked:', option.value)
+                      handleInputChange('domain', option.value)
+                    }}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 flex items-center justify-between relative group ${
                       formData.domain === option.value
                         ? 'border-orange-400 bg-orange-400/10 text-orange-400'
@@ -3907,9 +3944,13 @@ const QuantumQuestionnaire = () => {
                 <div className="mt-4">
                   <input
                     type="text"
+                    name="existingDomain"
                     placeholder="Ihre bestehende Domain (z.B. meine-firma.de)"
                     value={formData.existingDomain || ''}
-                    onChange={(e) => handleInputChange('existingDomain', e.target.value)}
+                    onChange={(e) => {
+                      console.log('Existing domain input onChange triggered:', e.target.value)
+                      handleInputChange('existingDomain', e.target.value)
+                    }}
                     className="w-full p-2 border-2 rounded-xl transition-all duration-300 bg-black/40 border-orange-400 text-white placeholder-orange-300/70 focus:border-orange-300 focus:outline-none h-12"
                     style={{ fontSize: '13px' }}
                   />
@@ -3921,9 +3962,13 @@ const QuantumQuestionnaire = () => {
                   <div className="relative">
                     <input
                       type="text"
+                      name="desiredDomain"
                       placeholder="Gewünschte Domain (z.B. neue-firma.de)"
                       value={formData.desiredDomain || ''}
-                      onChange={(e) => handleInputChange('desiredDomain', e.target.value)}
+                      onChange={(e) => {
+                        console.log('Desired domain input onChange triggered:', e.target.value)
+                        handleInputChange('desiredDomain', e.target.value)
+                      }}
                       className={`w-full p-2 border-2 rounded-xl transition-all duration-300 bg-black/40 text-white placeholder-orange-300/70 focus:outline-none h-12 pr-10 ${
                         domainCheckStatus === 'available' ? 'border-green-400 focus:border-green-300' :
                         domainCheckStatus === 'taken' ? 'border-red-400 focus:border-red-300' :

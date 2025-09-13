@@ -143,7 +143,7 @@ const QuantumContact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="relative">
                       <label className="block text-cyan-400 font-mono text-sm uppercase tracking-wider mb-3">
-                        IDENTITÄTS.MATRIX
+                        Name
                       </label>
                       <input
                         type="text"
@@ -152,14 +152,14 @@ const QuantumContact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-lg focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-white placeholder-gray-400 transition-all duration-300"
-                        placeholder="Ihre Bezeichnung eingeben..."
+                        placeholder="Ihr Name..."
                       />
                       <div className="absolute inset-0 border border-cyan-400/20 rounded-lg pointer-events-none opacity-0 focus-within:opacity-100 transition-opacity"></div>
                     </div>
 
                     <div className="relative">
                       <label className="block text-cyan-400 font-mono text-sm uppercase tracking-wider mb-3">
-                        QUANTUM.ADRESSE
+                        E-Mail
                       </label>
                       <input
                         type="email"
@@ -168,7 +168,7 @@ const QuantumContact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-lg focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-white placeholder-gray-400 transition-all duration-300"
-                        placeholder="your@quantum.matrix"
+                        placeholder="ihre@email.de"
                       />
                       <div className="absolute inset-0 border border-cyan-400/20 rounded-lg pointer-events-none opacity-0 focus-within:opacity-100 transition-opacity"></div>
                     </div>
@@ -178,7 +178,7 @@ const QuantumContact = () => {
                   {/* Message Matrix */}
                   <div className="relative">
                     <label className="block text-cyan-400 font-mono text-sm uppercase tracking-wider mb-3">
-                      VISIONS.ÜBERTRAGUNG
+                      Nachricht
                     </label>
                     <textarea
                       name="message"
@@ -187,7 +187,7 @@ const QuantumContact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-lg focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-white placeholder-gray-400 resize-none transition-all duration-300"
-                      placeholder="Beschreiben Sie Ihre Vision durch die Dimensionen..."
+                      placeholder="Ihre Nachricht..."
                     />
                     <div className="absolute inset-0 border border-cyan-400/20 rounded-lg pointer-events-none opacity-0 focus-within:opacity-100 transition-opacity"></div>
                   </div>
@@ -216,12 +216,7 @@ const QuantumContact = () => {
               >
                 <div className="absolute inset-0 bg-gradient-cyber opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500"></div>
                 
-                <div className="relative flex items-center space-x-6">
-                  {/* Node Icon */}
-                  <div className={`w-16 h-16 flex items-center justify-center border-2 border-gray-600 bg-black/50 rounded-xl group-hover:border-cyan-400 transition-all duration-500`}>
-                    <span className="text-2xl text-cyan-400">{node.icon}</span>
-                  </div>
-
+                <div className="relative flex items-center">
                   {/* Node Info */}
                   <div className="flex-1">
                     <h4 className="text-cyan-400 font-mono text-sm uppercase tracking-wider mb-1">

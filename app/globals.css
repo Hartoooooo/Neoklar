@@ -30,25 +30,14 @@ a {
   text-decoration: none;
 }
 
-/* Ultra-modern scrollbar */
+/* Scrollbar hidden */
 ::-webkit-scrollbar {
-  width: 6px;
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  background: #000000;
-  border: 1px solid rgba(6, 182, 212, 0.1);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #06b6d4, #6366f1);
-  border-radius: 3px;
-  box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #0891b2, #4f46e5);
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.8);
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* Quantum scrolling */
@@ -82,29 +71,14 @@ html {
   80% { transform: translate(2px, -2px) }
 }
 
-/* Custom Scrollbar for Design Styles */
+/* Custom Scrollbar for Design Styles - Hidden */
 .scrollbar-thin {
-  scrollbar-width: thin;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .scrollbar-thin::-webkit-scrollbar {
-  width: 8px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-track {
-  background: #1f2937;
-  border-radius: 4px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #06b6d4, #6366f1);
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #0891b2, #4f46e5);
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+  display: none;
 }
 
 /* Holographic effects */
