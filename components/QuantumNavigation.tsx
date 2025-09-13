@@ -68,10 +68,10 @@ const QuantumNavigation = () => {
             <div className="absolute -inset-2 border border-cyan-500/30 transform rotate-45 opacity-0 md:group-hover:opacity-100 transition-all duration-500"></div>
           </div>
 
-          {/* Mobile Hamburger Menu - Simple 3 Lines */}
+          {/* Mobile Hamburger Menu - Clean 3 Lines Only */}
           <button
             onClick={() => setIsHologramMode(!isHologramMode)}
-            className="md:hidden relative w-12 h-12 border-2 border-cyan-500 bg-black/50 backdrop-blur-md active:bg-cyan-500/20 transition-all duration-200"
+            className="md:hidden relative w-12 h-12 active:bg-cyan-500/10 transition-all duration-200"
           >
             <div className="absolute inset-0 flex flex-col items-center justify-center space-y-1">
               <div className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isHologramMode ? 'rotate-45 translate-y-1.5' : ''}`}></div>
