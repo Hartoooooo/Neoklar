@@ -42,7 +42,7 @@ const GlobalBackground = () => {
       {/* Animated Mesh Background */}
       <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
       
-      {/* Moving Grid Pattern with Parallax */}
+      {/* Grid Pattern - Static on Mobile, Animated on Desktop */}
       <div className="absolute inset-0 opacity-30">
         <div 
           className="absolute inset-0" 
@@ -50,23 +50,25 @@ const GlobalBackground = () => {
             backgroundImage: `linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px),
                              linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)`,
             backgroundSize: '50px 50px',
-            animation: 'grid 20s linear infinite',
-            transform: `translateY(${scrollY * 0.03}px)`
+            animation: windowSize.width >= 768 ? 'grid 20s linear infinite' : 'none',
+            transform: windowSize.width >= 768 ? `translateY(${scrollY * 0.03}px)` : 'none'
           }}
         ></div>
       </div>
 
-      {/* Dynamic Mouse-Following Orb */}
-      <div 
-        className="absolute w-96 h-96 bg-gradient-cyber rounded-full blur-3xl opacity-30 pointer-events-none transition-all duration-1000 ease-out"
-        style={{
-          left: mousePosition.x - 192,
-          top: mousePosition.y - 192,
-        }}
-      ></div>
+      {/* Dynamic Mouse-Following Orb - Desktop Only */}
+      {windowSize.width >= 768 && (
+        <div 
+          className="absolute w-96 h-96 bg-gradient-cyber rounded-full blur-3xl opacity-30 pointer-events-none transition-all duration-1000 ease-out"
+          style={{
+            left: mousePosition.x - 192,
+            top: mousePosition.y - 192,
+          }}
+        ></div>
+      )}
 
-      {/* Floating Abstract Shapes with Parallax */}
-      {mounted && (
+      {/* Floating Abstract Shapes with Parallax - Desktop Only */}
+      {mounted && windowSize.width >= 768 && (
       <div className="absolute inset-0 pointer-events-none">
         {/* Morphing Blob 1 */}
         <div 
