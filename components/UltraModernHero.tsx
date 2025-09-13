@@ -64,20 +64,9 @@ const UltraModernHero = () => {
             </div>
           </div>
 
-          {/* Futuristic Description */}
-          <div className={`mb-16 transform transition-all duration-2000 delay-1000 ease-out ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="relative bg-black/30 backdrop-blur-md border border-neo-500/30 rounded-3xl p-8 max-w-4xl mx-auto">
-              <div className="absolute inset-0 bg-gradient-cyber opacity-10 rounded-3xl"></div>
-              <p className="text-xl md:text-2xl text-gray-200 leading-relaxed relative z-10">
-                Wir entwickeln <span className="text-cyber-400 font-semibold">maßgeschneiderte Webseiten</span> und 
-                <span className="text-quantum-400 font-semibold"> digitale Lösungen</span>, 
-                die Ihr Unternehmen im digitalen Raum erfolgreich positionieren und zusätzliche Kundenpotenziale erschließen.
-              </p>
-            </div>
-          </div>
 
           {/* Quantum Buttons */}
-          <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center transform transition-all duration-2000 delay-1500 ease-out ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center transform transition-all duration-2000 delay-1000 ease-out ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <button
               onClick={scrollToContact}
               className="group relative px-12 py-4 bg-transparent border-2 border-cyber-500 text-cyber-400 font-bold uppercase tracking-wider hover:text-black transition-all duration-500 overflow-hidden rounded-3xl"
@@ -102,7 +91,7 @@ const UltraModernHero = () => {
           </div>
 
           {/* Status Indicators */}
-          <div className={`mt-20 flex justify-center space-x-8 transform transition-all duration-2000 delay-2000 ease-out ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className={`mt-20 flex justify-center space-x-8 transform transition-all duration-2000 delay-1500 ease-out ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-quantum-400 rounded-full animate-pulse"></div>
               <span className="text-gray-400 font-mono text-sm">SYSTEM.ONLINE</span>
