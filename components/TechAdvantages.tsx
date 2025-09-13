@@ -289,8 +289,8 @@ const TechAdvantages = () => {
                     </div>
                   </div>
                   
-                  {/* Metric Badge */}
-                  <div className="text-right">
+                  {/* Metric Badge - Hidden on Mobile */}
+                  <div className="hidden md:block text-right">
                     <div className="text-3xl font-black text-cyan-400">{advantage.metric}</div>
                     <div className="text-xs text-gray-400 font-mono uppercase">{advantage.metricLabel}</div>
                   </div>
@@ -358,8 +358,8 @@ const TechAdvantages = () => {
                     </div>
                   </div>
                   
-                  {/* Metric Badge */}
-                  <div className="text-right">
+                  {/* Metric Badge - Hidden on Mobile */}
+                  <div className="hidden md:block text-right">
                     <div className="text-3xl font-black text-cyan-400">{advantage.metric}</div>
                     <div className="text-xs text-gray-400 font-mono uppercase">{advantage.metricLabel}</div>
                   </div>
@@ -414,8 +414,8 @@ const TechAdvantages = () => {
                   {value.icon}
                 </div>
                 
-                {/* Metric */}
-                <div className="mb-4">
+                {/* Metric - Hidden on Mobile */}
+                <div className="hidden md:block mb-4">
                   <div className="text-3xl font-black text-cyan-400 mb-1">{value.metric}</div>
                   <div className="text-xs text-gray-400 font-mono uppercase tracking-wider">{value.label}</div>
                 </div>
