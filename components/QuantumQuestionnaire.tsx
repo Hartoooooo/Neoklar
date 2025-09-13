@@ -48,10 +48,10 @@ const QuantumQuestionnaire = () => {
     additionalInfo: ''
   })
 
-  // Debug: Log formData changes
-  useEffect(() => {
-    console.log('FormData updated:', formData)
-  }, [formData])
+  // Debug: Log formData changes (removed to prevent performance issues)
+  // useEffect(() => {
+  //   console.log('FormData updated:', formData)
+  // }, [formData])
   
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isCompleted, setIsCompleted] = useState(false)
@@ -2951,10 +2951,7 @@ const QuantumQuestionnaire = () => {
         [field]: value
       }
       
-      // Debug logging for specific fields
-      if (field === 'companyName' || field === 'timeline' || field === 'budget' || field === 'domain' || field === 'existingDomain' || field === 'desiredDomain') {
-        console.log(`${field} changed:`, value, 'New formData:', newData)
-      }
+      // Debug logging removed to prevent performance issues
       
       return newData
     })
@@ -3129,18 +3126,27 @@ const QuantumQuestionnaire = () => {
 
   const submitQuestionnaire = () => {
     // Hier würde normalerweise die Datenübertragung stattfinden
-    console.log('Fragebogen-Daten:', formData)
+    // console.log('Fragebogen-Daten:', formData) // Debug log removed
     alert('Fragebogen erfolgreich übermittelt! Wir melden uns binnen 24 Stunden bei Ihnen.')
   }
 
   const isCurrentStepValid = () => {
     switch (currentStep) {
       case 0: // BASIS
-        const isValid = formData.projectType !== '' && formData.industry !== '' && formData.companyName.trim() !== ''
+        // Mindestens ein Feld muss ausgefüllt sein
+        const hasProjectType = formData.projectType !== '' || formData.customProjectType.trim() !== ''
+        const hasIndustry = formData.industry !== ''
+        const hasCompanyName = formData.companyName.trim() !== ''
+        
+        const isValid = hasProjectType || hasIndustry || hasCompanyName
         console.log('Step 0 validation:', {
           projectType: formData.projectType,
+          customProjectType: formData.customProjectType,
           industry: formData.industry,
           companyName: formData.companyName,
+          hasProjectType,
+          hasIndustry,
+          hasCompanyName,
           isValid
         })
         return isValid
@@ -3194,9 +3200,14 @@ const QuantumQuestionnaire = () => {
     
     switch (currentStep) {
       case 0: // BASIS
-        if (formData.projectType === '') missing.push('Projekttyp')
-        if (formData.industry === '') missing.push('Branche')
-        if (formData.companyName.trim() === '') missing.push('Firmenname')
+        // Nur hinzufügen wenn gar nichts ausgefüllt ist
+        const hasProjectType = formData.projectType !== '' || formData.customProjectType.trim() !== ''
+        const hasIndustry = formData.industry !== ''
+        const hasCompanyName = formData.companyName.trim() !== ''
+        
+        if (!hasProjectType && !hasIndustry && !hasCompanyName) {
+          missing.push('Mindestens ein Feld ausfüllen')
+        }
         break
       case 1: // INHALT
         if (formData.hasContent === '') missing.push('Textverfügbarkeit')
@@ -3298,7 +3309,14 @@ const QuantumQuestionnaire = () => {
               {/* Sonstige Option mit Eingabefeld */}
               <div className="mt-6">
                 <div 
-                  onClick={() => handleInputChange('projectType', 'other')}
+                  onClick={() => {
+                    // Debug logs removed
+                    // console.log('Sonstige clicked, current projectType:', formData.projectType)
+                    // console.log('Current customProjectType:', formData.customProjectType)
+                    if (formData.projectType !== 'other') {
+                      handleInputChange('projectType', 'other')
+                    }
+                  }}
                   className={`p-6 border-2 rounded-xl transition-all duration-300 cursor-pointer ${
                     formData.projectType === 'other'
                       ? 'border-cyan-400 bg-cyan-400/10'
@@ -3325,12 +3343,18 @@ const QuantumQuestionnaire = () => {
                         value={formData.customProjectType}
                         onChange={(e) => {
                           e.stopPropagation();
+                          console.log('Custom project type onChange:', e.target.value)
                           handleInputChange('customProjectType', e.target.value);
-                          handleInputChange('projectType', 'other');
+                          if (e.target.value.trim() !== '') {
+                            handleInputChange('projectType', 'other');
+                          }
                         }}
                         onClick={(e) => e.stopPropagation()}
                         className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-white placeholder-gray-400 transition-all duration-300"
                         placeholder="Beschreiben Sie Ihr Projekt..."
+                        autoComplete="off"
+                        autoCorrect="off"
+                        spellCheck="false"
                       />
                     </div>
                   </div>
@@ -3366,13 +3390,18 @@ const QuantumQuestionnaire = () => {
                 name="companyName"
                 value={formData.companyName}
                 onChange={(e) => {
-                  console.log('Input onChange triggered:', e.target.value)
+                  // Debug logs removed
+                  // console.log('Input onChange triggered:', e.target.value)
+                  // console.log('Current formData.companyName:', formData.companyName)
                   handleInputChange('companyName', e.target.value)
+                }}
+                onInput={(e) => {
+                  console.log('Input onInput triggered:', (e.target as HTMLInputElement).value)
                 }}
                 className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-white placeholder-gray-400 transition-all duration-300 text-base"
                 placeholder="Ihr Unternehmen..."
-                autoComplete="organization"
-                autoCapitalize="words"
+                autoComplete="off"
+                autoCapitalize="off"
                 autoCorrect="off"
                 spellCheck="false"
               />
@@ -3838,7 +3867,7 @@ const QuantumQuestionnaire = () => {
                   placeholder="Eigene"
                   value={formData.timeline === '2weeks' || formData.timeline === '1month' || formData.timeline === '3months' ? '' : formData.timeline || ''}
                   onChange={(e) => {
-                    console.log('Timeline input onChange triggered:', e.target.value)
+                    // console.log('Timeline input onChange triggered:', e.target.value) // Debug log removed
                     handleInputChange('timeline', e.target.value)
                   }}
                   className="p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 bg-black/40 border-gray-600 text-gray-300 placeholder-gray-500 focus:border-orange-400/50 focus:outline-none"
@@ -3880,7 +3909,7 @@ const QuantumQuestionnaire = () => {
                   placeholder="Ihr Budget"
                   value={formData.customBudget || ''}
                   onChange={(e) => {
-                    console.log('Budget input onChange triggered:', e.target.value)
+                    // console.log('Budget input onChange triggered:', e.target.value) // Debug log removed
                     handleInputChange('customBudget', e.target.value)
                   }}
                   className="p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 bg-black/40 border-gray-600 text-gray-300 placeholder-gray-500 focus:border-orange-400/50 focus:outline-none"
@@ -3948,7 +3977,7 @@ const QuantumQuestionnaire = () => {
                     placeholder="Ihre bestehende Domain (z.B. meine-firma.de)"
                     value={formData.existingDomain || ''}
                     onChange={(e) => {
-                      console.log('Existing domain input onChange triggered:', e.target.value)
+                      // console.log('Existing domain input onChange triggered:', e.target.value) // Debug log removed
                       handleInputChange('existingDomain', e.target.value)
                     }}
                     className="w-full p-2 border-2 rounded-xl transition-all duration-300 bg-black/40 border-orange-400 text-white placeholder-orange-300/70 focus:border-orange-300 focus:outline-none h-12"
@@ -3966,7 +3995,7 @@ const QuantumQuestionnaire = () => {
                       placeholder="Gewünschte Domain (z.B. neue-firma.de)"
                       value={formData.desiredDomain || ''}
                       onChange={(e) => {
-                        console.log('Desired domain input onChange triggered:', e.target.value)
+                        // console.log('Desired domain input onChange triggered:', e.target.value) // Debug log removed
                         handleInputChange('desiredDomain', e.target.value)
                       }}
                       className={`w-full p-2 border-2 rounded-xl transition-all duration-300 bg-black/40 text-white placeholder-orange-300/70 focus:outline-none h-12 pr-10 ${

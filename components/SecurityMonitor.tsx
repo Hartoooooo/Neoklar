@@ -26,66 +26,24 @@ const SecurityMonitor = () => {
           lastClickTime = now
         })
 
-        // Monitor for console access attempts
-        const originalConsole = { ...console }
-        Object.keys(console).forEach(key => {
-          if (typeof console[key as keyof Console] === 'function') {
-            (console as any)[key] = (...args: any[]) => {
-              // Log security events
-              if (key === 'log' && args.some(arg => 
-                typeof arg === 'string' && 
-                (arg.includes('password') || arg.includes('token') || arg.includes('key'))
-              )) {
-                console.warn('🚨 Potential sensitive data logging detected')
-              }
-              return (originalConsole as any)[key](...args)
-            }
-          }
-        })
+        // Console monitoring disabled to prevent interference with React development
+        // React components need full console access for debugging
+        console.log('Console monitoring disabled for React compatibility')
       }
 
-      // 2. Form security enhancements
+      // 2. Form security enhancements (simplified to prevent React conflicts)
       const enhanceFormSecurity = () => {
-        const forms = document.querySelectorAll('form')
-        forms.forEach(form => {
-          // Add CSRF protection
-          const csrfToken = document.createElement('input')
-          csrfToken.type = 'hidden'
-          csrfToken.name = '_csrf'
-          csrfToken.value = generateCSRFToken()
-          form.appendChild(csrfToken)
-
-          // Add honeypot field
-          const honeypot = document.createElement('input')
-          honeypot.type = 'text'
-          honeypot.name = 'website'
-          honeypot.style.display = 'none'
-          honeypot.tabIndex = -1
-          honeypot.autocomplete = 'off'
-          form.appendChild(honeypot)
-
-          // Validate honeypot on submit
-          form.addEventListener('submit', (e) => {
-            const honeypotValue = (honeypot as HTMLInputElement).value
-            if (honeypotValue) {
-              e.preventDefault()
-              console.warn('🚨 Bot detected: Honeypot field filled')
-              return false
-            }
-          })
-        })
+        // This function has been simplified to prevent conflicts with React forms
+        // React forms should handle their own security measures
+        console.log('Form security enhancements simplified for React compatibility')
       }
 
-      // 3. Input sanitization
+      // 3. Input sanitization (disabled to prevent React state conflicts)
       const sanitizeInputs = () => {
-        const inputs = document.querySelectorAll('input, textarea')
-        inputs.forEach(input => {
-          input.addEventListener('input', (e) => {
-            const target = e.target as HTMLInputElement
-            // Remove potentially dangerous characters
-            target.value = target.value.replace(/[<>]/g, '')
-          })
-        })
+        // This function has been disabled because it conflicts with React's state management
+        // and causes form inputs to reset unexpectedly
+        // React components should handle input sanitization in their own onChange handlers
+        console.log('Input sanitization disabled to prevent React state conflicts')
       }
 
       // 4. Session security
