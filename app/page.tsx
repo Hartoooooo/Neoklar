@@ -2,8 +2,6 @@ import QuantumNavigation from '@/components/QuantumNavigation'
 import UltraModernHero from '@/components/UltraModernHero'
 import AbstractServices from '@/components/AbstractServices'
 import TechAdvantages from '@/components/TechAdvantages'
-import QuantumTestimonials from '@/components/QuantumTestimonials'
-import SocialProof from '@/components/SocialProof'
 import QuantumQuestionnaire from '@/components/QuantumQuestionnaire'
 import QuantumContact from '@/components/QuantumContact'
 import QuantumFooter from '@/components/QuantumFooter'
@@ -51,8 +49,6 @@ export default function Home() {
       <UltraModernHero />
       <AbstractServices />
       <TechAdvantages />
-      <QuantumTestimonials />
-      <SocialProof />
       <QuantumQuestionnaire />
       <QuantumContact />
       <QuantumFooter />
