@@ -100,10 +100,6 @@ const UltraModernHero = () => {
               <div className="w-3 h-3 bg-cyber-400 rounded-full animate-pulse"></div>
               <span className="text-gray-400 font-mono text-sm">KI.BEREIT</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-neo-400 rounded-full animate-pulse"></div>
-              <span className="text-gray-400 font-mono text-sm">MATRIX.GELADEN</span>
-            </div>
           </div>
         </div>
       </div>

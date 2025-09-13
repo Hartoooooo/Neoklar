@@ -1,19 +1,9 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Image from 'next/image'
 
 const AbstractServices = () => {
-  const [hoveredService, setHoveredService] = useState<number | null>(null)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
 
   const services = [
     {
@@ -113,14 +103,10 @@ const AbstractServices = () => {
           {services.map((service, index) => (
             <div
               key={service.id}
-              className="group relative"
-              onMouseEnter={() => window.innerWidth >= 768 && setHoveredService(index)}
-              onMouseLeave={() => window.innerWidth >= 768 && setHoveredService(null)}
+              className="relative"
             >
               {/* Main Service Card */}
-              <div className={`relative h-[500px] transition-all duration-500 transform md:group-hover:scale-[1.02] ${
-                hoveredService === index ? `${service.glowColor}` : ''
-              }`}>
+              <div className="relative h-[500px]">
                 
                 {/* Website Preview Image */}
                 <Image 
@@ -128,27 +114,14 @@ const AbstractServices = () => {
                   alt={service.alt || `${service.title} Preview - ${service.description}`}
                   width={400}
                   height={320}
-                  className="w-full h-80 object-cover transition-all duration-700 md:group-hover:scale-105"
+                  className="w-full h-80 object-cover"
                   priority={service.id === '01'}
                 />
                 
-                {/* Technology Badge */}
-                <div className="absolute top-4 right-4">
-                  <div className={`px-3 py-1 bg-gradient-to-r ${service.color} text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg`}>
-                    {service.technology}
-                  </div>
-                </div>
 
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-all duration-500"></div>
 
-                {/* Floating Icon */}
-                <div className="absolute top-4 left-4 z-10">
-                  <div className={`relative w-12 h-12 flex items-center justify-center border-2 border-gray-600 bg-black/80 backdrop-blur-md rounded-xl transition-all duration-500 md:group-hover:border-cyan-400 md:group-hover:shadow-cyan`}>
-                    <span className="text-lg text-cyan-400">{service.icon}</span>
-                    <div className="absolute inset-0 border border-cyan-400/30 transform scale-150 opacity-0 md:group-hover:opacity-100 transition-all duration-500 rounded-xl"></div>
-                  </div>
-                </div>
 
                 {/* Service ID */}
                 <div className="absolute top-4 left-20 z-10">
@@ -172,45 +145,10 @@ const AbstractServices = () => {
                     </p>
                   </div>
 
-                  {/* View Project Button */}
-                  <div className="flex items-center justify-between mt-4">
-                    <div className="relative h-1 bg-gray-800 overflow-hidden flex-1 mr-4">
-                      <div 
-                        className={`h-full bg-gradient-to-r ${service.color} transform origin-left transition-all duration-1000 ${
-                          hoveredService === index ? 'scale-x-100' : 'scale-x-0'
-                        }`}
-                      ></div>
-                    </div>
-                    
-                    <button className="text-cyan-400 hover:text-white text-sm font-mono uppercase tracking-wider transition-colors duration-300 flex items-center gap-2">
-                      ANSEHEN
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </button>
-                  </div>
                 </div>
 
-                {/* Quantum Particles */}
-                {hoveredService === index && (
-                  <div className="absolute inset-0 pointer-events-none">
-                    {Array.from({ length: 6 }).map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-ping"
-                        style={{
-                          left: `${20 + Math.random() * 60}%`,
-                          top: `${20 + Math.random() * 60}%`,
-                          animationDelay: `${i * 0.2}s`
-                        }}
-                      ></div>
-                    ))}
-                  </div>
-                )}
               </div>
 
-              {/* Holographic Shadow */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 blur-xl transform translate-y-4 transition-all duration-700 -z-10`}></div>
             </div>
           ))}
         </div>

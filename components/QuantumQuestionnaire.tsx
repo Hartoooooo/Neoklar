@@ -290,8 +290,8 @@ const QuantumQuestionnaire = () => {
                 <div className="h-0.5 bg-white bg-opacity-60 rounded-full w-full"></div>
                 <div className="h-0.5 bg-white bg-opacity-40 rounded-full w-3/4"></div>
                 <div className="grid grid-cols-2 gap-0.5 mt-1">
-                  <div className="h-1 rounded-full" style={{ backgroundColor: baseColors.accent }}></div>
-                  <div className="h-1 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
+                  <div className="h-1 rounded-full" style={{ background: baseColors.accent }}></div>
+                  <div className="h-1 rounded-full" style={{ background: baseColors.primary }}></div>
                 </div>
                 <div className="space-y-0.5 mt-1">
                   <div className="h-0.5 bg-white bg-opacity-50 rounded-full w-full"></div>
@@ -321,19 +321,19 @@ const QuantumQuestionnaire = () => {
           {/* Mobile Screen Content */}
           <div className="h-full" style={{ fontSize: '2px' }}>
             {/* Mobile Header */}
-            <div className="h-3 flex items-center justify-between px-1 py-0.5" style={{ backgroundColor: baseColors.primary }}>
+            <div className="h-3 flex items-center justify-between px-1 py-0.5" style={{ background: baseColors.primary }}>
               <div className="w-1 h-1 bg-white rounded-full"></div>
               <div className="text-white text-[4px] font-bold">{(formData.companyName || config.title).substring(0, 8)}</div>
               <div className="w-1 h-1 bg-white rounded-full"></div>
             </div>
             {/* Mobile Content */}
             <div className="px-1 py-1 space-y-1">
-              <div className="h-1 rounded" style={{ backgroundColor: baseColors.secondary, width: '80%' }}></div>
+              <div className="h-1 rounded" style={{ background: baseColors.secondary, width: '80%' }}></div>
               <div className={`h-0.5 ${contentColor} rounded w-full`}></div>
               <div className={`h-0.5 ${contentColor} rounded w-3/4`}></div>
               <div className="grid grid-cols-2 gap-0.5 mt-1">
-                <div className="h-1 rounded" style={{ backgroundColor: baseColors.accent }}></div>
-                <div className="h-1 rounded" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-1 rounded" style={{ background: baseColors.accent }}></div>
+                <div className="h-1 rounded" style={{ background: baseColors.accent }}></div>
               </div>
               <div className="space-y-0.5 mt-1">
                 <div className={`h-0.5 ${textColor} rounded w-full`}></div>
@@ -341,7 +341,7 @@ const QuantumQuestionnaire = () => {
                 <div className={`h-0.5 ${textColor} rounded w-4/5`}></div>
               </div>
               {/* Mobile CTA */}
-              <div className="mt-1 h-1.5 rounded" style={{ backgroundColor: baseColors.primary }}></div>
+              <div className="mt-1 h-1.5 rounded" style={{ background: baseColors.primary }}></div>
             </div>
           </div>
         </div>
@@ -461,7 +461,7 @@ const QuantumQuestionnaire = () => {
             {/* Restaurant Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" style={{ background: baseColors.primary }}>
                   {config.icon}
             </div>
                 <div>
@@ -477,7 +477,7 @@ const QuantumQuestionnaire = () => {
               {config.features.map((feature, index) => (
                 <div key={index} className="text-sm cursor-pointer border-b-2 border-transparent hover:border-gray-300 transition-colors px-2 py-1 rounded" style={{ 
                   color: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent,
-                  backgroundColor: index % 3 === 0 ? `${baseColors.primary}10` : index % 3 === 1 ? `${baseColors.secondary}10` : `${baseColors.accent}10`
+                  background: index % 3 === 0 ? `${baseColors.primary}10` : index % 3 === 1 ? `${baseColors.secondary}10` : `${baseColors.accent}10`
                 }}>
                   {feature}
                 </div>
@@ -516,12 +516,12 @@ const QuantumQuestionnaire = () => {
 
             {/* Restaurant Features - Specials */}
             <div className="grid grid-cols-2 gap-3 mb-4">
-              <div className="flex items-center gap-2 p-2 rounded" style={{ backgroundColor: `${baseColors.secondary}10` }}>
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.secondary }}></div>
+              <div className="flex items-center gap-2 p-2 rounded" style={{ background: `${baseColors.secondary}10` }}>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.secondary }}></div>
                 <div className="h-2 bg-gray-200 rounded w-3/4"></div>
               </div>
-              <div className="flex items-center gap-2 p-2 rounded" style={{ backgroundColor: `${baseColors.accent}10` }}>
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.accent }}></div>
+              <div className="flex items-center gap-2 p-2 rounded" style={{ background: `${baseColors.accent}10` }}>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-200 rounded w-3/4"></div>
               </div>
             </div>
@@ -531,9 +531,8 @@ const QuantumQuestionnaire = () => {
               <div className="h-6 rounded w-2/5 shadow-sm" style={{ 
                 background: `linear-gradient(135deg, ${baseColors.primary}, ${baseColors.secondary})` 
               }}></div>
-              <div className="h-6 border-2 rounded w-1/4" style={{ 
+              <div className="h-6 border-2 rounded w-1/4"               style={{ 
                 borderColor: baseColors.secondary, 
-                backgroundColor: `${baseColors.secondary}15`,
                 background: `linear-gradient(135deg, ${baseColors.secondary}15, ${baseColors.accent}15)`
               }}></div>
             </div>
@@ -550,7 +549,7 @@ const QuantumQuestionnaire = () => {
             {/* Event Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -573,24 +572,24 @@ const QuantumQuestionnaire = () => {
             {/* Conference Schedule */}
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-gray-300 rounded w-1/4"></div>
                 <div className="h-2 bg-gray-200 rounded w-1/6"></div>
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                  <div className="h-2 rounded w-1/3" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-1/3" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-200 rounded w-1/6"></div>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                  <div className="h-2 rounded w-2/5" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-2/5" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-200 rounded w-1/6"></div>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                  <div className="h-2 rounded w-1/4" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-1/4" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-200 rounded w-1/6"></div>
                 </div>
               </div>
@@ -614,8 +613,8 @@ const QuantumQuestionnaire = () => {
 
             {/* Event CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded w-2/5" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}15` }}></div>
+              <div className="h-6 rounded w-2/5" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}15` }}></div>
             </div>
           </div>
         )
@@ -630,7 +629,7 @@ const QuantumQuestionnaire = () => {
             {/* Corporate Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -652,7 +651,7 @@ const QuantumQuestionnaire = () => {
             
             {/* Services Overview */}
             <div className="mb-4">
-              <div className="h-3 rounded w-1/3 mb-2" style={{ backgroundColor: baseColors.secondary }}></div>
+              <div className="h-3 rounded w-1/3 mb-2" style={{ background: baseColors.secondary }}></div>
               <div className="h-2 bg-gray-200 rounded w-2/3 mb-2"></div>
               <div className="h-2 bg-gray-200 rounded w-1/2"></div>
             </div>
@@ -660,11 +659,11 @@ const QuantumQuestionnaire = () => {
             {/* Service Cards */}
             <div className="grid grid-cols-2 gap-3 mb-4">
               <div className="bg-gray-50 border border-gray-200 rounded p-2">
-                <div className="h-2 rounded w-3/4 mb-1" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="h-2 rounded w-3/4 mb-1" style={{ background: baseColors.secondary }}></div>
                 <div className="h-1 bg-gray-200 rounded w-full"></div>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded p-2">
-                <div className="h-2 rounded w-3/4 mb-1" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="h-2 rounded w-3/4 mb-1" style={{ background: baseColors.secondary }}></div>
                 <div className="h-1 bg-gray-200 rounded w-full"></div>
               </div>
             </div>
@@ -687,8 +686,8 @@ const QuantumQuestionnaire = () => {
 
             {/* Corporate CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded w-2/5" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}15` }}></div>
+              <div className="h-6 rounded w-2/5" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}15` }}></div>
             </div>
           </div>
         )
@@ -703,7 +702,7 @@ const QuantumQuestionnaire = () => {
             {/* Landing Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -725,7 +724,7 @@ const QuantumQuestionnaire = () => {
             
             {/* Product Hero */}
             <div className="mb-4">
-              <div className="h-3 rounded w-3/4 mb-2" style={{ backgroundColor: baseColors.secondary }}></div>
+              <div className="h-3 rounded w-3/4 mb-2" style={{ background: baseColors.secondary }}></div>
               <div className="h-2 bg-gray-200 rounded w-1/2 mb-2"></div>
               <div className="h-2 bg-gray-200 rounded w-2/3"></div>
             </div>
@@ -733,19 +732,19 @@ const QuantumQuestionnaire = () => {
             {/* Feature Grid */}
             <div className="grid grid-cols-2 gap-2 mb-4">
               <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="w-2 h-2 rounded-full" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-200 rounded w-3/4"></div>
               </div>
               <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="w-2 h-2 rounded-full" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-200 rounded w-3/4"></div>
               </div>
               <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="w-2 h-2 rounded-full" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-200 rounded w-3/4"></div>
               </div>
               <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="w-2 h-2 rounded-full" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-200 rounded w-3/4"></div>
               </div>
             </div>
@@ -753,19 +752,19 @@ const QuantumQuestionnaire = () => {
             {/* Pricing/Stats */}
             <div className="flex gap-4 mb-4">
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-200 rounded w-4 mx-auto"></div>
               </div>
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-200 rounded w-4 mx-auto"></div>
               </div>
             </div>
 
             {/* Landing CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded w-2/5" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}15` }}></div>
+              <div className="h-6 rounded w-2/5" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}15` }}></div>
             </div>
           </div>
         )
@@ -780,7 +779,7 @@ const QuantumQuestionnaire = () => {
             {/* Verein Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -802,7 +801,7 @@ const QuantumQuestionnaire = () => {
             
             {/* Community Info */}
             <div className="mb-4">
-              <div className="h-3 rounded w-1/3 mb-2" style={{ backgroundColor: baseColors.secondary }}></div>
+              <div className="h-3 rounded w-1/3 mb-2" style={{ background: baseColors.secondary }}></div>
               <div className="h-2 bg-gray-200 rounded w-2/3 mb-2"></div>
               <div className="h-2 bg-gray-200 rounded w-1/2"></div>
             </div>
@@ -810,19 +809,19 @@ const QuantumQuestionnaire = () => {
             {/* Activity Schedule */}
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-gray-300 rounded w-1/4"></div>
                 <div className="h-2 bg-gray-200 rounded w-1/6"></div>
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                  <div className="h-2 rounded w-1/3" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-1/3" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-200 rounded w-1/6"></div>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                  <div className="h-2 rounded w-2/5" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-2/5" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-200 rounded w-1/6"></div>
                 </div>
               </div>
@@ -831,19 +830,19 @@ const QuantumQuestionnaire = () => {
             {/* Member Stats */}
             <div className="flex gap-4 mb-4">
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-200 rounded w-4 mx-auto"></div>
               </div>
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-200 rounded w-4 mx-auto"></div>
               </div>
             </div>
 
             {/* Verein CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded w-2/5" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}15` }}></div>
+              <div className="h-6 rounded w-2/5" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}15` }}></div>
             </div>
           </div>
         )
@@ -858,7 +857,7 @@ const QuantumQuestionnaire = () => {
             {/* Portfolio Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -880,7 +879,7 @@ const QuantumQuestionnaire = () => {
             
             {/* Project Showcase */}
             <div className="mb-4">
-              <div className="h-3 rounded w-1/3 mb-2" style={{ backgroundColor: baseColors.secondary }}></div>
+              <div className="h-3 rounded w-1/3 mb-2" style={{ background: baseColors.secondary }}></div>
               <div className="h-2 bg-gray-200 rounded w-2/3 mb-2"></div>
               <div className="h-2 bg-gray-200 rounded w-1/2"></div>
             </div>
@@ -888,11 +887,11 @@ const QuantumQuestionnaire = () => {
             {/* Project Grid */}
             <div className="grid grid-cols-2 gap-2 mb-4">
               <div className="bg-gray-50 border border-gray-200 rounded p-2">
-                <div className="h-2 rounded w-3/4 mb-1" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="h-2 rounded w-3/4 mb-1" style={{ background: baseColors.secondary }}></div>
                 <div className="h-1 bg-gray-200 rounded w-full"></div>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded p-2">
-                <div className="h-2 rounded w-3/4 mb-1" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="h-2 rounded w-3/4 mb-1" style={{ background: baseColors.secondary }}></div>
                 <div className="h-1 bg-gray-200 rounded w-full"></div>
               </div>
             </div>
@@ -900,23 +899,23 @@ const QuantumQuestionnaire = () => {
             {/* Skills/Stats */}
             <div className="flex gap-4 mb-4">
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-200 rounded w-4 mx-auto"></div>
               </div>
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-200 rounded w-4 mx-auto"></div>
               </div>
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-200 rounded w-4 mx-auto"></div>
               </div>
             </div>
 
             {/* Portfolio CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded w-2/5" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}15` }}></div>
+              <div className="h-6 rounded w-2/5" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}15` }}></div>
             </div>
           </div>
         )
@@ -931,12 +930,12 @@ const QuantumQuestionnaire = () => {
             {getMobilePreview(designStyle, config, baseColors)}
             
             {/* Glowing accent */}
-            <div className="absolute top-2 right-2 w-3 h-3 rounded-full opacity-60 shadow-lg" style={{ backgroundColor: baseColors.primary, boxShadow: `0 0 10px ${baseColors.primary}` }}></div>
+            <div className="absolute top-2 right-2 w-3 h-3 rounded-full opacity-60 shadow-lg" style={{ background: baseColors.primary, boxShadow: `0 0 10px ${baseColors.primary}` }}></div>
             
             {/* Restaurant Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-12 rounded-xl flex items-center justify-center text-white text-lg shadow-lg" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-10 h-12 rounded-xl flex items-center justify-center text-white text-lg shadow-lg" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -950,7 +949,7 @@ const QuantumQuestionnaire = () => {
             {/* Restaurant Navigation */}
             <div className="flex gap-3 mb-4">
               {config.features.map((feature, index) => (
-                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border backdrop-blur-sm" style={{ borderColor: index % 2 === 0 ? baseColors.primary : baseColors.secondary, backgroundColor: index % 2 === 0 ? `${baseColors.primary}20` : `${baseColors.secondary}20` }}>
+                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border backdrop-blur-sm" style={{ borderColor: index % 2 === 0 ? baseColors.primary : baseColors.secondary, background: index % 2 === 0 ? `${baseColors.primary}20` : `${baseColors.secondary}20` }}>
                   {feature}
                 </div>
               ))}
@@ -959,21 +958,21 @@ const QuantumQuestionnaire = () => {
             {/* Speisekarte Section */}
             <div className="mb-4">
               <div className="flex items-center justify-between mb-2">
-                <div className="h-3 rounded w-1/4" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="h-3 rounded w-1/4" style={{ background: baseColors.secondary }}></div>
                 <div className="h-2 bg-gray-600 rounded w-1/6"></div>
               </div>
                 <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <div className="h-2 bg-gray-700 rounded w-2/3"></div>
-                  <div className="h-2 rounded w-1/6" style={{ backgroundColor: baseColors.accent }}></div>
+                  <div className="h-2 rounded w-1/6" style={{ background: baseColors.accent }}></div>
                   </div>
                 <div className="flex items-center justify-between">
                   <div className="h-2 bg-gray-700 rounded w-1/2"></div>
-                  <div className="h-2 rounded w-1/6" style={{ backgroundColor: baseColors.accent }}></div>
+                  <div className="h-2 rounded w-1/6" style={{ background: baseColors.accent }}></div>
                     </div>
                 <div className="flex items-center justify-between">
                   <div className="h-2 bg-gray-700 rounded w-3/4"></div>
-                  <div className="h-2 rounded w-1/6" style={{ backgroundColor: baseColors.accent }}></div>
+                  <div className="h-2 rounded w-1/6" style={{ background: baseColors.accent }}></div>
                     </div>
                   </div>
               </div>
@@ -981,19 +980,19 @@ const QuantumQuestionnaire = () => {
             {/* Restaurant Features - Specials */}
             <div className="grid grid-cols-2 gap-3 mb-4">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.secondary }}></div>
                 <div className="h-2 bg-gray-700 rounded w-3/4"></div>
             </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-700 rounded w-3/4"></div>
               </div>
             </div>
 
             {/* Restaurant CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-lg w-2/5 shadow-lg" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded-lg w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}10` }}></div>
+              <div className="h-6 rounded-lg w-2/5 shadow-lg" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded-lg w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}10` }}></div>
           </div>
          </div>
         )
@@ -1006,12 +1005,12 @@ const QuantumQuestionnaire = () => {
             {getMobilePreview(designStyle, config, baseColors)}
             
             {/* Glowing accent */}
-            <div className="absolute top-2 right-2 w-3 h-3 rounded-full opacity-60 shadow-lg" style={{ backgroundColor: baseColors.primary, boxShadow: `0 0 10px ${baseColors.primary}` }}></div>
+            <div className="absolute top-2 right-2 w-3 h-3 rounded-full opacity-60 shadow-lg" style={{ background: baseColors.primary, boxShadow: `0 0 10px ${baseColors.primary}` }}></div>
             
             {/* Event Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-12 rounded-xl flex items-center justify-center text-white text-lg shadow-lg" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-10 h-12 rounded-xl flex items-center justify-center text-white text-lg shadow-lg" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1025,7 +1024,7 @@ const QuantumQuestionnaire = () => {
             {/* Event Navigation */}
             <div className="flex gap-3 mb-4">
               {config.features.map((feature, index) => (
-                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border backdrop-blur-sm" style={{ borderColor: baseColors.primary, backgroundColor: `${baseColors.primary}20` }}>
+                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border backdrop-blur-sm" style={{ borderColor: baseColors.primary, background: `${baseColors.primary}20` }}>
                   {feature}
                 </div>
               ))}
@@ -1034,24 +1033,24 @@ const QuantumQuestionnaire = () => {
             {/* Conference Schedule */}
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-gray-700 rounded w-1/4"></div>
                 <div className="h-2 bg-gray-600 rounded w-1/6"></div>
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-gray-500"></div>
-                  <div className="h-2 rounded w-1/3" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-1/3" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-600 rounded w-1/6"></div>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-gray-500"></div>
-                  <div className="h-2 rounded w-2/5" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-2/5" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-600 rounded w-1/6"></div>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-gray-500"></div>
-                  <div className="h-2 rounded w-1/4" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-1/4" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-600 rounded w-1/6"></div>
                 </div>
               </div>
@@ -1075,8 +1074,8 @@ const QuantumQuestionnaire = () => {
 
             {/* Event CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-lg w-2/5 shadow-lg" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded-lg w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}10` }}></div>
+              <div className="h-6 rounded-lg w-2/5 shadow-lg" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded-lg w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}10` }}></div>
             </div>
           </div>
         )
@@ -1092,7 +1091,7 @@ const QuantumQuestionnaire = () => {
             
             {/* Glowing accent */}
             <div className="absolute top-2 right-2 w-3 h-3 rounded-full opacity-60 shadow-lg" style={{ 
-              backgroundColor: baseColors.primary, 
+              background: baseColors.primary, 
               boxShadow: `0 0 15px ${baseColors.primary}, 0 0 30px ${baseColors.primary}40` 
             }}></div>
             
@@ -1101,7 +1100,7 @@ const QuantumQuestionnaire = () => {
             {/* Corporate Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-12 rounded-xl flex items-center justify-center text-white text-lg shadow-lg" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-10 h-12 rounded-xl flex items-center justify-center text-white text-lg shadow-lg" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1199,12 +1198,12 @@ const QuantumQuestionnaire = () => {
             {getMobilePreview(designStyle, config, baseColors)}
             
             {/* Glowing accent */}
-            <div className="absolute top-2 right-2 w-3 h-3 rounded-full opacity-60 shadow-lg" style={{ backgroundColor: baseColors.primary, boxShadow: `0 0 10px ${baseColors.primary}` }}></div>
+            <div className="absolute top-2 right-2 w-3 h-3 rounded-full opacity-60 shadow-lg" style={{ background: baseColors.primary, boxShadow: `0 0 10px ${baseColors.primary}` }}></div>
             
             {/* Landing Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-12 rounded-xl flex items-center justify-center text-white text-lg shadow-lg" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-10 h-12 rounded-xl flex items-center justify-center text-white text-lg shadow-lg" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1218,7 +1217,7 @@ const QuantumQuestionnaire = () => {
             {/* Landing Navigation */}
             <div className="flex gap-3 mb-4">
               {config.features.map((feature, index) => (
-                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border backdrop-blur-sm" style={{ borderColor: baseColors.primary, backgroundColor: `${baseColors.primary}20` }}>
+                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border backdrop-blur-sm" style={{ borderColor: baseColors.primary, background: `${baseColors.primary}20` }}>
                   {feature}
                 </div>
               ))}
@@ -1226,7 +1225,7 @@ const QuantumQuestionnaire = () => {
             
             {/* Product Hero */}
             <div className="mb-4">
-              <div className="h-3 rounded w-3/4 mb-2" style={{ backgroundColor: baseColors.secondary }}></div>
+              <div className="h-3 rounded w-3/4 mb-2" style={{ background: baseColors.secondary }}></div>
               <div className="h-2 bg-gray-600 rounded w-1/2 mb-2"></div>
               <div className="h-2 bg-gray-600 rounded w-2/3"></div>
             </div>
@@ -1234,19 +1233,19 @@ const QuantumQuestionnaire = () => {
             {/* Feature Grid */}
             <div className="grid grid-cols-2 gap-2 mb-4">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-gray-700 rounded w-3/4"></div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-gray-700 rounded w-3/4"></div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-gray-700 rounded w-3/4"></div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-gray-700 rounded w-3/4"></div>
               </div>
             </div>
@@ -1254,19 +1253,19 @@ const QuantumQuestionnaire = () => {
             {/* Pricing/Stats */}
             <div className="flex gap-4 mb-4">
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-600 rounded w-4 mx-auto"></div>
               </div>
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-600 rounded w-4 mx-auto"></div>
               </div>
             </div>
 
             {/* Landing CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-lg w-2/5 shadow-lg" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded-lg w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}10` }}></div>
+              <div className="h-6 rounded-lg w-2/5 shadow-lg" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded-lg w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}10` }}></div>
             </div>
           </div>
         )
@@ -1279,12 +1278,12 @@ const QuantumQuestionnaire = () => {
             {getMobilePreview(designStyle, config, baseColors)}
             
             {/* Glowing accent */}
-            <div className="absolute top-2 right-2 w-3 h-3 rounded-full opacity-60 shadow-lg" style={{ backgroundColor: baseColors.primary, boxShadow: `0 0 10px ${baseColors.primary}` }}></div>
+            <div className="absolute top-2 right-2 w-3 h-3 rounded-full opacity-60 shadow-lg" style={{ background: baseColors.primary, boxShadow: `0 0 10px ${baseColors.primary}` }}></div>
             
             {/* Verein Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-12 rounded-xl flex items-center justify-center text-white text-lg shadow-lg" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-10 h-12 rounded-xl flex items-center justify-center text-white text-lg shadow-lg" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1298,7 +1297,7 @@ const QuantumQuestionnaire = () => {
             {/* Verein Navigation */}
             <div className="flex gap-3 mb-4">
               {config.features.map((feature, index) => (
-                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border backdrop-blur-sm" style={{ borderColor: baseColors.primary, backgroundColor: `${baseColors.primary}20` }}>
+                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border backdrop-blur-sm" style={{ borderColor: baseColors.primary, background: `${baseColors.primary}20` }}>
                   {feature}
                 </div>
               ))}
@@ -1306,7 +1305,7 @@ const QuantumQuestionnaire = () => {
             
             {/* Community Info */}
             <div className="mb-4">
-              <div className="h-3 rounded w-1/3 mb-2" style={{ backgroundColor: baseColors.secondary }}></div>
+              <div className="h-3 rounded w-1/3 mb-2" style={{ background: baseColors.secondary }}></div>
               <div className="h-2 bg-gray-600 rounded w-2/3 mb-2"></div>
               <div className="h-2 bg-gray-600 rounded w-1/2"></div>
             </div>
@@ -1314,19 +1313,19 @@ const QuantumQuestionnaire = () => {
             {/* Activity Schedule */}
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-gray-700 rounded w-1/4"></div>
                 <div className="h-2 bg-gray-600 rounded w-1/6"></div>
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-gray-500"></div>
-                  <div className="h-2 rounded w-1/3" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-1/3" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-600 rounded w-1/6"></div>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-gray-500"></div>
-                  <div className="h-2 rounded w-2/5" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-2/5" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-gray-600 rounded w-1/6"></div>
                 </div>
               </div>
@@ -1335,19 +1334,19 @@ const QuantumQuestionnaire = () => {
             {/* Member Stats */}
             <div className="flex gap-4 mb-4">
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-600 rounded w-4 mx-auto"></div>
               </div>
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-600 rounded w-4 mx-auto"></div>
               </div>
             </div>
 
             {/* Verein CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-lg w-2/5 shadow-lg" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded-lg w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}10` }}></div>
+              <div className="h-6 rounded-lg w-2/5 shadow-lg" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded-lg w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}10` }}></div>
             </div>
           </div>
         )
@@ -1360,12 +1359,12 @@ const QuantumQuestionnaire = () => {
             {getMobilePreview(designStyle, config, baseColors)}
             
             {/* Glowing accent */}
-            <div className="absolute top-2 right-2 w-3 h-3 rounded-full opacity-60 shadow-lg" style={{ backgroundColor: baseColors.primary, boxShadow: `0 0 10px ${baseColors.primary}` }}></div>
+            <div className="absolute top-2 right-2 w-3 h-3 rounded-full opacity-60 shadow-lg" style={{ background: baseColors.primary, boxShadow: `0 0 10px ${baseColors.primary}` }}></div>
             
             {/* Portfolio Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-12 rounded-xl flex items-center justify-center text-white text-lg shadow-lg" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-10 h-12 rounded-xl flex items-center justify-center text-white text-lg shadow-lg" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1379,7 +1378,7 @@ const QuantumQuestionnaire = () => {
             {/* Portfolio Navigation */}
             <div className="flex gap-3 mb-4">
               {config.features.map((feature, index) => (
-                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border backdrop-blur-sm" style={{ borderColor: baseColors.primary, backgroundColor: `${baseColors.primary}20` }}>
+                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border backdrop-blur-sm" style={{ borderColor: baseColors.primary, background: `${baseColors.primary}20` }}>
                   {feature}
                 </div>
               ))}
@@ -1387,7 +1386,7 @@ const QuantumQuestionnaire = () => {
             
             {/* Project Showcase */}
             <div className="mb-4">
-              <div className="h-3 rounded w-1/3 mb-2" style={{ backgroundColor: baseColors.secondary }}></div>
+              <div className="h-3 rounded w-1/3 mb-2" style={{ background: baseColors.secondary }}></div>
               <div className="h-2 bg-gray-600 rounded w-2/3 mb-2"></div>
               <div className="h-2 bg-gray-600 rounded w-1/2"></div>
             </div>
@@ -1395,11 +1394,11 @@ const QuantumQuestionnaire = () => {
             {/* Project Grid */}
             <div className="grid grid-cols-2 gap-2 mb-4">
               <div className="bg-gray-800/50 border border-gray-600 rounded p-2">
-                <div className="h-2 rounded w-3/4 mb-1" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="h-2 rounded w-3/4 mb-1" style={{ background: baseColors.secondary }}></div>
                 <div className="h-1 bg-gray-600 rounded w-full"></div>
               </div>
               <div className="bg-gray-800/50 border border-gray-600 rounded p-2">
-                <div className="h-2 rounded w-3/4 mb-1" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="h-2 rounded w-3/4 mb-1" style={{ background: baseColors.secondary }}></div>
                 <div className="h-1 bg-gray-600 rounded w-full"></div>
               </div>
             </div>
@@ -1407,23 +1406,23 @@ const QuantumQuestionnaire = () => {
             {/* Skills/Stats */}
             <div className="flex gap-4 mb-4">
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-600 rounded w-4 mx-auto"></div>
               </div>
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-600 rounded w-4 mx-auto"></div>
               </div>
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-gray-600 rounded w-4 mx-auto"></div>
               </div>
             </div>
 
             {/* Portfolio CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-lg w-2/5 shadow-lg" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded-lg w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}10` }}></div>
+              <div className="h-6 rounded-lg w-2/5 shadow-lg" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded-lg w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}10` }}></div>
             </div>
           </div>
         )
@@ -1440,7 +1439,7 @@ const QuantumQuestionnaire = () => {
             {/* Restaurant Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-slate-300">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-sm flex items-center justify-center text-white text-sm shadow-sm" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-8 h-8 rounded-sm flex items-center justify-center text-white text-sm shadow-sm" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1485,19 +1484,19 @@ const QuantumQuestionnaire = () => {
             {/* Restaurant Features - Specials */}
             <div className="grid grid-cols-2 gap-3 mb-4">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-sm" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-slate-300 rounded w-3/4"></div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-sm" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-slate-300 rounded w-3/4"></div>
               </div>
             </div>
 
             {/* Restaurant CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-sm w-2/5 shadow-sm" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded-sm w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}10` }}></div>
+              <div className="h-6 rounded-sm w-2/5 shadow-sm" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded-sm w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}10` }}></div>
             </div>
           </div>
         )
@@ -1512,7 +1511,7 @@ const QuantumQuestionnaire = () => {
             {/* Event Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-slate-300">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-sm flex items-center justify-center text-white text-sm shadow-sm" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-8 h-8 rounded-sm flex items-center justify-center text-white text-sm shadow-sm" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1535,24 +1534,24 @@ const QuantumQuestionnaire = () => {
             {/* Conference Schedule */}
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-sm" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-slate-300 rounded w-1/4"></div>
                 <div className="h-2 bg-slate-200 rounded w-1/6"></div>
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-slate-400"></div>
-                  <div className="h-2 rounded w-1/3" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-1/3" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-slate-200 rounded w-1/6"></div>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-slate-400"></div>
-                  <div className="h-2 rounded w-2/5" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-2/5" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-slate-200 rounded w-1/6"></div>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-slate-400"></div>
-                  <div className="h-2 rounded w-1/4" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-1/4" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-slate-200 rounded w-1/6"></div>
                 </div>
               </div>
@@ -1576,8 +1575,8 @@ const QuantumQuestionnaire = () => {
 
             {/* Event CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-sm w-2/5 shadow-sm" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded-sm w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}10` }}></div>
+              <div className="h-6 rounded-sm w-2/5 shadow-sm" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded-sm w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}10` }}></div>
             </div>
           </div>
         )
@@ -1592,7 +1591,7 @@ const QuantumQuestionnaire = () => {
             {/* Corporate Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-slate-300">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-sm flex items-center justify-center text-white text-sm shadow-sm" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-8 h-8 rounded-sm flex items-center justify-center text-white text-sm shadow-sm" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1623,7 +1622,7 @@ const QuantumQuestionnaire = () => {
             <div className="grid grid-cols-2 gap-3 mb-6">
               {config.specificContent.highlights.slice(0, 4).map((highlight, index) => (
                 <div key={index} className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: baseColors.primary }}></div>
+                  <div className="w-2 h-2 rounded-sm" style={{ background: baseColors.primary }}></div>
                   <div className="h-2 bg-slate-300 rounded w-3/4"></div>
                 </div>
               ))}
@@ -1631,8 +1630,8 @@ const QuantumQuestionnaire = () => {
 
             {/* Corporate CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-sm w-2/5 shadow-sm" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded-sm w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}10` }}></div>
+              <div className="h-6 rounded-sm w-2/5 shadow-sm" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded-sm w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}10` }}></div>
             </div>
           </div>
         )
@@ -1647,7 +1646,7 @@ const QuantumQuestionnaire = () => {
             {/* Landing Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-slate-300">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-sm flex items-center justify-center text-white text-sm shadow-sm" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-8 h-8 rounded-sm flex items-center justify-center text-white text-sm shadow-sm" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1677,19 +1676,19 @@ const QuantumQuestionnaire = () => {
             {/* Feature Grid */}
             <div className="grid grid-cols-2 gap-2 mb-4">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-sm" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-slate-300 rounded w-3/4"></div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-sm" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-slate-300 rounded w-3/4"></div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-sm" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-slate-300 rounded w-3/4"></div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-sm" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-slate-300 rounded w-3/4"></div>
               </div>
             </div>
@@ -1697,19 +1696,19 @@ const QuantumQuestionnaire = () => {
             {/* Pricing/Stats */}
             <div className="flex gap-4 mb-4">
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-slate-200 rounded w-4 mx-auto"></div>
               </div>
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-slate-200 rounded w-4 mx-auto"></div>
               </div>
             </div>
 
             {/* Landing CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-sm w-2/5 shadow-sm" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded-sm w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}10` }}></div>
+              <div className="h-6 rounded-sm w-2/5 shadow-sm" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded-sm w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}10` }}></div>
             </div>
           </div>
         )
@@ -1724,7 +1723,7 @@ const QuantumQuestionnaire = () => {
             {/* Verein Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-slate-300">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-sm flex items-center justify-center text-white text-sm shadow-sm" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-8 h-8 rounded-sm flex items-center justify-center text-white text-sm shadow-sm" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1746,7 +1745,7 @@ const QuantumQuestionnaire = () => {
             
             {/* Community Info */}
             <div className="mb-4">
-              <div className="h-3 rounded w-1/3 mb-2" style={{ backgroundColor: baseColors.secondary }}></div>
+              <div className="h-3 rounded w-1/3 mb-2" style={{ background: baseColors.secondary }}></div>
               <div className="h-2 bg-slate-200 rounded w-2/3 mb-2"></div>
               <div className="h-2 bg-slate-200 rounded w-1/2"></div>
             </div>
@@ -1754,19 +1753,19 @@ const QuantumQuestionnaire = () => {
             {/* Activity Schedule */}
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-sm" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-slate-300 rounded w-1/4"></div>
                 <div className="h-2 bg-slate-200 rounded w-1/6"></div>
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-slate-400"></div>
-                  <div className="h-2 rounded w-1/3" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-1/3" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-slate-200 rounded w-1/6"></div>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-slate-400"></div>
-                  <div className="h-2 rounded w-2/5" style={{ backgroundColor: baseColors.secondary }}></div>
+                  <div className="h-2 rounded w-2/5" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-slate-200 rounded w-1/6"></div>
                 </div>
               </div>
@@ -1775,19 +1774,19 @@ const QuantumQuestionnaire = () => {
             {/* Member Stats */}
             <div className="flex gap-4 mb-4">
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-slate-200 rounded w-4 mx-auto"></div>
               </div>
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-slate-200 rounded w-4 mx-auto"></div>
               </div>
             </div>
 
             {/* Verein CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-sm w-2/5 shadow-sm" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded-sm w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}10` }}></div>
+              <div className="h-6 rounded-sm w-2/5 shadow-sm" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded-sm w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}10` }}></div>
             </div>
           </div>
         )
@@ -1802,7 +1801,7 @@ const QuantumQuestionnaire = () => {
             {/* Portfolio Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-slate-300">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-sm flex items-center justify-center text-white text-sm shadow-sm" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-8 h-8 rounded-sm flex items-center justify-center text-white text-sm shadow-sm" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1824,7 +1823,7 @@ const QuantumQuestionnaire = () => {
             
             {/* Project Showcase */}
             <div className="mb-4">
-              <div className="h-3 rounded w-1/3 mb-2" style={{ backgroundColor: baseColors.secondary }}></div>
+              <div className="h-3 rounded w-1/3 mb-2" style={{ background: baseColors.secondary }}></div>
               <div className="h-2 bg-slate-200 rounded w-2/3 mb-2"></div>
               <div className="h-2 bg-slate-200 rounded w-1/2"></div>
             </div>
@@ -1832,11 +1831,11 @@ const QuantumQuestionnaire = () => {
             {/* Project Grid */}
             <div className="grid grid-cols-2 gap-2 mb-4">
               <div className="bg-white border-2 border-slate-300 rounded p-2">
-                <div className="h-2 rounded w-3/4 mb-1" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="h-2 rounded w-3/4 mb-1" style={{ background: baseColors.secondary }}></div>
                 <div className="h-1 bg-slate-200 rounded w-full"></div>
               </div>
               <div className="bg-white border-2 border-slate-300 rounded p-2">
-                <div className="h-2 rounded w-3/4 mb-1" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="h-2 rounded w-3/4 mb-1" style={{ background: baseColors.secondary }}></div>
                 <div className="h-1 bg-slate-200 rounded w-full"></div>
               </div>
             </div>
@@ -1844,23 +1843,23 @@ const QuantumQuestionnaire = () => {
             {/* Skills/Stats */}
             <div className="flex gap-4 mb-4">
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-slate-200 rounded w-4 mx-auto"></div>
               </div>
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-slate-200 rounded w-4 mx-auto"></div>
               </div>
               <div className="text-center">
-                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ backgroundColor: baseColors.accent }}></div>
+                <div className="h-3 rounded w-6 mx-auto mb-1" style={{ background: baseColors.accent }}></div>
                 <div className="h-2 bg-slate-200 rounded w-4 mx-auto"></div>
               </div>
             </div>
 
             {/* Portfolio CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-sm w-2/5 shadow-sm" style={{ backgroundColor: baseColors.primary }}></div>
-              <div className="h-6 border-2 rounded-sm w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}10` }}></div>
+              <div className="h-6 rounded-sm w-2/5 shadow-sm" style={{ background: baseColors.primary }}></div>
+              <div className="h-6 border-2 rounded-sm w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}10` }}></div>
             </div>
           </div>
         )
@@ -1875,14 +1874,14 @@ const QuantumQuestionnaire = () => {
             {getMobilePreview(designStyle, config, baseColors)}
             
             {/* Creative background shapes */}
-            <div className="absolute top-2 right-3 w-8 h-8 rounded-full opacity-30 transform rotate-45" style={{ backgroundColor: baseColors.primary }}></div>
-            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-40" style={{ backgroundColor: baseColors.secondary }}></div>
-            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-50 transform -rotate-12" style={{ backgroundColor: baseColors.accent }}></div>
+            <div className="absolute top-2 right-3 w-8 h-8 rounded-full opacity-30 transform rotate-45" style={{ background: baseColors.primary }}></div>
+            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-40" style={{ background: baseColors.secondary }}></div>
+            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-50 transform -rotate-12" style={{ background: baseColors.accent }}></div>
             
             {/* Restaurant Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl transform rotate-12 shadow-lg" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl transform rotate-12 shadow-lg" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1890,13 +1889,13 @@ const QuantumQuestionnaire = () => {
                   <p className="text-sm text-white opacity-80">{config.subtitle}</p>
                 </div>
               </div>
-              <div className="text-sm text-white px-2 py-1 rounded-full" style={{ backgroundColor: `${baseColors.accent}80` }}>🍽️ Fine Dining</div>
+              <div className="text-sm text-white px-2 py-1 rounded-full" style={{ background: `${baseColors.accent}80` }}>🍽️ Fine Dining</div>
             </div>
             
             {/* Restaurant Navigation */}
             <div className="flex gap-3 mb-4">
               {config.features.map((feature, index) => (
-                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border-2 transform hover:scale-105 transition-transform" style={{ borderColor: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent, backgroundColor: index % 3 === 0 ? `${baseColors.primary}30` : index % 3 === 1 ? `${baseColors.secondary}30` : `${baseColors.accent}30` }}>
+                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border-2 transform hover:scale-105 transition-transform" style={{ borderColor: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent, background: index % 3 === 0 ? `${baseColors.primary}30` : index % 3 === 1 ? `${baseColors.secondary}30` : `${baseColors.accent}30` }}>
                   {feature}
                 </div>
               ))}
@@ -1905,20 +1904,20 @@ const QuantumQuestionnaire = () => {
             {/* Speisekarte Section */}
             <div className="mb-4">
               <div className="flex items-center justify-between mb-2">
-             <div className="h-3 rounded-full w-1/4" style={{ backgroundColor: baseColors.secondary }}></div>
-             <div className="h-2 rounded-full w-1/6" style={{ backgroundColor: baseColors.accent }}></div>
+             <div className="h-3 rounded-full w-1/4" style={{ background: baseColors.secondary }}></div>
+             <div className="h-2 rounded-full w-1/6" style={{ background: baseColors.accent }}></div>
               </div>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                   <div className="h-2 rounded-full w-2/3" style={{ backgroundColor: baseColors.secondary }}></div>
-                   <div className="h-2 rounded-full w-1/6" style={{ backgroundColor: baseColors.accent }}></div>
+                   <div className="h-2 rounded-full w-2/3" style={{ background: baseColors.secondary }}></div>
+                   <div className="h-2 rounded-full w-1/6" style={{ background: baseColors.accent }}></div>
                 </div>
                 <div className="flex items-center justify-between">
-                   <div className="h-2 rounded-full w-1/2" style={{ backgroundColor: baseColors.secondary }}></div>
+                   <div className="h-2 rounded-full w-1/2" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-pink-500 rounded-full w-1/6"></div>
                 </div>
                 <div className="flex items-center justify-between">
-                   <div className="h-2 rounded-full w-3/4" style={{ backgroundColor: baseColors.secondary }}></div>
+                   <div className="h-2 rounded-full w-3/4" style={{ background: baseColors.secondary }}></div>
                   <div className="h-2 bg-pink-500 rounded-full w-1/6"></div>
                 </div>
               </div>
@@ -1927,19 +1926,19 @@ const QuantumQuestionnaire = () => {
             {/* Restaurant Features - Specials */}
             <div className="grid grid-cols-2 gap-3 mb-4">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
-                   <div className="h-2 rounded-full w-3/4" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
+                   <div className="h-2 rounded-full w-3/4" style={{ background: baseColors.secondary }}></div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
-                   <div className="h-2 rounded-full w-3/4" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
+                   <div className="h-2 rounded-full w-3/4" style={{ background: baseColors.secondary }}></div>
               </div>
             </div>
 
             {/* Restaurant CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-full w-2/5 shadow-lg" style={{ backgroundColor: baseColors.primary }}></div>
-               <div className="h-6 border-2 rounded-full w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}20` }}></div>
+              <div className="h-6 rounded-full w-2/5 shadow-lg" style={{ background: baseColors.primary }}></div>
+               <div className="h-6 border-2 rounded-full w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}20` }}></div>
             </div>
           </div>
         )
@@ -1952,14 +1951,14 @@ const QuantumQuestionnaire = () => {
             {getMobilePreview(designStyle, config, baseColors)}
             
             {/* Creative background shapes */}
-            <div className="absolute top-2 right-3 w-8 h-8 rounded-full opacity-30 transform rotate-45" style={{ backgroundColor: baseColors.primary }}></div>
-            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-40" style={{ backgroundColor: baseColors.secondary }}></div>
-            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-50 transform -rotate-12" style={{ backgroundColor: baseColors.accent }}></div>
+            <div className="absolute top-2 right-3 w-8 h-8 rounded-full opacity-30 transform rotate-45" style={{ background: baseColors.primary }}></div>
+            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-40" style={{ background: baseColors.secondary }}></div>
+            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-50 transform -rotate-12" style={{ background: baseColors.accent }}></div>
             
             {/* Event Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl transform rotate-12 shadow-lg" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl transform rotate-12 shadow-lg" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -1967,13 +1966,13 @@ const QuantumQuestionnaire = () => {
                   <p className="text-sm text-white opacity-80">{config.subtitle}</p>
                 </div>
               </div>
-              <div className="text-sm text-white px-2 py-1 rounded-full" style={{ backgroundColor: `${baseColors.accent}80` }}>🎪 Festival</div>
+              <div className="text-sm text-white px-2 py-1 rounded-full" style={{ background: `${baseColors.accent}80` }}>🎪 Festival</div>
             </div>
             
             {/* Event Navigation */}
             <div className="flex gap-3 mb-4">
               {config.features.map((feature, index) => (
-                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border-2 transform hover:scale-105 transition-transform" style={{ borderColor: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent, backgroundColor: index % 3 === 0 ? `${baseColors.primary}30` : index % 3 === 1 ? `${baseColors.secondary}30` : `${baseColors.accent}30` }}>
+                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border-2 transform hover:scale-105 transition-transform" style={{ borderColor: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent, background: index % 3 === 0 ? `${baseColors.primary}30` : index % 3 === 1 ? `${baseColors.secondary}30` : `${baseColors.accent}30` }}>
                   {feature}
                 </div>
               ))}
@@ -1982,7 +1981,7 @@ const QuantumQuestionnaire = () => {
             {/* Festival Schedule */}
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-purple-600 rounded-full w-1/4"></div>
                 <div className="h-2 bg-pink-500 rounded-full w-1/6"></div>
               </div>
@@ -2023,8 +2022,8 @@ const QuantumQuestionnaire = () => {
 
             {/* Event CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-full w-2/5 shadow-lg" style={{ backgroundColor: baseColors.primary }}></div>
-               <div className="h-6 border-2 rounded-full w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}20` }}></div>
+              <div className="h-6 rounded-full w-2/5 shadow-lg" style={{ background: baseColors.primary }}></div>
+               <div className="h-6 border-2 rounded-full w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}20` }}></div>
             </div>
           </div>
         )
@@ -2037,16 +2036,16 @@ const QuantumQuestionnaire = () => {
             {getMobilePreview(designStyle, config, baseColors)}
             
             {/* Creative background shapes */}
-            <div className="absolute top-2 right-3 w-8 h-8 rounded-full opacity-30 transform rotate-45" style={{ backgroundColor: baseColors.primary }}></div>
-            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-40" style={{ backgroundColor: baseColors.secondary }}></div>
-            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-50 transform -rotate-12" style={{ backgroundColor: baseColors.accent }}></div>
+            <div className="absolute top-2 right-3 w-8 h-8 rounded-full opacity-30 transform rotate-45" style={{ background: baseColors.primary }}></div>
+            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-40" style={{ background: baseColors.secondary }}></div>
+            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-50 transform -rotate-12" style={{ background: baseColors.accent }}></div>
             
             {getMobilePreview(designStyle, config, baseColors)}
             
             {/* Corporate Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl transform rotate-12 shadow-lg" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl transform rotate-12 shadow-lg" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -2054,13 +2053,13 @@ const QuantumQuestionnaire = () => {
                   <p className="text-sm text-white opacity-80">{config.subtitle}</p>
                 </div>
               </div>
-              <div className="text-sm text-white px-2 py-1 rounded-full" style={{ backgroundColor: `${baseColors.accent}80` }}>🎨 Community</div>
+              <div className="text-sm text-white px-2 py-1 rounded-full" style={{ background: `${baseColors.accent}80` }}>🎨 Community</div>
             </div>
             
             {/* Corporate Navigation */}
             <div className="flex gap-3 mb-4">
               {config.features.map((feature, index) => (
-                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border-2 transform hover:scale-105 transition-transform" style={{ borderColor: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent, backgroundColor: index % 3 === 0 ? `${baseColors.primary}30` : index % 3 === 1 ? `${baseColors.secondary}30` : `${baseColors.accent}30` }}>
+                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border-2 transform hover:scale-105 transition-transform" style={{ borderColor: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent, background: index % 3 === 0 ? `${baseColors.primary}30` : index % 3 === 1 ? `${baseColors.secondary}30` : `${baseColors.accent}30` }}>
                   {feature}
                 </div>
               ))}
@@ -2155,14 +2154,14 @@ const QuantumQuestionnaire = () => {
             {getMobilePreview(designStyle, config, baseColors)}
             
             {/* Creative background shapes */}
-            <div className="absolute top-2 right-3 w-8 h-8 rounded-full opacity-30 transform rotate-45" style={{ backgroundColor: baseColors.primary }}></div>
-            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-40" style={{ backgroundColor: baseColors.secondary }}></div>
-            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-50 transform -rotate-12" style={{ backgroundColor: baseColors.accent }}></div>
+            <div className="absolute top-2 right-3 w-8 h-8 rounded-full opacity-30 transform rotate-45" style={{ background: baseColors.primary }}></div>
+            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-40" style={{ background: baseColors.secondary }}></div>
+            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-50 transform -rotate-12" style={{ background: baseColors.accent }}></div>
             
             {/* Landing Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl transform rotate-12 shadow-lg" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl transform rotate-12 shadow-lg" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -2170,13 +2169,13 @@ const QuantumQuestionnaire = () => {
                   <p className="text-sm text-white opacity-80">{config.subtitle}</p>
                 </div>
               </div>
-              <div className="text-sm text-white px-2 py-1 rounded-full" style={{ backgroundColor: `${baseColors.accent}80` }}>✨ Launch</div>
+              <div className="text-sm text-white px-2 py-1 rounded-full" style={{ background: `${baseColors.accent}80` }}>✨ Launch</div>
             </div>
             
             {/* Landing Navigation */}
             <div className="flex gap-3 mb-4">
               {config.features.map((feature, index) => (
-                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border-2 transform hover:scale-105 transition-transform" style={{ borderColor: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent, backgroundColor: index % 3 === 0 ? `${baseColors.primary}30` : index % 3 === 1 ? `${baseColors.secondary}30` : `${baseColors.accent}30` }}>
+                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border-2 transform hover:scale-105 transition-transform" style={{ borderColor: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent, background: index % 3 === 0 ? `${baseColors.primary}30` : index % 3 === 1 ? `${baseColors.secondary}30` : `${baseColors.accent}30` }}>
                   {feature}
                 </div>
               ))}
@@ -2192,20 +2191,20 @@ const QuantumQuestionnaire = () => {
             {/* Feature Grid */}
             <div className="grid grid-cols-2 gap-2 mb-4">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
-                   <div className="h-2 rounded-full w-3/4" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
+                   <div className="h-2 rounded-full w-3/4" style={{ background: baseColors.secondary }}></div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
-                   <div className="h-2 rounded-full w-3/4" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
+                   <div className="h-2 rounded-full w-3/4" style={{ background: baseColors.secondary }}></div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
-                   <div className="h-2 rounded-full w-3/4" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
+                   <div className="h-2 rounded-full w-3/4" style={{ background: baseColors.secondary }}></div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
-                   <div className="h-2 rounded-full w-3/4" style={{ backgroundColor: baseColors.secondary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
+                   <div className="h-2 rounded-full w-3/4" style={{ background: baseColors.secondary }}></div>
               </div>
             </div>
 
@@ -2223,8 +2222,8 @@ const QuantumQuestionnaire = () => {
 
             {/* Landing CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-full w-2/5 shadow-lg" style={{ backgroundColor: baseColors.primary }}></div>
-               <div className="h-6 border-2 rounded-full w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}20` }}></div>
+              <div className="h-6 rounded-full w-2/5 shadow-lg" style={{ background: baseColors.primary }}></div>
+               <div className="h-6 border-2 rounded-full w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}20` }}></div>
             </div>
           </div>
         )
@@ -2237,14 +2236,14 @@ const QuantumQuestionnaire = () => {
             {getMobilePreview(designStyle, config, baseColors)}
             
             {/* Creative background shapes */}
-            <div className="absolute top-2 right-3 w-8 h-8 rounded-full opacity-30 transform rotate-45" style={{ backgroundColor: baseColors.primary }}></div>
-            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-40" style={{ backgroundColor: baseColors.secondary }}></div>
-            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-50 transform -rotate-12" style={{ backgroundColor: baseColors.accent }}></div>
+            <div className="absolute top-2 right-3 w-8 h-8 rounded-full opacity-30 transform rotate-45" style={{ background: baseColors.primary }}></div>
+            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-40" style={{ background: baseColors.secondary }}></div>
+            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-50 transform -rotate-12" style={{ background: baseColors.accent }}></div>
             
             {/* Verein Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl transform rotate-12 shadow-lg" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl transform rotate-12 shadow-lg" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -2252,13 +2251,13 @@ const QuantumQuestionnaire = () => {
                   <p className="text-sm text-white opacity-80">{config.subtitle}</p>
                 </div>
               </div>
-              <div className="text-sm text-white px-2 py-1 rounded-full" style={{ backgroundColor: `${baseColors.accent}80` }}>🚀 Innovation</div>
+              <div className="text-sm text-white px-2 py-1 rounded-full" style={{ background: `${baseColors.accent}80` }}>🚀 Innovation</div>
             </div>
             
             {/* Verein Navigation */}
             <div className="flex gap-3 mb-4">
               {config.features.map((feature, index) => (
-                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border-2 transform hover:scale-105 transition-transform" style={{ borderColor: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent, backgroundColor: index % 3 === 0 ? `${baseColors.primary}30` : index % 3 === 1 ? `${baseColors.secondary}30` : `${baseColors.accent}30` }}>
+                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border-2 transform hover:scale-105 transition-transform" style={{ borderColor: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent, background: index % 3 === 0 ? `${baseColors.primary}30` : index % 3 === 1 ? `${baseColors.secondary}30` : `${baseColors.accent}30` }}>
                   {feature}
                 </div>
               ))}
@@ -2274,7 +2273,7 @@ const QuantumQuestionnaire = () => {
             {/* Activity Schedule */}
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: baseColors.primary }}></div>
+                <div className="w-2 h-2 rounded-full" style={{ background: baseColors.primary }}></div>
                 <div className="h-2 bg-purple-600 rounded-full w-1/4"></div>
                 <div className="h-2 bg-pink-500 rounded-full w-1/6"></div>
               </div>
@@ -2306,8 +2305,8 @@ const QuantumQuestionnaire = () => {
 
             {/* Verein CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-full w-2/5 shadow-lg" style={{ backgroundColor: baseColors.primary }}></div>
-               <div className="h-6 border-2 rounded-full w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}20` }}></div>
+              <div className="h-6 rounded-full w-2/5 shadow-lg" style={{ background: baseColors.primary }}></div>
+               <div className="h-6 border-2 rounded-full w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}20` }}></div>
             </div>
           </div>
         )
@@ -2320,14 +2319,14 @@ const QuantumQuestionnaire = () => {
             {getMobilePreview(designStyle, config, baseColors)}
             
             {/* Creative background shapes */}
-            <div className="absolute top-2 right-3 w-8 h-8 rounded-full opacity-30 transform rotate-45" style={{ backgroundColor: baseColors.primary }}></div>
-            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-40" style={{ backgroundColor: baseColors.secondary }}></div>
-            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-50 transform -rotate-12" style={{ backgroundColor: baseColors.accent }}></div>
+            <div className="absolute top-2 right-3 w-8 h-8 rounded-full opacity-30 transform rotate-45" style={{ background: baseColors.primary }}></div>
+            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-40" style={{ background: baseColors.secondary }}></div>
+            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-50 transform -rotate-12" style={{ background: baseColors.accent }}></div>
             
             {/* Portfolio Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl transform rotate-12 shadow-lg" style={{ backgroundColor: baseColors.primary }}>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl transform rotate-12 shadow-lg" style={{ background: baseColors.primary }}>
                   {config.icon}
                 </div>
                 <div>
@@ -2335,13 +2334,13 @@ const QuantumQuestionnaire = () => {
                   <p className="text-sm text-white opacity-80">{config.subtitle}</p>
                 </div>
               </div>
-              <div className="text-sm text-white px-2 py-1 rounded-full" style={{ backgroundColor: `${baseColors.accent}80` }}>🎭 Artist</div>
+              <div className="text-sm text-white px-2 py-1 rounded-full" style={{ background: `${baseColors.accent}80` }}>🎭 Artist</div>
             </div>
             
             {/* Portfolio Navigation */}
             <div className="flex gap-3 mb-4">
               {config.features.map((feature, index) => (
-                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border-2 transform hover:scale-105 transition-transform" style={{ borderColor: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent, backgroundColor: index % 3 === 0 ? `${baseColors.primary}30` : index % 3 === 1 ? `${baseColors.secondary}30` : `${baseColors.accent}30` }}>
+                <div key={index} className="px-3 py-1 rounded-full text-sm text-white border-2 transform hover:scale-105 transition-transform" style={{ borderColor: index % 3 === 0 ? baseColors.primary : index % 3 === 1 ? baseColors.secondary : baseColors.accent, background: index % 3 === 0 ? `${baseColors.primary}30` : index % 3 === 1 ? `${baseColors.secondary}30` : `${baseColors.accent}30` }}>
                   {feature}
                 </div>
               ))}
@@ -2384,8 +2383,8 @@ const QuantumQuestionnaire = () => {
 
             {/* Portfolio CTAs */}
             <div className="flex gap-3">
-              <div className="h-6 rounded-full w-2/5 shadow-lg" style={{ backgroundColor: baseColors.primary }}></div>
-               <div className="h-6 border-2 rounded-full w-1/4" style={{ borderColor: baseColors.secondary, backgroundColor: `${baseColors.secondary}20` }}></div>
+              <div className="h-6 rounded-full w-2/5 shadow-lg" style={{ background: baseColors.primary }}></div>
+               <div className="h-6 border-2 rounded-full w-1/4" style={{ borderColor: baseColors.secondary, background: `${baseColors.secondary}20` }}></div>
             </div>
           </div>
         )
@@ -2404,14 +2403,14 @@ const QuantumQuestionnaire = () => {
           {/* Corporate Header */}
             <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-slate-300">
               <div className="flex items-center gap-3">
-                <div className="w-4 h-4 rounded-sm border" style={{ backgroundColor: primaryColor, borderColor: primaryColor }}></div>
+                <div className="w-4 h-4 rounded-sm border" style={{ background: primaryColor, borderColor: primaryColor }}></div>
                 <div className="h-2 bg-gray-700 rounded w-12 font-bold"></div>
             </div>
             <div className="flex gap-3">
               <div className="h-2 bg-gray-600 rounded w-6"></div>
                 <div className="h-2 bg-gray-600 rounded w-8"></div>
                 <div className="h-2 bg-gray-600 rounded w-6"></div>
-                <div className="h-2 rounded w-7" style={{ backgroundColor: primaryColor }}></div>
+                <div className="h-2 rounded w-7" style={{ background: primaryColor }}></div>
             </div>
           </div>
           
@@ -2425,18 +2424,18 @@ const QuantumQuestionnaire = () => {
           {/* Service Boxes */}
             <div className="grid grid-cols-2 gap-3 mb-4">
               <div className="bg-white border-2 border-gray-300 rounded p-2">
-                <div className="h-2 rounded-sm w-3/4 mb-1" style={{ backgroundColor: primaryColor }}></div>
+                <div className="h-2 rounded-sm w-3/4 mb-1" style={{ background: primaryColor }}></div>
                 <div className="h-1 bg-gray-400 rounded w-full"></div>
               </div>
               <div className="bg-white border-2 border-gray-300 rounded p-2">
-                <div className="h-2 rounded-sm w-3/4 mb-1" style={{ backgroundColor: secondaryColor }}></div>
+                <div className="h-2 rounded-sm w-3/4 mb-1" style={{ background: secondaryColor }}></div>
                 <div className="h-1 bg-gray-400 rounded w-full"></div>
               </div>
           </div>
           
             {/* Corporate CTAs */}
             <div className="flex gap-3">
-              <div className="h-4 rounded-sm w-2/5 shadow-md border" style={{ backgroundColor: primaryColor, borderColor: primaryColor }}></div>
+              <div className="h-4 rounded-sm w-2/5 shadow-md border" style={{ background: primaryColor, borderColor: primaryColor }}></div>
               <div className="h-4 bg-white border-2 rounded-sm w-1/4" style={{ borderColor: primaryColor }}></div>
             </div>
           
@@ -2445,7 +2444,7 @@ const QuantumQuestionnaire = () => {
             <div className="w-full h-full bg-slate-50 rounded-lg p-3 overflow-hidden">
               <div className="space-y-2">
                   <div className="flex items-center gap-1.5 mb-2">
-                    <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: primaryColor }}></div>
+                    <div className="w-2 h-2 rounded-sm" style={{ background: primaryColor }}></div>
                     <div className="h-1.5 bg-gray-600 rounded w-4"></div>
                   </div>
                 <div className="h-2 bg-gray-700 rounded w-3/4"></div>
@@ -2453,15 +2452,15 @@ const QuantumQuestionnaire = () => {
                 <div className="h-1.5 bg-gray-500 rounded w-2/3"></div>
                   <div className="space-y-1.5 mt-3">
                     <div className="bg-white border border-gray-300 rounded p-1.5">
-                      <div className="h-1.5 rounded-sm w-3/4" style={{ backgroundColor: primaryColor }}></div>
+                      <div className="h-1.5 rounded-sm w-3/4" style={{ background: primaryColor }}></div>
                       <div className="h-1 bg-gray-400 rounded w-full mt-1"></div>
                     </div>
                     <div className="bg-white border border-gray-300 rounded p-1.5">
-                      <div className="h-1.5 rounded-sm w-3/4" style={{ backgroundColor: secondaryColor }}></div>
+                      <div className="h-1.5 rounded-sm w-3/4" style={{ background: secondaryColor }}></div>
                       <div className="h-1 bg-gray-400 rounded w-full mt-1"></div>
                     </div>
                   </div>
-                  <div className="h-3 rounded-sm w-1/2 mt-3" style={{ backgroundColor: primaryColor }}></div>
+                  <div className="h-3 rounded-sm w-1/2 mt-3" style={{ background: primaryColor }}></div>
               </div>
             </div>
           </div>
@@ -2480,10 +2479,10 @@ const QuantumQuestionnaire = () => {
              background: `linear-gradient(to bottom right, ${primaryColor}, ${secondaryColor})`
            }}></div>
            <div className="absolute bottom-3 left-4 w-6 h-6 transform rotate-12 opacity-50" style={{
-             backgroundColor: secondaryColor
+             background: secondaryColor
            }}></div>
            <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full opacity-30 transform -rotate-12" style={{
-             backgroundColor: accentColor
+             background: accentColor
            }}></div>
           
            {/* Kreativer Header */}
@@ -2500,7 +2499,7 @@ const QuantumQuestionnaire = () => {
                <div className="w-3 h-3 rounded-full transform rotate-12" style={{
                  background: `linear-gradient(to right, ${secondaryColor}, ${accentColor})`
                }}></div>
-               <div className="w-3 h-3 transform -rotate-12" style={{ backgroundColor: accentColor }}></div>
+               <div className="w-3 h-3 transform -rotate-12" style={{ background: accentColor }}></div>
            </div>
            </div>
           
@@ -2512,7 +2511,7 @@ const QuantumQuestionnaire = () => {
              <div className="h-2 rounded-full w-3/4 transform rotate-1" style={{
                background: `linear-gradient(to right, ${secondaryColor}, ${accentColor})`
              }}></div>
-             <div className="h-2 rounded-full w-2/3 transform -rotate-1" style={{ backgroundColor: accentColor }}></div>
+             <div className="h-2 rounded-full w-2/3 transform -rotate-1" style={{ background: accentColor }}></div>
            </div>
           
            {/* Künstlerische Gallery Cards */}
@@ -2523,7 +2522,7 @@ const QuantumQuestionnaire = () => {
              <div className="h-6 rounded-lg transform -rotate-1 shadow-sm" style={{
                background: `linear-gradient(to bottom right, ${secondaryColor}60, ${accentColor}60)`
              }}></div>
-             <div className="h-6 rounded-lg transform rotate-1 shadow-sm" style={{ backgroundColor: `${accentColor}60` }}></div>
+             <div className="h-6 rounded-lg transform rotate-1 shadow-sm" style={{ background: `${accentColor}60` }}></div>
            </div>
           
            {/* Künstlerische CTAs */}
@@ -2556,7 +2555,7 @@ const QuantumQuestionnaire = () => {
                  <div className="h-1.5 rounded-full w-1/2" style={{
                    background: `linear-gradient(to right, ${secondaryColor}, ${accentColor})`
                  }}></div>
-                 <div className="h-1.5 rounded-full w-2/3" style={{ backgroundColor: accentColor }}></div>
+                 <div className="h-1.5 rounded-full w-2/3" style={{ background: accentColor }}></div>
                  <div className="space-y-1.5 mt-3">
                    <div className="h-3 rounded-lg transform rotate-2 shadow-sm" style={{
                      background: `linear-gradient(to bottom right, ${primaryColor}60, ${secondaryColor}60)`
@@ -2565,7 +2564,7 @@ const QuantumQuestionnaire = () => {
                      background: `linear-gradient(to bottom right, ${secondaryColor}60, ${accentColor}60)`
                    }}></div>
                    <div className="h-3 rounded-lg transform rotate-1 shadow-sm" style={{
-                     backgroundColor: `${accentColor}60`
+                     background: `${accentColor}60`
                    }}></div>
                  </div>
                  <div className="h-3 rounded-full w-1/2 mt-3" style={{
@@ -2586,7 +2585,7 @@ const QuantumQuestionnaire = () => {
           {/* Minimaler Header */}
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-100">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-3 rounded-sm" style={{ backgroundColor: primaryColor }}></div>
+              <div className="w-8 h-3 rounded-sm" style={{ background: primaryColor }}></div>
               <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
             </div>
             <div className="flex gap-2">
@@ -2598,21 +2597,21 @@ const QuantumQuestionnaire = () => {
           
           {/* Saubere Hero Section */}
           <div className="space-y-3 mb-4">
-            <div className="h-3 rounded w-4/5" style={{ backgroundColor: primaryColor }}></div>
+            <div className="h-3 rounded w-4/5" style={{ background: primaryColor }}></div>
             <div className="h-2 bg-gray-300 rounded w-3/4"></div>
             <div className="h-2 bg-gray-300 rounded w-2/3"></div>
           </div>
           
           {/* Minimale Content Cards */}
           <div className="grid grid-cols-3 gap-2 mb-4">
-            <div className="h-6 rounded border border-gray-200" style={{ backgroundColor: `${primaryColor}15` }}></div>
-            <div className="h-6 rounded border border-gray-200" style={{ backgroundColor: `${secondaryColor}15` }}></div>
-            <div className="h-6 rounded border border-gray-200" style={{ backgroundColor: `${accentColor}15` }}></div>
+            <div className="h-6 rounded border border-gray-200" style={{ background: `${primaryColor}15` }}></div>
+            <div className="h-6 rounded border border-gray-200" style={{ background: `${secondaryColor}15` }}></div>
+            <div className="h-6 rounded border border-gray-200" style={{ background: `${accentColor}15` }}></div>
           </div>
           
           {/* Clean CTAs */}
           <div className="flex gap-3">
-            <div className="h-4 rounded w-2/5 shadow-md" style={{ backgroundColor: primaryColor }}></div>
+            <div className="h-4 rounded w-2/5 shadow-md" style={{ background: primaryColor }}></div>
             <div className="h-4 bg-gray-200 border border-gray-300 rounded w-1/4"></div>
           </div>
           
@@ -2621,15 +2620,15 @@ const QuantumQuestionnaire = () => {
             <div className="w-full h-full bg-white rounded-lg p-3 overflow-hidden">
               <div className="space-y-2">
                 <div className="h-1.5 bg-gray-300 rounded w-full"></div>
-                <div className="h-2 rounded w-3/4" style={{ backgroundColor: primaryColor }}></div>
+                <div className="h-2 rounded w-3/4" style={{ background: primaryColor }}></div>
                 <div className="h-1.5 bg-gray-300 rounded w-1/2"></div>
                 <div className="h-1.5 bg-gray-300 rounded w-2/3"></div>
                 <div className="space-y-1.5 mt-3">
-                  <div className="h-3 rounded border border-gray-200" style={{ backgroundColor: `${primaryColor}15` }}></div>
-                  <div className="h-3 rounded border border-gray-200" style={{ backgroundColor: `${secondaryColor}15` }}></div>
-                  <div className="h-3 rounded border border-gray-200" style={{ backgroundColor: `${accentColor}15` }}></div>
+                  <div className="h-3 rounded border border-gray-200" style={{ background: `${primaryColor}15` }}></div>
+                  <div className="h-3 rounded border border-gray-200" style={{ background: `${secondaryColor}15` }}></div>
+                  <div className="h-3 rounded border border-gray-200" style={{ background: `${accentColor}15` }}></div>
                 </div>
-                <div className="h-3 rounded w-1/2 mt-3" style={{ backgroundColor: primaryColor }}></div>
+                <div className="h-3 rounded w-1/2 mt-3" style={{ background: primaryColor }}></div>
               </div>
             </div>
           </div>
@@ -2946,6 +2945,11 @@ const QuantumQuestionnaire = () => {
       [field]: value
     }))
     
+    // Debug logging for companyName
+    if (field === 'companyName') {
+      console.log('Company name changed:', value)
+    }
+    
     // Trigger domain check for desired domain
     if (field === 'desiredDomain' && value) {
       debouncedDomainCheck(value)
@@ -3123,7 +3127,14 @@ const QuantumQuestionnaire = () => {
   const isCurrentStepValid = () => {
     switch (currentStep) {
       case 0: // BASIS
-        return formData.projectType !== '' && formData.industry !== '' && formData.companyName.trim() !== ''
+        const isValid = formData.projectType !== '' && formData.industry !== '' && formData.companyName.trim() !== ''
+        console.log('Step 0 validation:', {
+          projectType: formData.projectType,
+          industry: formData.industry,
+          companyName: formData.companyName,
+          isValid
+        })
+        return isValid
       case 1: // INHALT
         return formData.hasContent !== '' && formData.pageCount !== '' && formData.hasImages !== ''
       case 2: // DESIGN
@@ -3338,8 +3349,12 @@ const QuantumQuestionnaire = () => {
                 type="text"
                 value={formData.companyName}
                 onChange={(e) => handleInputChange('companyName', e.target.value)}
-                className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-white placeholder-gray-400 transition-all duration-300"
+                className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-white placeholder-gray-400 transition-all duration-300 text-base"
                 placeholder="Ihr Unternehmen..."
+                autoComplete="organization"
+                autoCapitalize="words"
+                autoCorrect="off"
+                spellCheck="false"
               />
               </div>
             </div>
@@ -3476,20 +3491,20 @@ const QuantumQuestionnaire = () => {
                         <div className="flex overflow-hidden rounded-lg border border-gray-600">
                           <div
                             className="w-6 h-6"
-                            style={{ backgroundColor: color.hex + '40' }}
+                            style={{ background: color.hex + '40' }}
                           />
                           <div
                             className="w-6 h-6"
-                            style={{ backgroundColor: color.hex + '80' }}
+                            style={{ background: color.hex + '80' }}
                           />
                           <div
                             className="w-6 h-6"
-                            style={{ backgroundColor: color.hex }}
+                            style={{ background: color.hex }}
                           />
                           <div
                             className="w-6 h-6"
                             style={{ 
-                              backgroundColor: color.hex,
+                              background: color.hex,
                               filter: 'brightness(1.3)'
                             }}
                           />
@@ -3605,7 +3620,7 @@ const QuantumQuestionnaire = () => {
                       <div className="flex items-center justify-center gap-4 mb-6">
                         <div 
                           className="w-16 h-16 rounded-xl border-2 border-cyan-500/50 shadow-lg"
-                          style={{ backgroundColor: currentMixColor }}
+                          style={{ background: currentMixColor }}
                         />
                         <div className="text-center">
                           <div className="text-white font-mono text-lg">{currentMixColor.toUpperCase()}</div>
@@ -3685,25 +3700,25 @@ const QuantumQuestionnaire = () => {
                               <div
                                 className="w-8 h-8 border border-gray-600"
                                 style={{ 
-                                  backgroundColor: colorData.color + '40' // 25% opacity
+                                  background: colorData.color + '40' // 25% opacity
                                 }}
                               />
                               <div
                                 className="w-8 h-8 border border-gray-600"
                                 style={{ 
-                                  backgroundColor: colorData.color + '80' // 50% opacity
+                                  background: colorData.color + '80' // 50% opacity
                                 }}
                               />
                               <div
                                 className="w-8 h-8 border border-gray-600"
                                 style={{ 
-                                  backgroundColor: colorData.color // 100% opacity
+                                  background: colorData.color // 100% opacity
                                 }}
                               />
                               <div
                                 className="w-8 h-8 border border-gray-600"
                                 style={{ 
-                                  backgroundColor: colorData.color,
+                                  background: colorData.color,
                                   filter: 'brightness(1.3)'
                                 }}
                               />
@@ -3726,25 +3741,25 @@ const QuantumQuestionnaire = () => {
                             <div
                               className="w-8 h-8 border border-gray-600"
                               style={{ 
-                                backgroundColor: color + '40' // 25% opacity
+                                background: color + '40' // 25% opacity
                               }}
                             />
                             <div
                               className="w-8 h-8 border border-gray-600"
                               style={{ 
-                                backgroundColor: color + '80' // 50% opacity
+                                background: color + '80' // 50% opacity
                               }}
                             />
                             <div
                               className="w-8 h-8 border border-gray-600"
                               style={{ 
-                                backgroundColor: color // 100% opacity
+                                background: color // 100% opacity
                               }}
                             />
                             <div
                               className="w-8 h-8 border border-gray-600"
                               style={{ 
-                                backgroundColor: color,
+                                background: color,
                                 filter: 'brightness(1.3)'
                               }}
                             />

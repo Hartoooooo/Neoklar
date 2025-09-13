@@ -54,7 +54,7 @@ const QuantumContact = () => {
   const contactNodes = [
     { 
       id: 'transmission', 
-      title: 'QUANTUM ÜBERTRAGUNG', 
+      title: 'E-Mail', 
       value: 'neoklar.info@gmail.com',
       icon: '⟡',
       color: 'from-cyan-400 to-blue-500'

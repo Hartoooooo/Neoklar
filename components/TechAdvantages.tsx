@@ -311,14 +311,6 @@ const TechAdvantages = () => {
                   ))}
                 </div>
 
-                {/* Progress Bar */}
-                <div className="mt-6 h-1 bg-gray-800 rounded-full overflow-hidden">
-                  <div 
-                    className={`h-full bg-gradient-to-r ${advantage.color} transform origin-left transition-all duration-1000 ${
-                      activeCard === index ? 'scale-x-100' : 'scale-x-0'
-                    }`}
-                  ></div>
-                </div>
 
               </div>
             ))}
@@ -380,14 +372,6 @@ const TechAdvantages = () => {
                   ))}
                 </div>
 
-                {/* Progress Bar */}
-                <div className="mt-6 h-1 bg-gray-800 rounded-full overflow-hidden">
-                  <div 
-                    className={`h-full bg-gradient-to-r ${advantage.color} transform origin-left transition-all duration-1000 ${
-                      activeCard === (index + 2) ? 'scale-x-100' : 'scale-x-0'
-                    }`}
-                  ></div>
-                </div>
 
               </div>
             ))}
