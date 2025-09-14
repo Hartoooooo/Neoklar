@@ -84,27 +84,73 @@ const QuantumFooter = () => {
             </div>
 
             {/* Navigation Matrix */}
-            <div>
-              <h4 className="text-cyan-400 font-mono text-sm uppercase tracking-wider mb-6 flex items-center">
-                <span className="text-cyan-400 mr-2">◊</span>
-                SCHNELLZUGRIFF
-              </h4>
-              
-              <div className="space-y-4">
-                {quickLinks.map((link, index) => (
-                  <button
-                    key={index}
-                    onClick={() => scrollToSection(link.href)}
+            <div className="space-y-8">
+              <div>
+                <h4 className="text-cyan-400 font-mono text-sm uppercase tracking-wider mb-6 flex items-center">
+                  <span className="text-cyan-400 mr-2">◊</span>
+                  SCHNELLZUGRIFF
+                </h4>
+                
+                <div className="space-y-4">
+                  {quickLinks.map((link, index) => (
+                    <button
+                      key={index}
+                      onClick={() => scrollToSection(link.href)}
+                      className="group block w-full text-left text-gray-300 hover:text-cyan-400 transition-all duration-300 font-mono"
+                    >
+                      <div className="flex items-center space-x-2">
+                        <span className="text-xs text-gray-600">{'>'}</span>
+                        <span className="group-hover:translate-x-2 transition-transform duration-300">
+                          {link.label}
+                        </span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Legal Section */}
+              <div className="md:hidden">
+                <h4 className="text-cyan-400 font-mono text-sm uppercase tracking-wider mb-6 flex items-center">
+                  <span className="text-cyan-400 mr-2">◊</span>
+                  RECHTLICHES
+                </h4>
+                
+                <div className="space-y-4">
+                  <a 
+                    href="/impressum" 
                     className="group block w-full text-left text-gray-300 hover:text-cyan-400 transition-all duration-300 font-mono"
                   >
                     <div className="flex items-center space-x-2">
                       <span className="text-xs text-gray-600">{'>'}</span>
                       <span className="group-hover:translate-x-2 transition-transform duration-300">
-                        {link.label}
+                        IMPRESSUM
                       </span>
                     </div>
-                  </button>
-                ))}
+                  </a>
+                  <a 
+                    href="/datenschutz" 
+                    className="group block w-full text-left text-gray-300 hover:text-cyan-400 transition-all duration-300 font-mono"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <span className="text-xs text-gray-600">{'>'}</span>
+                      <span className="group-hover:translate-x-2 transition-transform duration-300">
+                        DATENSCHUTZ
+                      </span>
+                    </div>
+                  </a>
+                  <a 
+                    href="/cookies" 
+                    className="group block w-full text-left text-gray-300 hover:text-cyan-400 transition-all duration-300 font-mono"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <span className="text-xs text-gray-600">{'>'}</span>
+                      <span className="group-hover:translate-x-2 transition-transform duration-300">
+                        COOKIES
+                      </span>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -195,8 +241,8 @@ const QuantumFooter = () => {
               <span className="text-xs">ALLE RECHTE VORBEHALTEN</span>
             </div>
 
-            {/* Legal Protocols */}
-            <div className="flex items-center space-x-4 text-xs font-mono">
+            {/* Legal Protocols - Desktop Only */}
+            <div className="hidden md:flex items-center space-x-4 text-xs font-mono">
               <a 
                 href="/datenschutz" 
                 className="text-gray-400 hover:text-cyan-400 transition-colors"

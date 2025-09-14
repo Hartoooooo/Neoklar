@@ -100,7 +100,7 @@ const UltraModernHero = () => {
             {/* Next.js Icon */}
             <div className="flex items-center space-x-3 group">
               <div className="transition-transform duration-300 group-hover:scale-110">
-                <IconBrandNextjs className="w-8 h-8 text-cyan-400" />
+                <IconBrandNextjs className="w-8 h-8 text-cyan-400" strokeWidth={1.5} />
               </div>
               <span className="text-sm text-gray-400 font-medium">Next.js</span>
             </div>
@@ -108,7 +108,7 @@ const UltraModernHero = () => {
             {/* React Icon */}
             <div className="flex items-center space-x-3 group">
               <div className="transition-transform duration-300 group-hover:scale-110">
-                <IconBrandReact className="w-8 h-8 text-cyan-400" />
+                <IconBrandReact className="w-8 h-8 text-cyan-400" strokeWidth={1.5} />
               </div>
               <span className="text-sm text-gray-400 font-medium">React</span>
             </div>
