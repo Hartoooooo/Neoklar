@@ -89,9 +89,7 @@ const TechAdvantages = () => {
         'Mehr Website-Besucher',
         'Höhere Conversion-Rate'
       ],
-      color: 'from-blue-500 to-cyan-400',
-      metric: '300%',
-      metricLabel: 'mehr Anfragen'
+      color: 'from-blue-500 to-cyan-400'
     },
     {
       id: 'legal-compliance',
@@ -109,9 +107,7 @@ const TechAdvantages = () => {
         'Rechtssichere Cookie-Banner',
         'Automatische Compliance-Updates'
       ],
-      color: 'from-purple-500 to-pink-400',
-      metric: '100%',
-      metricLabel: 'rechtskonform'
+      color: 'from-purple-500 to-pink-400'
     },
     {
       id: 'professional-image',
@@ -132,9 +128,7 @@ const TechAdvantages = () => {
         'Vertrauensvolle Ausstrahlung',
         'Seriöser Eindruck'
       ],
-      color: 'from-emerald-500 to-teal-400',
-      metric: '95%',
-      metricLabel: 'mehr Vertrauen'
+      color: 'from-emerald-500 to-teal-400'
     },
     {
       id: 'mobile-reach',
@@ -152,9 +146,26 @@ const TechAdvantages = () => {
         'Schnelle mobile Ladezeiten',
         'Einfache Bedienung'
       ],
-      color: 'from-orange-500 to-red-400',
-      metric: '70%',
-      metricLabel: 'mobile Nutzer'
+      color: 'from-orange-500 to-red-400'
+    },
+    {
+      id: 'all-in-one',
+      title: 'ALLES UNTER EINEM DACH',
+      subtitle: 'VOLLSERVICE MIT OPTIONALEM HOSTING',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <circle cx="12" cy="8" r="2" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+      ),
+      description: 'Von der Entwicklung bis zum optionalen Hosting - wir kümmern uns um alles.',
+      benefits: [
+        'Komplette Website-Entwicklung',
+        'Optional: Professionelles Hosting (kleine monatl. Pauschale)',
+        'Flexible Service-Auswahl'
+      ],
+      color: 'from-indigo-500 to-purple-400'
     }
   ]
 
@@ -255,9 +266,9 @@ const TechAdvantages = () => {
 
         {/* Main Advantages */}
         <div className="space-y-8 mb-24">
-          {/* First Row - Cards 1 & 2 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {customerAdvantages.slice(0, 2).map((advantage, index) => (
+          {/* First Row - Cards 1, 2 & 3 */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {customerAdvantages.slice(0, 3).map((advantage, index) => (
               <div
                 key={advantage.id}
                 className={`group relative bg-black/40 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-8 transition-all duration-700 ${
@@ -288,12 +299,6 @@ const TechAdvantages = () => {
                       </p>
                     </div>
                   </div>
-                  
-                  {/* Metric Badge - Hidden on Mobile */}
-                  <div className="hidden md:block text-right">
-                    <div className="text-3xl font-black text-cyan-400">{advantage.metric}</div>
-                    <div className="text-xs text-gray-400 font-mono uppercase">{advantage.metricLabel}</div>
-                  </div>
                 </div>
 
                 {/* Description */}
@@ -318,9 +323,9 @@ const TechAdvantages = () => {
             ))}
           </div>
 
-          {/* Second Row - Cards 3 & 4 */}
+          {/* Second Row - Cards 4 & 5 */}
           <div id="second-row-cards" className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {customerAdvantages.slice(2, 4).map((advantage, index) => (
+            {customerAdvantages.slice(3, 5).map((advantage, index) => (
               <div
                 key={advantage.id}
                 className={`group relative bg-black/40 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-8 transition-all duration-700 ${
@@ -330,7 +335,7 @@ const TechAdvantages = () => {
                   transitionDelay: `${300 + index * 200}ms`,
                   transitionDuration: '800ms'
                 }}
-                onMouseEnter={() => setActiveCard(index + 2)}
+                onMouseEnter={() => setActiveCard(index + 3)}
                 onMouseLeave={() => setActiveCard(null)}
               >
                 
@@ -350,12 +355,6 @@ const TechAdvantages = () => {
                         {advantage.subtitle}
                       </p>
                     </div>
-                  </div>
-                  
-                  {/* Metric Badge - Hidden on Mobile */}
-                  <div className="hidden md:block text-right">
-                    <div className="text-3xl font-black text-cyan-400">{advantage.metric}</div>
-                    <div className="text-xs text-gray-400 font-mono uppercase">{advantage.metricLabel}</div>
                   </div>
                 </div>
 
