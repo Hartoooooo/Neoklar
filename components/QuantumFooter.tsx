@@ -109,43 +109,43 @@ const QuantumFooter = () => {
                 </div>
               </div>
 
-              {/* Mobile Legal Section */}
-              <div className="md:hidden">
-                <h4 className="text-cyan-400 font-mono text-sm uppercase tracking-wider mb-6 flex items-center">
-                  <span className="text-cyan-400 mr-2">◊</span>
+              {/* Mobile Legal Section - Submenu */}
+              <div className="md:hidden mt-6 border-l border-gray-600/30">
+                <h5 className="text-gray-500 font-mono text-xs uppercase tracking-wider mb-4 flex items-center">
+                  <span className="text-gray-500 mr-2">└</span>
                   RECHTLICHES
-                </h4>
+                </h5>
                 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <a 
                     href="/impressum" 
-                    className="group block w-full text-left text-gray-300 hover:text-cyan-400 transition-all duration-300 font-mono"
+                    className="group block w-full text-left text-gray-400 hover:text-cyan-400 transition-all duration-300 font-mono text-sm"
                   >
                     <div className="flex items-center space-x-2">
-                      <span className="text-xs text-gray-600">{'>'}</span>
-                      <span className="group-hover:translate-x-2 transition-transform duration-300">
+                      <span className="text-xs text-gray-600">•</span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">
                         IMPRESSUM
                       </span>
                     </div>
                   </a>
                   <a 
                     href="/datenschutz" 
-                    className="group block w-full text-left text-gray-300 hover:text-cyan-400 transition-all duration-300 font-mono"
+                    className="group block w-full text-left text-gray-400 hover:text-cyan-400 transition-all duration-300 font-mono text-sm"
                   >
                     <div className="flex items-center space-x-2">
-                      <span className="text-xs text-gray-600">{'>'}</span>
-                      <span className="group-hover:translate-x-2 transition-transform duration-300">
+                      <span className="text-xs text-gray-600">•</span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">
                         DATENSCHUTZ
                       </span>
                     </div>
                   </a>
                   <a 
                     href="/cookies" 
-                    className="group block w-full text-left text-gray-300 hover:text-cyan-400 transition-all duration-300 font-mono"
+                    className="group block w-full text-left text-gray-400 hover:text-cyan-400 transition-all duration-300 font-mono text-sm"
                   >
                     <div className="flex items-center space-x-2">
-                      <span className="text-xs text-gray-600">{'>'}</span>
-                      <span className="group-hover:translate-x-2 transition-transform duration-300">
+                      <span className="text-xs text-gray-600">•</span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">
                         COOKIES
                       </span>
                     </div>
@@ -163,7 +163,7 @@ const QuantumFooter = () => {
           <div className="flex flex-col space-y-4 mb-6">
 
             {/* Social Media Icons */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center justify-center sm:justify-start space-x-4">
               {/* Instagram Icon */}
               <a 
                 href="https://instagram.com/neoklar" 
@@ -235,7 +235,7 @@ const QuantumFooter = () => {
           {/* Copyright and Legal in one line */}
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-2 sm:space-y-0">
             {/* Copyright Matrix */}
-            <div className="text-gray-400 font-mono text-sm">
+            <div className="text-gray-400 font-mono text-sm text-center sm:text-left">
               <span className="text-cyan-400">©</span> {currentYear} NEOKLAR 
               <span className="mx-2 text-gray-600">|</span>
               <span className="text-xs">ALLE RECHTE VORBEHALTEN</span>
@@ -261,9 +261,6 @@ const QuantumFooter = () => {
               >
                 COOKIES
               </a>
-              <button className="text-gray-400 hover:text-cyan-400 transition-colors">
-                AGB
-              </button>
             </div>
           </div>
 
