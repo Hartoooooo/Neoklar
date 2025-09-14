@@ -48,10 +48,7 @@ const QuantumQuestionnaire = () => {
     additionalInfo: ''
   })
 
-  // Debug: Log formData changes (removed to prevent performance issues)
-  // useEffect(() => {
-  //   console.log('FormData updated:', formData)
-  // }, [formData])
+  // Debug logging removed to prevent performance issues
   
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isCompleted, setIsCompleted] = useState(false)
@@ -93,9 +90,13 @@ const QuantumQuestionnaire = () => {
       return
     }
 
-    // Basic domain format validation
+    // Always add www. prefix for domain registration check
+    const domainToCheck = `www.${domain}`
+
+    // Basic domain format validation (without www. prefix)
+    const domainWithoutWww = domainToCheck.replace(/^www\./, '')
     const domainRegex = /^[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z]{2,})+$/
-    if (!domainRegex.test(domain)) {
+    if (!domainRegex.test(domainWithoutWww)) {
       setDomainCheckStatus('error')
       return
     }
@@ -105,7 +106,7 @@ const QuantumQuestionnaire = () => {
     try {
       // Using a simple DNS lookup approach
       // This checks if the domain resolves (indicating it's registered)
-      const response = await fetch(`https://dns.google/resolve?name=${domain}&type=A`)
+      const response = await fetch(`https://dns.google/resolve?name=${domainToCheck}&type=A`)
       const data = await response.json()
       
       if (data.Status === 0 && data.Answer && data.Answer.length > 0) {
@@ -3126,7 +3127,7 @@ const QuantumQuestionnaire = () => {
 
   const submitQuestionnaire = () => {
     // Hier würde normalerweise die Datenübertragung stattfinden
-    // console.log('Fragebogen-Daten:', formData) // Debug log removed
+    // Debug log removed
     alert('Fragebogen erfolgreich übermittelt! Wir melden uns binnen 24 Stunden bei Ihnen.')
   }
 
@@ -3139,29 +3140,26 @@ const QuantumQuestionnaire = () => {
         const hasCompanyName = formData.companyName.trim() !== ''
         
         const isValid = hasProjectType || hasIndustry || hasCompanyName
-        console.log('Step 0 validation:', {
-          projectType: formData.projectType,
-          customProjectType: formData.customProjectType,
-          industry: formData.industry,
-          companyName: formData.companyName,
-          hasProjectType,
-          hasIndustry,
-          hasCompanyName,
-          isValid
-        })
         return isValid
       case 1: // INHALT
         return formData.hasContent !== '' && formData.pageCount !== '' && formData.hasImages !== ''
       case 2: // DESIGN
         return formData.designStyle !== '' && (formData.colors.length > 0 || formData.customColors.length > 0)
       case 3: // TECH
-        const techValid = formData.timeline !== '' && formData.budget !== '' && formData.domain !== ''
-        console.log('Tech validation:', {
-          timeline: formData.timeline,
-          budget: formData.budget,
-          domain: formData.domain,
-          isValid: techValid
-        })
+        // Timeline: Either predefined option or custom input
+        const timelineValid = formData.timeline !== '' && formData.timeline !== undefined
+        
+        // Budget: Either predefined option or custom budget input
+        const budgetValid = formData.budget !== '' || formData.customBudget.trim() !== ''
+        
+        // Domain: Either option selected and corresponding input filled
+        const domainValid = formData.domain !== '' && (
+          (formData.domain === 'have' && formData.existingDomain.trim() !== '') ||
+          (formData.domain === 'need_registration' && formData.desiredDomain.trim() !== '') ||
+          (formData.domain === 'need_help')
+        )
+        
+        const techValid = timelineValid && budgetValid && domainValid
         return techValid
       case 4: // SYSTEM
         return formData.accessibility !== ''
@@ -3179,9 +3177,13 @@ const QuantumQuestionnaire = () => {
           formData.designStyle !== '' && 
           (formData.colors.length > 0 || formData.customColors.length > 0) &&
           // TECH - Alle Pflichtfelder
-          formData.timeline !== '' && 
-          formData.budget !== '' && 
-          formData.domain !== '' &&
+          formData.timeline !== '' && formData.timeline !== undefined &&
+          (formData.budget !== '' || formData.customBudget.trim() !== '') &&
+          formData.domain !== '' && (
+            (formData.domain === 'have' && formData.existingDomain.trim() !== '') ||
+            (formData.domain === 'need_registration' && formData.desiredDomain.trim() !== '') ||
+            (formData.domain === 'need_help')
+          ) &&
           // SYSTEM - Alle Pflichtfelder
           formData.accessibility !== '' &&
           // KONTAKT - Alle Pflichtfelder
@@ -3219,9 +3221,13 @@ const QuantumQuestionnaire = () => {
         if (formData.colors.length === 0 && formData.customColors.length === 0) missing.push('Farbauswahl')
         break
       case 3: // TECH
-        if (formData.timeline === '') missing.push('Timeline')
-        if (formData.budget === '') missing.push('Budget')
-        if (formData.domain === '') missing.push('Domain')
+        if (!(formData.timeline !== '' && formData.timeline !== undefined)) missing.push('Timeline')
+        if (!(formData.budget !== '' || formData.customBudget.trim() !== '')) missing.push('Budget')
+        if (!(formData.domain !== '' && (
+          (formData.domain === 'have' && formData.existingDomain.trim() !== '') ||
+          (formData.domain === 'need_registration' && formData.desiredDomain.trim() !== '') ||
+          (formData.domain === 'need_help')
+        ))) missing.push('Domain')
         break
       case 4: // SYSTEM
         if (formData.accessibility === '') missing.push('Barrierefreiheit')
@@ -3239,9 +3245,13 @@ const QuantumQuestionnaire = () => {
         if (formData.designStyle === '') missing.push('Design-Stil')
         if (formData.colors.length === 0 && formData.customColors.length === 0) missing.push('Farbauswahl')
         // TECH
-        if (formData.timeline === '') missing.push('Timeline')
-        if (formData.budget === '') missing.push('Budget')
-        if (formData.domain === '') missing.push('Domain')
+        if (!(formData.timeline !== '' && formData.timeline !== undefined)) missing.push('Timeline')
+        if (!(formData.budget !== '' || formData.customBudget.trim() !== '')) missing.push('Budget')
+        if (!(formData.domain !== '' && (
+          (formData.domain === 'have' && formData.existingDomain.trim() !== '') ||
+          (formData.domain === 'need_registration' && formData.desiredDomain.trim() !== '') ||
+          (formData.domain === 'need_help')
+        ))) missing.push('Domain')
         // SYSTEM
         if (formData.accessibility === '') missing.push('Barrierefreiheit')
         // KONTAKT
@@ -3311,8 +3321,6 @@ const QuantumQuestionnaire = () => {
                 <div 
                   onClick={() => {
                     // Debug logs removed
-                    // console.log('Sonstige clicked, current projectType:', formData.projectType)
-                    // console.log('Current customProjectType:', formData.customProjectType)
                     if (formData.projectType !== 'other') {
                       handleInputChange('projectType', 'other')
                     }
@@ -3343,7 +3351,7 @@ const QuantumQuestionnaire = () => {
                         value={formData.customProjectType}
                         onChange={(e) => {
                           e.stopPropagation();
-                          console.log('Custom project type onChange:', e.target.value)
+                          // Custom project type onChange
                           handleInputChange('customProjectType', e.target.value);
                           if (e.target.value.trim() !== '') {
                             handleInputChange('projectType', 'other');
@@ -3391,12 +3399,10 @@ const QuantumQuestionnaire = () => {
                 value={formData.companyName}
                 onChange={(e) => {
                   // Debug logs removed
-                  // console.log('Input onChange triggered:', e.target.value)
-                  // console.log('Current formData.companyName:', formData.companyName)
                   handleInputChange('companyName', e.target.value)
                 }}
                 onInput={(e) => {
-                  console.log('Input onInput triggered:', (e.target as HTMLInputElement).value)
+                  // Input onInput handler
                 }}
                 className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-white placeholder-gray-400 transition-all duration-300 text-base"
                 placeholder="Ihr Unternehmen..."
@@ -3847,7 +3853,6 @@ const QuantumQuestionnaire = () => {
                   <button
                     key={option.value}
                     onClick={() => {
-                      console.log('Timeline button clicked:', option.value)
                       handleInputChange('timeline', option.value)
                     }}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 flex items-center ${
@@ -3867,7 +3872,7 @@ const QuantumQuestionnaire = () => {
                   placeholder="Eigene"
                   value={formData.timeline === '2weeks' || formData.timeline === '1month' || formData.timeline === '3months' ? '' : formData.timeline || ''}
                   onChange={(e) => {
-                    // console.log('Timeline input onChange triggered:', e.target.value) // Debug log removed
+                    // Debug log removed
                     handleInputChange('timeline', e.target.value)
                   }}
                   className="p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 bg-black/40 border-gray-600 text-gray-300 placeholder-gray-500 focus:border-orange-400/50 focus:outline-none"
@@ -3888,7 +3893,7 @@ const QuantumQuestionnaire = () => {
                   <button
                     key={option.value}
                     onClick={() => {
-                      console.log('Budget button clicked:', option.value)
+                      // Budget button clicked
                       handleInputChange('budget', option.value)
                     }}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 flex items-center ${
@@ -3909,7 +3914,7 @@ const QuantumQuestionnaire = () => {
                   placeholder="Ihr Budget"
                   value={formData.customBudget || ''}
                   onChange={(e) => {
-                    // console.log('Budget input onChange triggered:', e.target.value) // Debug log removed
+                    // Debug log removed
                     handleInputChange('customBudget', e.target.value)
                   }}
                   className="p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 bg-black/40 border-gray-600 text-gray-300 placeholder-gray-500 focus:border-orange-400/50 focus:outline-none"
@@ -3931,7 +3936,7 @@ const QuantumQuestionnaire = () => {
                   <button
                     key={option.value}
                     onClick={() => {
-                      console.log('Domain button clicked:', option.value)
+                      // Domain button clicked
                       handleInputChange('domain', option.value)
                     }}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 flex items-center justify-between relative group ${
@@ -3977,7 +3982,7 @@ const QuantumQuestionnaire = () => {
                     placeholder="Ihre bestehende Domain (z.B. meine-firma.de)"
                     value={formData.existingDomain || ''}
                     onChange={(e) => {
-                      // console.log('Existing domain input onChange triggered:', e.target.value) // Debug log removed
+                      // Debug log removed
                       handleInputChange('existingDomain', e.target.value)
                     }}
                     className="w-full p-2 border-2 rounded-xl transition-all duration-300 bg-black/40 border-orange-400 text-white placeholder-orange-300/70 focus:border-orange-300 focus:outline-none h-12"
@@ -3989,23 +3994,30 @@ const QuantumQuestionnaire = () => {
               {formData.domain === 'need_registration' && (
                 <div className="mt-4">
                   <div className="relative">
-                    <input
-                      type="text"
-                      name="desiredDomain"
-                      placeholder="Gewünschte Domain (z.B. neue-firma.de)"
-                      value={formData.desiredDomain || ''}
-                      onChange={(e) => {
-                        // console.log('Desired domain input onChange triggered:', e.target.value) // Debug log removed
-                        handleInputChange('desiredDomain', e.target.value)
-                      }}
-                      className={`w-full p-2 border-2 rounded-xl transition-all duration-300 bg-black/40 text-white placeholder-orange-300/70 focus:outline-none h-12 pr-10 ${
-                        domainCheckStatus === 'available' ? 'border-green-400 focus:border-green-300' :
-                        domainCheckStatus === 'taken' ? 'border-red-400 focus:border-red-300' :
-                        domainCheckStatus === 'error' ? 'border-yellow-400 focus:border-yellow-300' :
-                        'border-orange-400 focus:border-orange-300'
-                      }`}
-                      style={{ fontSize: '13px' }}
-                    />
+                    <div className="relative">
+                      <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white pointer-events-none" style={{ fontSize: '13px' }}>
+                        www.
+                      </span>
+                      <input
+                        type="text"
+                        name="desiredDomain"
+                        placeholder="neue-firma.de"
+                        value={formData.desiredDomain || ''}
+                        onChange={(e) => {
+                          let domainValue = e.target.value
+                          // Remove www. if user tries to type it manually
+                          domainValue = domainValue.replace(/^www\./, '')
+                          handleInputChange('desiredDomain', domainValue)
+                        }}
+                        className={`w-full pl-12 pr-10 p-2 border-2 rounded-xl transition-all duration-300 bg-black/40 text-white placeholder-orange-300/70 focus:outline-none h-12 ${
+                          domainCheckStatus === 'available' ? 'border-green-400 focus:border-green-300' :
+                          domainCheckStatus === 'taken' ? 'border-red-400 focus:border-red-300' :
+                          domainCheckStatus === 'error' ? 'border-yellow-400 focus:border-yellow-300' :
+                          'border-orange-400 focus:border-orange-300'
+                        }`}
+                        style={{ fontSize: '13px' }}
+                      />
+                    </div>
                     
                     {/* Status indicator */}
                     <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
@@ -4206,7 +4218,7 @@ const QuantumQuestionnaire = () => {
                     <span className="text-gray-400">Domain:</span>
                     <span className="text-white font-medium">
                       {formData.domain === 'have' ? `Vorhanden: ${formData.existingDomain || 'Nicht angegeben'}` :
-                       formData.domain === 'need_registration' ? `Registrierung: ${formData.desiredDomain || 'Nicht angegeben'}` :
+                       formData.domain === 'need_registration' ? `Registrierung: www.${formData.desiredDomain || 'Nicht angegeben'}` :
                        formData.domain === 'need_help' ? 'Brauche Hilfe' : 'Nicht gewählt'}
                     </span>
                   </div>
@@ -4348,7 +4360,7 @@ const QuantumQuestionnaire = () => {
 
   if (isCompleted) {
     return (
-      <div id="questionnaire" className="relative min-h-screen bg-transparent flex items-center justify-center overflow-hidden">
+      <div id="questionnaire" className="relative min-h-screen bg-transparent flex items-center justify-center py-24 overflow-hidden">
         {/* Success Animation Background */}
         <div className="absolute inset-0">
           {Array.from({ length: 20 }).map((_, i) => (
@@ -4422,9 +4434,9 @@ const QuantumQuestionnaire = () => {
   }
 
   return (
-    <div id="questionnaire" className="relative min-h-screen bg-transparent overflow-hidden">
+    <div id="questionnaire" className="relative min-h-screen bg-transparent py-24 overflow-hidden hidden md:block">
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-6xl md:text-8xl font-black bg-gradient-to-r from-white via-cyan-300 to-purple-400 bg-clip-text text-transparent mb-6">

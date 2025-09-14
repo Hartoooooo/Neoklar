@@ -77,9 +77,9 @@ const QuantumContact = () => {
   ]
 
   return (
-    <div id="contact" className="relative min-h-screen bg-transparent overflow-hidden">
+    <div id="contact" className="relative min-h-screen bg-transparent py-24 overflow-hidden">
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Quantum Header */}
         <div className="text-center mb-20">
           <div className="relative inline-block">

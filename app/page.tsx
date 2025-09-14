@@ -1,5 +1,6 @@
 import QuantumNavigation from '@/components/QuantumNavigation'
 import UltraModernHero from '@/components/UltraModernHero'
+import { HeroSectionOne } from '@/components/HeroSectionOne'
 import AbstractServices from '@/components/AbstractServices'
 import TechAdvantages from '@/components/TechAdvantages'
 import QuantumQuestionnaire from '@/components/QuantumQuestionnaire'
@@ -46,7 +47,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-transparent">
       <QuantumNavigation />
+      {/* Wähle zwischen UltraModernHero oder HeroSectionOne */}
       <UltraModernHero />
+      {/* <HeroSectionOne /> */}
       <AbstractServices />
       <TechAdvantages />
       <QuantumQuestionnaire />

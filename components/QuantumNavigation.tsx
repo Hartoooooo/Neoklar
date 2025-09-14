@@ -38,7 +38,7 @@ const QuantumNavigation = () => {
 
   const navItems = [
     { id: 'services', label: 'PROJEKTE', href: '#services', code: '01' },
-    { id: 'questionnaire', label: 'ANALYSE', href: '#questionnaire', code: '02' },
+    { id: 'questionnaire', label: 'ANALYSE', href: '#questionnaire', code: '02', mobileHidden: true },
     { id: 'contact', label: 'KONTAKT', href: '#contact', code: '03' },
   ]
 
@@ -66,7 +66,6 @@ const QuantumNavigation = () => {
               <span className="md:hidden">Neoklar</span>
               <span className="hidden md:inline">N&lt;/&gt;K</span>
             </h1>
-            <div className="absolute -inset-2 border border-cyan-500/30 transform rotate-45 opacity-0 md:group-hover:opacity-100 transition-all duration-500"></div>
           </div>
 
           {/* Mobile Hamburger Menu - Clean 3 Lines Only */}
@@ -139,19 +138,21 @@ const QuantumNavigation = () => {
             isScrolled ? '' : 'bg-black/95 backdrop-blur-xl rounded-b-3xl'
           }`}>
             {navItems.map((item, index) => (
-              <button
-                key={item.id}
-                onClick={() => {
-                  scrollToSection(item.href)
-                  setIsHologramMode(false)
-                }}
-                className={`block w-full text-left px-6 py-3 font-mono uppercase tracking-widest text-sm transition-colors duration-200 focus:outline-none ${
-                  activeSection === item.id ? 'text-cyan-400' : 'text-gray-300 active:text-cyan-400'
-                }`}
-              >
-                <span className="text-xs text-cyan-600 mr-4">{item.code}</span>
-                <span>{item.label}</span>
-              </button>
+              !item.mobileHidden && (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    scrollToSection(item.href)
+                    setIsHologramMode(false)
+                  }}
+                  className={`block w-full text-left px-6 py-3 font-mono uppercase tracking-widest text-sm transition-colors duration-200 focus:outline-none ${
+                    activeSection === item.id ? 'text-cyan-400' : 'text-gray-300 active:text-cyan-400'
+                  }`}
+                >
+                  <span className="text-xs text-cyan-600 mr-4">{item.code}</span>
+                  <span>{item.label}</span>
+                </button>
+              )
             ))}
             
             {/* Mobile Status - Simplified */}

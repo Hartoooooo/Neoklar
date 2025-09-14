@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import { IconBrandNextjs, IconBrandReact, IconBrandTailwind } from '@tabler/icons-react'
+import { cn } from '@/lib/utils'
 
 const UltraModernHero = () => {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -90,17 +92,39 @@ const UltraModernHero = () => {
             </button>
           </div>
 
-          {/* Status Indicators */}
-          <div className={`mt-20 flex justify-center space-x-8 transform transition-all duration-2000 delay-1500 ease-out ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-quantum-400 rounded-full animate-pulse"></div>
-              <span className="text-gray-400 font-mono text-sm">SYSTEM.ONLINE</span>
+          {/* Technology Icons */}
+          <div className={cn(
+            "mt-16 flex justify-center items-center space-x-8 transform transition-all duration-2000 delay-1200 ease-out",
+            isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          )}>
+            {/* Next.js Icon */}
+            <div className="flex items-center space-x-3 group">
+              <div className="transition-transform duration-300 group-hover:scale-110">
+                <IconBrandNextjs className="w-8 h-8 text-cyan-400" />
+              </div>
+              <span className="text-sm text-gray-400 font-medium">Next.js</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-cyber-400 rounded-full animate-pulse"></div>
-              <span className="text-gray-400 font-mono text-sm">KI.BEREIT</span>
+
+            {/* React Icon */}
+            <div className="flex items-center space-x-3 group">
+              <div className="transition-transform duration-300 group-hover:scale-110">
+                <IconBrandReact className="w-8 h-8 text-cyan-400" />
+              </div>
+              <span className="text-sm text-gray-400 font-medium">React</span>
             </div>
+
+            {/* TailwindCSS Icon */}
+            <div className="flex items-center space-x-3 group">
+              <div className="transition-transform duration-300 group-hover:scale-110">
+                <svg viewBox="0 0 24 24" className="w-8 h-8 text-cyan-400" fill="currentColor">
+                  <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C7.666,17.818,9.027,19.2,12.001,19.2c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
+                </svg>
+              </div>
+              <span className="text-sm text-gray-400 font-medium">TailwindCSS</span>
+            </div>
+
           </div>
+
         </div>
       </div>
 

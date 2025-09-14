@@ -34,44 +34,11 @@ const AbstractServices = () => {
       websiteUrl: 'https://xn--schrfservice-hartmann-71b.de/',
       alt: 'Schärfservice Hartmann - Professionelle Schärfservice Website mit modernem Design'
     },
-    {
-      id: '03',
-      title: 'PORTFOLIO WEBSITE',
-      subtitle: 'React + TypeScript',
-      description: 'Ihre Arbeiten perfekt präsentieren und neue Aufträge gewinnen',
-      icon: '🎨',
-      color: 'from-green-400 to-emerald-600',
-      glowColor: 'shadow-quantum',
-      pattern: 'diamond',
-      technology: 'React',
-      websiteUrl: 'https://portfolio-demo.vercel.app'
-    },
-    {
-      id: '04',
-      title: 'WEB APP',
-      subtitle: 'Vue.js + Node.js',
-      description: 'Geschäftsprozesse digitalisieren und Ihren Erfolg automatisieren',
-      icon: '⚡',
-      color: 'from-orange-400 to-red-600',
-      glowColor: 'shadow-cyber',
-      pattern: 'circle',
-      technology: 'Vue.js',
-      websiteUrl: 'https://webapp-demo.vercel.app'
-    }
   ]
 
-  const getGeometricShape = (pattern: string) => {
-    const shapes = {
-      hexagon: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-      triangle: 'polygon(50% 0%, 0% 100%, 100% 100%)',
-      diamond: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
-      circle: 'circle(50% at 50% 50%)'
-    }
-    return shapes[pattern as keyof typeof shapes] || shapes.hexagon
-  }
 
   return (
-    <div id="services" className="relative min-h-screen bg-transparent py-32 overflow-hidden">
+    <div id="services" className="relative min-h-screen bg-transparent py-24 overflow-hidden">
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Quantum Header */}
