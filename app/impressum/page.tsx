@@ -44,8 +44,9 @@ const ImpressumPage = () => {
               <div className="space-y-4 text-gray-300">
                 <div>
                   <div className="text-white font-semibold mb-2">Unternehmen:</div>
-                  <div>NEOKLAR</div>
-                  <div>Webentwicklung & Digitale Lösungen</div>
+                  <div>Timon Hartmann</div>
+                  <div>Jungfernstr. 18</div>
+                  <div>15344 Strausberg</div>
                 </div>
                 
                 <div>
@@ -61,8 +62,9 @@ const ImpressumPage = () => {
                 Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
               </h2>
               <div className="space-y-4 text-gray-300">
-                <div>NEOKLAR</div>
-                <div>Webentwicklung & Digitale Lösungen</div>
+                <div>Timon Hartmann</div>
+                <div>Jungfernstr. 18</div>
+                <div>15344 Strausberg</div>
                 <div>E-Mail: neoklar.info@gmail.com</div>
               </div>
             </div>

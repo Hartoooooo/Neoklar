@@ -64,13 +64,12 @@ const DatenschutzPage = () => {
                   Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
                 </p>
                 <div className="bg-black/40 border border-purple-400/30 rounded-xl p-4">
-                  <div>NEOKLAR</div>
-                  <div>[Ihre Straße und Hausnummer]</div>
-                  <div>[Ihre PLZ und Stadt]</div>
+                  <div>Timon Hartmann</div>
+                  <div>Jungfernstr. 18</div>
+                  <div>15344 Strausberg</div>
                   <div>Deutschland</div>
                   <div className="mt-2">
-                    <div>E-Mail: info@neoklar.de</div>
-                    <div>Telefon: [Ihre Telefonnummer]</div>
+                    <div>E-Mail: neoklar.info@gmail.com</div>
                   </div>
                 </div>
               </div>
@@ -198,8 +197,8 @@ const DatenschutzPage = () => {
               <p>Stand: {new Date().toLocaleDateString('de-DE')}</p>
               <p className="mt-2">
                 Bei Fragen zum Datenschutz wenden Sie sich gerne an: 
-                <a href="mailto:info@neoklar.de" className="text-cyan-400 hover:text-cyan-300 ml-1">
-                  info@neoklar.de
+                <a href="mailto:neoklar.info@gmail.com" className="text-cyan-400 hover:text-cyan-300 ml-1">
+                  neoklar.info@gmail.com
                 </a>
               </p>
             </div>

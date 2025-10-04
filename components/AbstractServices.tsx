@@ -164,6 +164,23 @@ const AbstractServices = () => {
                           </div>
                         </div>
                       )}
+                      
+                      {/* SEO Success for Schärfservice */}
+                      {service.id === '02' && (
+                        <div className="mt-4">
+                          <div className="flex items-center space-x-3">
+                            <div className="flex items-center space-x-2">
+                              <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                              </svg>
+                              <span className="text-cyan-400 font-semibold text-sm">SEO-Erfolg:</span>
+                            </div>
+                            <span className="text-white text-sm">
+                              Platz 1 bei "dentalinstrumente schärfen berlin"
+                            </span>
+                          </div>
+                        </div>
+                      )}
                     </div>
                     
                     <p className="text-gray-300 text-sm leading-relaxed">
