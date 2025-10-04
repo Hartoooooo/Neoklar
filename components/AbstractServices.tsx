@@ -176,7 +176,7 @@ const AbstractServices = () => {
                               <span className="text-cyan-400 font-semibold text-sm">SEO-Erfolg:</span>
                             </div>
                             <span className="text-white text-sm">
-                              Platz 1 bei "dentalinstrumente schärfen berlin"
+                              Platz 1 bei &quot;dentalinstrumente schärfen berlin&quot;
                             </span>
                           </div>
                         </div>
