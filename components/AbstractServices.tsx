@@ -39,7 +39,7 @@ const AbstractServices = () => {
 
 
   return (
-    <div id="services" className="relative min-h-screen bg-transparent py-24 overflow-hidden">
+    <div id="services" className="hidden relative min-h-screen bg-transparent py-24 overflow-hidden">
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Quantum Header */}

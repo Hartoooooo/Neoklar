@@ -169,70 +169,6 @@ const TechAdvantages = () => {
     }
   ]
 
-  const businessValues = [
-    {
-      title: 'KUNDENVERTRAUEN',
-      description: 'Professionelle Website schafft sofortiges Vertrauen bei neuen Kunden',
-      metric: '85%',
-      label: 'Vertrauenszuwachs',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
-    },
-    {
-      title: 'UMSATZSTEIGERUNG',
-      description: 'Bessere Auffindbarkeit führt direkt zu mehr Anfragen und Verkäufen',
-      metric: '+250%',
-      label: 'Online-Anfragen',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-          <path d="M3 3v18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M15 8h3.7v3.7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
-    },
-    {
-      title: 'WENIGER STRESS',
-      description: 'Alles läuft automatisch - Sie können sich auf Ihr Geschäft konzentrieren',
-      metric: '24/7',
-      label: 'Verfügbarkeit',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-          <path d="M8 3a5 5 0 1 0 0 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M16 3a5 5 0 1 1 0 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M2 16h20l-4 4H6l-4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
-    },
-    {
-      title: 'KOSTENEINSPARUNG',
-      description: 'Weniger teure Werbung nötig - Ihre Website arbeitet für Sie',
-      metric: '60%',
-      label: 'weniger Werbekosten',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-          <line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
-    },
-    {
-      title: 'ZUKUNFTSSICHER',
-      description: 'Ihre Website wächst mit Ihrem Unternehmen mit - langfristige Investition',
-      metric: '10+',
-      label: 'Jahre haltbar',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-          <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
-    }
-  ]
 
   return (
     <div id="tech-advantages" className="relative min-h-screen bg-transparent py-24 overflow-hidden">
@@ -381,46 +317,6 @@ const TechAdvantages = () => {
           </div>
         </div>
 
-        {/* Business Value Grid */}
-        <div id="business-values-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-20">
-          {businessValues.map((value, index) => (
-            <div
-              key={index}
-              className={`relative bg-black/60 backdrop-blur-xl border border-cyan-500/30 rounded-2xl p-6 transition-all duration-500 ${
-                businessValuesVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-              }`}
-              style={{
-                transitionDelay: `${200 + index * 150}ms`,
-                transitionDuration: '600ms'
-              }}
-            >
-              
-              <div className="relative text-center">
-                {/* Icon */}
-                <div className="w-12 h-12 mx-auto mb-4 text-cyan-400">
-                  {value.icon}
-                </div>
-                
-                {/* Metric - Hidden on Mobile */}
-                <div className="hidden md:block mb-4">
-                  <div className="text-3xl font-black text-cyan-400 mb-1">{value.metric}</div>
-                  <div className="text-xs text-gray-400 font-mono uppercase tracking-wider">{value.label}</div>
-                </div>
-                
-                {/* Title */}
-                <h4 className="text-lg font-bold text-white mb-3">
-                  {value.title}
-                </h4>
-                
-                {/* Description */}
-                <p className="text-sm text-gray-300 leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
-
-            </div>
-          ))}
-        </div>
 
       </div>
     </div>

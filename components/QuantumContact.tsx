@@ -58,14 +58,7 @@ const QuantumContact = () => {
       value: 'neoklar.info@gmail.com',
       icon: '⟡',
       color: 'from-cyan-400 to-blue-500'
-    },
-    { 
-      id: 'frequency', 
-      title: 'NEURALE FREQUENZ', 
-      value: '+49.MATRIX.LINK',
-      icon: '◈',
-      color: 'from-purple-400 to-pink-500'
-    },
+    }
   ]
 
   const projectTypes = [
