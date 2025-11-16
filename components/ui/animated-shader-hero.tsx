@@ -423,6 +423,17 @@ const Hero: React.FC<HeroProps> = ({
         }}
       />
       
+      {/* Smooth Transition Gradient - Extrem sanfter Übergang zum globalen Hintergrund */}
+      <div 
+        className="absolute inset-x-0 bottom-0 z-[5] pointer-events-none"
+        style={{
+          height: '50vh',
+          background: 'linear-gradient(to bottom, transparent 0%, transparent 25%, rgba(0,0,0,0.05) 35%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.35) 65%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0.85) 92%, rgba(0,0,0,1) 100%)',
+          mixBlendMode: 'normal',
+          willChange: 'opacity'
+        }}
+      />
+      
       {/* Hero Content Overlay */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white">
         {/* Trust Badge */}

@@ -108,8 +108,8 @@ void main(){gl_Position=position;}`
       gl.bindBuffer(gl.ARRAY_BUFFER, this.buffer)
       
       gl.uniform2f((program as any).resolution, this.canvas.width, this.canvas.height)
-      // Langsamere Bewegung: 0.2x Geschwindigkeit
-      gl.uniform1f((program as any).time, now * 1e-3 * 0.2)
+      // Langsamere Bewegung für sanften Übergang, aber synchron mit Hero-Start
+      gl.uniform1f((program as any).time, now * 1e-3 * 0.3)
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
     }
   }
