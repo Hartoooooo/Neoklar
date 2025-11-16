@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import GlobalBackground from '@/components/GlobalBackground'
+import ShaderBackground from '@/components/ShaderBackground'
 import StructuredData from '@/components/StructuredData'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import PerformanceMonitor from '@/components/PerformanceMonitor'
@@ -90,13 +91,14 @@ export default function RootLayout({
       <head>
         <StructuredData />
       </head>
-      <body className={`${inter.className} bg-black`}>
+      <body className={`${inter.className}`} style={{ background: 'transparent' }}>
         <GoogleAnalytics />
         <PerformanceMonitor />
         <SecurityMonitor />
         <SEOOptimizer />
+        <ShaderBackground />
         <GlobalBackground />
-        <div className="relative z-10">
+        <div className="relative z-10" style={{ paddingLeft: 0, paddingRight: 0, marginLeft: 0, marginRight: 0, width: '100%', maxWidth: 'none' }}>
           {children}
         </div>
       </body>

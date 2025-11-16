@@ -15,14 +15,20 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background: #000000;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
   color: #ffffff;
-  background: #000000;
+  background: transparent;
   line-height: 1.6;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 a {

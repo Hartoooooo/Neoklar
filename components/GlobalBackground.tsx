@@ -31,7 +31,7 @@ const GlobalBackground = () => {
   }, [])
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0">
+    <div className="fixed inset-0 pointer-events-none" style={{ zIndex: -2, display: 'none' }}>
       {/* Animated Mesh Background */}
       <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
       

@@ -37,7 +37,7 @@ export function HeroSectionOne() {
                   delay: index * 0.1,
                   ease: "easeInOut",
                 }}
-                className="mr-2 inline-block">
+                style={{ display: 'inline-block', marginRight: '0.5rem' }}>
                 {word}
               </motion.span>
             ))}
@@ -53,7 +53,7 @@ export function HeroSectionOne() {
             duration: 0.3,
             delay: 0.8,
           }}
-          className="relative z-10 mx-auto max-w-xl py-4 text-lg font-normal text-gray-300">
+          style={{ position: 'relative', zIndex: 10, margin: '0 auto', maxWidth: '36rem', paddingTop: '1rem', paddingBottom: '1rem', fontSize: '1.125rem', fontWeight: 400, color: '#d1d5db' }}>
           Mit KI-gestützter Technologie machen wir Sie sichtbar. Moderne Webentwicklung 
           mit Next.js, React und Tailwind CSS für maximale Performance und Benutzerfreundlichkeit.
         </motion.p>
@@ -68,7 +68,7 @@ export function HeroSectionOne() {
             duration: 0.3,
             delay: 1,
           }}
-          className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4">
+          style={{ position: 'relative', zIndex: 10, marginTop: '2rem', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
           <button
             onClick={() => {
               const element = document.querySelector('#contact')
@@ -103,7 +103,7 @@ export function HeroSectionOne() {
             duration: 0.3,
             delay: 1.2,
           }}
-          className="relative z-10 mt-20 rounded-3xl border border-gray-700 bg-gray-900/50 p-4 shadow-md backdrop-blur-sm">
+          style={{ position: 'relative', zIndex: 10, marginTop: '5rem', borderRadius: '1.5rem', border: '1px solid rgba(55, 65, 81, 1)', backgroundColor: 'rgba(17, 24, 39, 0.5)', padding: '1rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', backdropFilter: 'blur(4px)' }}>
           <div
             className="w-full overflow-hidden rounded-xl border border-gray-600">
             <Image

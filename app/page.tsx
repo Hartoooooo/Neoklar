@@ -1,5 +1,6 @@
 import QuantumNavigation from '@/components/QuantumNavigation'
 import UltraModernHero from '@/components/UltraModernHero'
+import AnimatedShaderHero from '@/components/AnimatedShaderHero'
 import { HeroSectionOne } from '@/components/HeroSectionOne'
 import AbstractServices from '@/components/AbstractServices'
 import TechAdvantages from '@/components/TechAdvantages'
@@ -47,8 +48,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-transparent">
       <QuantumNavigation />
-      {/* Wähle zwischen UltraModernHero oder HeroSectionOne */}
-      <UltraModernHero />
+      {/* Wähle zwischen AnimatedShaderHero, UltraModernHero oder HeroSectionOne */}
+      <AnimatedShaderHero />
+      {/* <UltraModernHero /> */}
       {/* <HeroSectionOne /> */}
       <AbstractServices />
       <TechAdvantages />
