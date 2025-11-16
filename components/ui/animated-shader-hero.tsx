@@ -423,16 +423,86 @@ const Hero: React.FC<HeroProps> = ({
         }}
       />
       
-      {/* Smooth Transition Gradient - Extrem sanfter Übergang zum globalen Hintergrund */}
+      {/* Organischer, fließender Übergang mit Blur - Verschiedene Höhen */}
       <div 
-        className="absolute inset-x-0 bottom-0 z-[5] pointer-events-none"
+        className="absolute inset-x-0 bottom-0 z-[5] pointer-events-none overflow-hidden"
         style={{
-          height: '50vh',
-          background: 'linear-gradient(to bottom, transparent 0%, transparent 25%, rgba(0,0,0,0.05) 35%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.35) 65%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0.85) 92%, rgba(0,0,0,1) 100%)',
-          mixBlendMode: 'normal',
-          willChange: 'opacity'
+          height: '60vh',
+          filter: 'blur(40px)',
+          WebkitFilter: 'blur(40px)',
+          maskImage: 'radial-gradient(ellipse 80% 50% at 50% 100%, black 0%, transparent 70%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 80% 50% at 50% 100%, black 0%, transparent 70%)'
         }}
-      />
+      >
+        {/* Erste Welle - tiefer */}
+        <div 
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: '10%',
+            width: '35%',
+            height: '45vh',
+            background: 'radial-gradient(ellipse 100% 60% at 50% 100%, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%)',
+            transform: 'translateX(-10%)',
+            filter: 'blur(30px)',
+            WebkitFilter: 'blur(30px)'
+          }}
+        />
+        {/* Zweite Welle - höher */}
+        <div 
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: '40%',
+            width: '30%',
+            height: '55vh',
+            background: 'radial-gradient(ellipse 90% 50% at 50% 100%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 35%, transparent 100%)',
+            transform: 'translateX(-5%)',
+            filter: 'blur(35px)',
+            WebkitFilter: 'blur(35px)'
+          }}
+        />
+        {/* Dritte Welle - mittlere Höhe */}
+        <div 
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: '65%',
+            width: '35%',
+            height: '50vh',
+            background: 'radial-gradient(ellipse 110% 55% at 50% 100%, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 45%, transparent 100%)',
+            transform: 'translateX(5%)',
+            filter: 'blur(32px)',
+            WebkitFilter: 'blur(32px)'
+          }}
+        />
+        {/* Vierte Welle - tiefer rechts */}
+        <div 
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            right: '5%',
+            width: '25%',
+            height: '40vh',
+            background: 'radial-gradient(ellipse 95% 65% at 50% 100%, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 50%, transparent 100%)',
+            filter: 'blur(28px)',
+            WebkitFilter: 'blur(28px)'
+          }}
+        />
+        {/* Basis-Übergang für gleichmäßige Abdeckung */}
+        <div 
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: '35vh',
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.95) 100%)',
+            filter: 'blur(25px)',
+            WebkitFilter: 'blur(25px)'
+          }}
+        />
+      </div>
       
       {/* Hero Content Overlay */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white">
