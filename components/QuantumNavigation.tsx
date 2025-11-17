@@ -82,11 +82,6 @@ const QuantumNavigation = () => {
                     : isScrolled ? 'text-gray-300 md:hover:text-cyan-400' : 'text-white md:hover:text-cyan-400'
                 }`}
               >
-                {/* Code Number */}
-                <span className="absolute -top-2 -left-2 text-xs text-cyan-600 font-mono opacity-60">
-                  {item.code}
-                </span>
-                
                 {/* Main Label */}
                 <span className="relative z-10">{item.label}</span>
                 
@@ -139,7 +134,6 @@ const QuantumNavigation = () => {
                     activeSection === item.id ? 'text-cyan-400' : 'text-gray-300 active:text-cyan-400'
                   }`}
                 >
-                  <span className="text-xs text-cyan-600 mr-4">{item.code}</span>
                   <span>{item.label}</span>
                 </button>
               )
