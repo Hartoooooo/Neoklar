@@ -23,6 +23,7 @@ interface HeroProps {
       onClick?: () => void;
     };
   };
+  techIcons?: React.ReactNode;
   className?: string;
 }
 
@@ -47,6 +48,7 @@ const useShaderBackground = () => {
     private mouseCoords: [number, number] = [0, 0];
     private pointerCoords: number[] = [0, 0];
     private nbrOfPointers = 0;
+    private particleOpacity = 1.0;
 
     private vertexSrc = `#version 300 es
 precision highp float;
@@ -84,6 +86,10 @@ void main(){gl_Position=position;}`;
 
     updatePointerCount(nbr: number) {
       this.nbrOfPointers = nbr;
+    }
+
+    updateParticleOpacity(opacity: number) {
+      this.particleOpacity = Math.max(0, Math.min(1, opacity));
     }
 
     updateScale(scale: number) {
@@ -165,6 +171,7 @@ void main(){gl_Position=position;}`;
       (program as any).touch = gl.getUniformLocation(program, 'touch');
       (program as any).pointerCount = gl.getUniformLocation(program, 'pointerCount');
       (program as any).pointers = gl.getUniformLocation(program, 'pointers');
+      (program as any).particleOpacity = gl.getUniformLocation(program, 'particleOpacity');
     }
 
     render(now = 0) {
@@ -184,6 +191,7 @@ void main(){gl_Position=position;}`;
       gl.uniform2f((program as any).touch, this.mouseCoords[0], this.mouseCoords[1]);
       gl.uniform1i((program as any).pointerCount, this.nbrOfPointers);
       gl.uniform2fv((program as any).pointers, this.pointerCoords);
+      gl.uniform1f((program as any).particleOpacity, this.particleOpacity);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     }
   }
@@ -292,6 +300,26 @@ void main(){gl_Position=position;}`;
     animationFrameRef.current = requestAnimationFrame(loop);
   };
 
+  const handleScroll = () => {
+    if (!rendererRef.current) return;
+    
+    const scrollY = window.scrollY;
+    const heroHeight = window.innerHeight;
+    
+    // Berechne Opazität: 1.0 wenn in Hero-Sektion, 0.0 wenn komplett rausgescrollt
+    // Fade-Out beginnt bei 50% der Hero-Höhe und endet bei 100%
+    const fadeStart = heroHeight * 0.5;
+    const fadeEnd = heroHeight;
+    
+    let opacity = 1.0;
+    if (scrollY > fadeStart) {
+      const fadeProgress = (scrollY - fadeStart) / (fadeEnd - fadeStart);
+      opacity = Math.max(0, 1 - fadeProgress);
+    }
+    
+    rendererRef.current.updateParticleOpacity(opacity);
+  };
+
   useEffect(() => {
     if (!canvasRef.current) return;
 
@@ -313,9 +341,14 @@ void main(){gl_Position=position;}`;
     loop(0);
     
     window.addEventListener('resize', resize);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial opacity setzen
+    handleScroll();
     
     return () => {
       window.removeEventListener('resize', resize);
+      window.removeEventListener('scroll', handleScroll);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
@@ -335,19 +368,22 @@ const Hero: React.FC<HeroProps> = ({
   headline,
   subtitle,
   buttons,
+  techIcons,
   className = ""
 }) => {
   const canvasRef = useShaderBackground();
 
   return (
-    <div className={`relative w-screen h-screen overflow-hidden bg-black ${className}`} style={{ 
+    <div className={`relative w-screen min-h-screen overflow-hidden bg-transparent ${className}`} style={{ 
       width: '100vw',
       marginLeft: 'calc(-1 * (100vw - 100%) / 2)',
       marginRight: 'calc(-1 * (100vw - 100%) / 2)',
       paddingLeft: 0,
       paddingRight: 0,
       maxWidth: 'none',
-      boxSizing: 'border-box'
+      boxSizing: 'border-box',
+      position: 'relative',
+      zIndex: 1
     }}>
       <style jsx>{`
         @keyframes fade-in-down {
@@ -397,6 +433,10 @@ const Hero: React.FC<HeroProps> = ({
           animation-delay: 0.8s;
         }
         
+        .animation-delay-1000 {
+          animation-delay: 1s;
+        }
+        
         @keyframes gradient-shift {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -411,101 +451,21 @@ const Hero: React.FC<HeroProps> = ({
       
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full object-contain touch-none"
+        className="fixed inset-0 w-full h-full object-contain touch-none"
         style={{ 
           background: 'black',
-          width: '100%',
-          height: '100%',
+          width: '100vw',
+          height: '100vh',
           left: 0,
           right: 0,
           top: 0,
-          bottom: 0
+          bottom: 0,
+          zIndex: 0,
+          position: 'fixed'
         }}
       />
-      
-      {/* Organischer, fließender Übergang mit Blur - Verschiedene Höhen */}
-      <div 
-        className="absolute inset-x-0 bottom-0 z-[5] pointer-events-none overflow-hidden"
-        style={{
-          height: '60vh',
-          filter: 'blur(40px)',
-          WebkitFilter: 'blur(40px)',
-          maskImage: 'radial-gradient(ellipse 80% 50% at 50% 100%, black 0%, transparent 70%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 80% 50% at 50% 100%, black 0%, transparent 70%)'
-        }}
-      >
-        {/* Erste Welle - tiefer */}
-        <div 
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: '10%',
-            width: '35%',
-            height: '45vh',
-            background: 'radial-gradient(ellipse 100% 60% at 50% 100%, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%)',
-            transform: 'translateX(-10%)',
-            filter: 'blur(30px)',
-            WebkitFilter: 'blur(30px)'
-          }}
-        />
-        {/* Zweite Welle - höher */}
-        <div 
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: '40%',
-            width: '30%',
-            height: '55vh',
-            background: 'radial-gradient(ellipse 90% 50% at 50% 100%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 35%, transparent 100%)',
-            transform: 'translateX(-5%)',
-            filter: 'blur(35px)',
-            WebkitFilter: 'blur(35px)'
-          }}
-        />
-        {/* Dritte Welle - mittlere Höhe */}
-        <div 
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: '65%',
-            width: '35%',
-            height: '50vh',
-            background: 'radial-gradient(ellipse 110% 55% at 50% 100%, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 45%, transparent 100%)',
-            transform: 'translateX(5%)',
-            filter: 'blur(32px)',
-            WebkitFilter: 'blur(32px)'
-          }}
-        />
-        {/* Vierte Welle - tiefer rechts */}
-        <div 
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            right: '5%',
-            width: '25%',
-            height: '40vh',
-            background: 'radial-gradient(ellipse 95% 65% at 50% 100%, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 50%, transparent 100%)',
-            filter: 'blur(28px)',
-            WebkitFilter: 'blur(28px)'
-          }}
-        />
-        {/* Basis-Übergang für gleichmäßige Abdeckung */}
-        <div 
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: '35vh',
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.95) 100%)',
-            filter: 'blur(25px)',
-            WebkitFilter: 'blur(25px)'
-          }}
-        />
-      </div>
-      
       {/* Hero Content Overlay */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white">
+      <div className="relative z-10 flex flex-col items-center justify-center text-white min-h-screen pb-0">
         {/* Trust Badge */}
         {trustBadge && (
           <div className="mb-8 animate-fade-in-down">
@@ -528,19 +488,33 @@ const Hero: React.FC<HeroProps> = ({
           {/* Main Heading with Animation */}
           <div className="space-y-2">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white animate-fade-in-up animation-delay-200">
-              {headline.line1}
+              {headline.line1.split(' ').map((word, index) => 
+                word.toLowerCase() === 'innovation' ? (
+                  <span key={index} className="text-cyan-400">{word} </span>
+                ) : (
+                  <span key={index}>{word} </span>
+                )
+              )}
             </h1>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white animate-fade-in-up animation-delay-400">
-              {headline.line2}
+              {headline.line2.split(' ').map((word, index) => 
+                word.toLowerCase() === 'design' ? (
+                  <span key={index} className="text-cyan-400">{word} </span>
+                ) : (
+                  <span key={index}>{word} </span>
+                )
+              )}
             </h1>
           </div>
           
           {/* Subtitle with Animation */}
-          <div className="max-w-3xl mx-auto animate-fade-in-up animation-delay-600">
-            <p className="text-lg md:text-xl lg:text-2xl text-cyan-100/90 font-light leading-relaxed">
-              {subtitle}
-            </p>
-          </div>
+          {subtitle && (
+            <div className="max-w-3xl mx-auto animate-fade-in-up animation-delay-600">
+              <p className="text-lg md:text-xl lg:text-2xl text-cyan-100/90 font-light leading-relaxed">
+                {subtitle}
+              </p>
+            </div>
+          )}
           
           {/* CTA Buttons with Animation */}
           {buttons && (
@@ -548,7 +522,7 @@ const Hero: React.FC<HeroProps> = ({
               {buttons.primary && (
                 <button 
                   onClick={buttons.primary.onClick}
-                  className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-600 hover:to-teal-600 text-black rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/25"
+                  className="px-8 py-4 bg-transparent border-2 border-cyan-400 hover:border-cyan-300 text-cyan-400 hover:text-cyan-300 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/25"
                 >
                   {buttons.primary.text}
                 </button>
@@ -561,6 +535,13 @@ const Hero: React.FC<HeroProps> = ({
                   {buttons.secondary.text}
                 </button>
               )}
+            </div>
+          )}
+          
+          {/* Technology Icons */}
+          {techIcons && (
+            <div className="absolute bottom-[20px] left-0 right-0 flex justify-center animate-fade-in-up animation-delay-1000 md:block">
+              {techIcons}
             </div>
           )}
         </div>
@@ -581,6 +562,7 @@ precision highp float;
 out vec4 O;
 uniform vec2 resolution;
 uniform float time;
+uniform float particleOpacity;
 #define FC gl_FragCoord.xy
 #define T time
 #define R resolution
@@ -625,16 +607,20 @@ void main(void) {
 	vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
 	vec3 col=vec3(0);
 	float bg=clouds(vec2(st.x+T*.5,-st.y));
+	// Schwarze Bereiche zwischen den Wolken
+	float blackAreas=1.-bg*0.6;
 	uv*=1.-.3*(sin(T*.2)*.5+.5);
 	for (float i=1.; i<12.; i++) {
 		uv+=.1*cos(i*vec2(.1+.01*i, .8)+i*i+T*.5+.1*uv.x);
 		vec2 p=uv;
 		float d=length(p);
-		col+=.00125/d*(cos(sin(i)*vec3(0.0,1.5,2.0))+1.);
+		col+=.00125/d*(cos(sin(i)*vec3(0.0,1.5,2.0))+1.)*particleOpacity;
 		float b=noise(i+p+bg*1.731);
-		col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)));
-		col=mix(col,vec3(bg*.0,bg*.3,bg*.35),d);
+		col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)))*particleOpacity;
+		col=mix(col,vec3(bg*.0,bg*.2,bg*.25),d);
 	}
+	// Schwarze Bereiche hinzufügen
+	col=mix(col,vec3(0.0,0.0,0.0),blackAreas*0.6);
 	O=vec4(col,1);
 }`;
 

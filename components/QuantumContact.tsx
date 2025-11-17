@@ -77,12 +77,12 @@ const QuantumContact = () => {
         <div className="text-center mb-20">
           <div className="relative inline-block">
             <div className="absolute inset-0 bg-gradient-cyber blur-2xl opacity-40"></div>
-            <h2 className="relative text-6xl md:text-8xl font-black bg-gradient-to-r from-white via-cyan-300 to-purple-400 bg-clip-text text-transparent mb-6">
+            <h2 className="relative text-6xl md:text-8xl font-black text-white mb-6">
               KONTAKT
             </h2>
           </div>
           
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed">
             Bereit für Ihre <span className="text-cyan-400 font-semibold">erfolgreiche Webseite</span>? 
             Kontaktieren Sie uns <span className="text-purple-400 font-semibold"> für ein kostenloses Beratungsgespräch</span>. 
             Gemeinsam machen wir Ihr Unternehmen online sichtbar.

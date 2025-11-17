@@ -46,13 +46,13 @@ const AbstractServices = () => {
         <div className="text-center mb-20">
           <div className="inline-block relative">
             <div className="absolute inset-0 bg-gradient-cyber blur-2xl opacity-30"></div>
-            <h2 className="relative text-6xl md:text-8xl font-black bg-gradient-to-r from-white via-cyan-300 to-purple-400 bg-clip-text text-transparent mb-6">
+            <h2 className="relative text-6xl md:text-8xl font-black text-white mb-6">
               ERFOLGSGESCHICHTEN
             </h2>
           </div>
           
           <div className="relative max-w-4xl mx-auto">
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-white leading-relaxed mb-8">
               So machen wir <span className="text-cyan-400 font-semibold">Unternehmen erfolgreich sichtbar</span> - von der 
               <span className="text-purple-400 font-semibold"> ersten Idee bis zur gewinnbringenden Webseite</span>, 
               die Ihnen mehr Kunden und Umsatz bringt.

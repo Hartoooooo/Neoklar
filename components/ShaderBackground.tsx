@@ -248,8 +248,12 @@ void main(void) {
 	vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
 	vec3 col=vec3(0);
 	float bg=clouds(vec2(st.x+T*.5,-st.y));
-	// Nur die Wolken, keine Partikel/Strahlen
-	col=vec3(bg*.0,bg*.3,bg*.35);
+	// Schwarze Bereiche zwischen den Wolken
+	float blackAreas=1.-bg*0.6;
+	// Wolken mit mehr schwarzen Bereichen
+	col=vec3(bg*.0,bg*.2,bg*.25);
+	// Schwarze Bereiche hinzufügen
+	col=mix(col,vec3(0.0,0.0,0.0),blackAreas*0.6);
 	O=vec4(col,1);
 }`
 

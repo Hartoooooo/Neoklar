@@ -72,7 +72,7 @@ const QuantumFooter = () => {
             <div className="space-y-8">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-cyber blur-xl opacity-30"></div>
-                <h3 className="relative text-4xl font-black bg-gradient-to-r from-white via-cyan-300 to-purple-400 bg-clip-text text-transparent">
+                <h3 className="relative text-4xl font-black text-white">
                   NEO&lt;/&gt;KLAR
                 </h3>
               </div>

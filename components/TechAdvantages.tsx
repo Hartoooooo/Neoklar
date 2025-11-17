@@ -179,12 +179,12 @@ const TechAdvantages = () => {
           <div className={`transform transition-all duration-2000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <div className="inline-block relative mb-8">
               <div className="absolute inset-0 bg-gradient-cyber blur-2xl opacity-40"></div>
-              <h2 className="relative text-6xl md:text-8xl font-black bg-gradient-to-r from-white via-cyan-300 to-purple-400 bg-clip-text text-transparent">
+              <h2 className="relative text-6xl md:text-8xl font-black text-white">
                 IHRE VORTEILE
               </h2>
             </div>
             
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed mb-8">
               Was eine professionelle Website für <span className="text-cyan-400 font-semibold">Ihr Geschäft</span> bedeutet - 
               <span className="text-purple-400 font-semibold"> mehr Kunden</span>, 
               <span className="text-emerald-400 font-semibold"> weniger Aufwand</span> und 
@@ -207,7 +207,7 @@ const TechAdvantages = () => {
             {customerAdvantages.slice(0, 3).map((advantage, index) => (
               <div
                 key={advantage.id}
-                className={`group relative bg-black/40 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-8 transition-all duration-700 ${
+                className={`group relative bg-black/30 backdrop-blur-2xl border border-gray-700/30 rounded-3xl p-8 transition-all duration-700 overflow-hidden ${
                   firstTwoVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
                 }`}
                 style={{
@@ -217,9 +217,28 @@ const TechAdvantages = () => {
                 onMouseEnter={() => setActiveCard(index)}
                 onMouseLeave={() => setActiveCard(null)}
               >
+                {/* Türkis Neon Gradient obere Kante */}
+                <div 
+                  className="absolute top-0 left-0 right-0 h-32 pointer-events-none opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0"
+                  style={{
+                    background: 'linear-gradient(to bottom, rgba(6, 182, 212, 0.5), rgba(34, 211, 238, 0.3), transparent)',
+                    filter: 'blur(30px)',
+                    WebkitFilter: 'blur(30px)',
+                    transform: 'translateY(-50%)'
+                  }}
+                />
+                <div 
+                  className="absolute top-0 left-0 right-0 h-16 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0"
+                  style={{
+                    background: 'linear-gradient(to bottom, rgba(34, 211, 238, 0.7), rgba(6, 182, 212, 0.4), transparent)',
+                    filter: 'blur(15px)',
+                    WebkitFilter: 'blur(15px)',
+                    transform: 'translateY(-50%)'
+                  }}
+                />
                 
                 {/* Header with Icon and Metric */}
-                <div className="flex items-start justify-between mb-6">
+                <div className="relative z-10 flex items-start justify-between mb-6">
                   <div className="flex items-center space-x-4">
                     <div className="w-16 h-16 flex items-center justify-center border-2 border-gray-600 bg-black/50 rounded-xl transition-all duration-500 text-cyan-400">
                       <div className="w-8 h-8">
@@ -238,12 +257,12 @@ const TechAdvantages = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                <p className="relative z-10 text-gray-300 text-lg leading-relaxed mb-6">
                   {advantage.description}
                 </p>
 
                 {/* Benefits List */}
-                <div className="space-y-3">
+                <div className="relative z-10 space-y-3">
                   {advantage.benefits.map((benefit, i) => (
                     <div key={i} className="flex items-center space-x-3">
                       <svg className="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -264,7 +283,7 @@ const TechAdvantages = () => {
             {customerAdvantages.slice(3, 5).map((advantage, index) => (
               <div
                 key={advantage.id}
-                className={`group relative bg-black/40 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-8 transition-all duration-700 ${
+                className={`group relative bg-black/30 backdrop-blur-2xl border border-gray-700/30 rounded-3xl p-8 transition-all duration-700 overflow-hidden ${
                   lastTwoVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
                 }`}
                 style={{
@@ -274,9 +293,28 @@ const TechAdvantages = () => {
                 onMouseEnter={() => setActiveCard(index + 3)}
                 onMouseLeave={() => setActiveCard(null)}
               >
+                {/* Türkis Neon Gradient obere Kante */}
+                <div 
+                  className="absolute top-0 left-0 right-0 h-32 pointer-events-none opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0"
+                  style={{
+                    background: 'linear-gradient(to bottom, rgba(6, 182, 212, 0.5), rgba(34, 211, 238, 0.3), transparent)',
+                    filter: 'blur(30px)',
+                    WebkitFilter: 'blur(30px)',
+                    transform: 'translateY(-50%)'
+                  }}
+                />
+                <div 
+                  className="absolute top-0 left-0 right-0 h-16 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0"
+                  style={{
+                    background: 'linear-gradient(to bottom, rgba(34, 211, 238, 0.7), rgba(6, 182, 212, 0.4), transparent)',
+                    filter: 'blur(15px)',
+                    WebkitFilter: 'blur(15px)',
+                    transform: 'translateY(-50%)'
+                  }}
+                />
                 
                 {/* Header with Icon and Metric */}
-                <div className="flex items-start justify-between mb-6">
+                <div className="relative z-10 flex items-start justify-between mb-6">
                   <div className="flex items-center space-x-4">
                     <div className="w-16 h-16 flex items-center justify-center border-2 border-gray-600 bg-black/50 rounded-xl transition-all duration-500 text-cyan-400">
                       <div className="w-8 h-8">
@@ -295,12 +333,12 @@ const TechAdvantages = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                <p className="relative z-10 text-gray-300 text-lg leading-relaxed mb-6">
                   {advantage.description}
                 </p>
 
                 {/* Benefits List */}
-                <div className="space-y-3">
+                <div className="relative z-10 space-y-3">
                   {advantage.benefits.map((benefit, i) => (
                     <div key={i} className="flex items-center space-x-3">
                       <svg className="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

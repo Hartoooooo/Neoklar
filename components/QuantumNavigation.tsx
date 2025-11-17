@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 
 const QuantumNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState('services')
+  const [activeSection, setActiveSection] = useState('tech-advantages')
   const [isHologramMode, setIsHologramMode] = useState(false)
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const QuantumNavigation = () => {
       setIsScrolled(window.scrollY > 50)
       
       // Detect active section
-      const sections = ['services', 'tech-advantages', 'questionnaire', 'contact']
+      const sections = ['tech-advantages', 'questionnaire', 'contact']
       for (const section of sections) {
         const element = document.getElementById(section)
         if (element) {
@@ -37,7 +37,7 @@ const QuantumNavigation = () => {
   }
 
   const navItems = [
-    { id: 'services', label: 'PROJEKTE', href: '#services', code: '01' },
+    { id: 'tech-advantages', label: 'VORTEILE', href: '#tech-advantages', code: '01' },
     { id: 'questionnaire', label: 'ANALYSE', href: '#questionnaire', code: '02', mobileHidden: true },
     { id: 'contact', label: 'KONTAKT', href: '#contact', code: '03' },
   ]
@@ -48,22 +48,13 @@ const QuantumNavigation = () => {
         ? 'bg-black/80 backdrop-blur-2xl border-b border-cyan-500/20' 
         : 'bg-transparent'
     }`}>
-      {/* Quantum Grid Overlay */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: `linear-gradient(rgba(0, 255, 255, 0.3) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(0, 255, 255, 0.3) 1px, transparent 1px)`,
-          backgroundSize: '20px 20px',
-        }}></div>
-      </div>
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Holographic Logo */}
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-600 blur-lg opacity-30 md:group-hover:opacity-60 transition-all duration-500"></div>
             <h1 className="relative text-3xl font-black bg-gradient-to-r from-white via-cyan-300 to-blue-400 bg-clip-text text-transparent tracking-wider">
-              neoklar
+              NEOKLAR
             </h1>
           </div>
 

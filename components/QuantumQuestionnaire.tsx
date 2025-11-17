@@ -4382,10 +4382,10 @@ const QuantumQuestionnaire = () => {
             <div className="w-32 h-32 mx-auto mb-8 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center animate-pulse">
               <span className="text-6xl">✓</span>
             </div>
-            <h2 className="text-6xl md:text-8xl font-black bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent mb-6">
+            <h2 className="text-6xl md:text-8xl font-black text-white mb-6">
               MISSION COMPLETED
             </h2>
-            <p className="text-2xl text-gray-300 mb-8">
+            <p className="text-2xl text-white mb-8">
               Ihr Fragebogen wurde erfolgreich übermittelt!
             </p>
           </div>
@@ -4439,10 +4439,10 @@ const QuantumQuestionnaire = () => {
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-8xl font-black bg-gradient-to-r from-white via-cyan-300 to-purple-400 bg-clip-text text-transparent mb-6">
+          <h2 className="text-6xl md:text-8xl font-black text-white mb-6">
             IHR WEB-PROJEKT
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed">
             Erzählen Sie uns von Ihrem Unternehmen - wir finden gemeinsam den 
             <span className="text-cyan-400 font-semibold"> besten Weg zu Ihrer erfolgreichen Webseite</span>
           </p>
