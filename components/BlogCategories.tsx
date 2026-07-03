@@ -17,28 +17,21 @@ const BlogCategories = () => {
   ]
 
   return (
-    <div className="relative bg-transparent py-16 overflow-hidden">
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4">
+    <div className="relative py-10 px-5">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-3">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`group relative px-6 py-3 rounded-full font-mono text-sm uppercase tracking-wider transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full text-sm transition-colors duration-300 ${
                 activeCategory === category.id
-                  ? 'bg-cyan-500 text-black font-bold'
-                  : 'bg-black/40 border border-gray-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400'
+                  ? 'bg-white text-black font-medium'
+                  : 'border border-white/10 text-zinc-400 hover:border-white/25 hover:text-white'
               }`}
             >
-              <span className="relative z-10">
-                {category.name}
-                <span className="ml-2 text-xs opacity-70">({category.count})</span>
-              </span>
-              
-              {/* Hover effect */}
-              <div className="absolute inset-0 bg-cyan-500/20 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+              {category.name}
+              <span className="ml-2 text-xs opacity-60">{category.count}</span>
             </button>
           ))}
         </div>

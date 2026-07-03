@@ -11,20 +11,20 @@ const ImpressumPage = () => {
       
       <div className="relative z-20">
         {/* Header */}
-        <div className="relative border-b border-cyan-500/20">
+        <div className="relative border-b border-white/10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="flex items-center justify-between">
               <Link 
                 href="/"
-                className="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center space-x-2"
+                className="text-white hover:opacity-70 transition-colors flex items-center space-x-2"
               >
                 <span className="text-xl">←</span>
-                <span className="font-mono text-sm uppercase tracking-wider">Zurück</span>
+                <span className="text-sm">Zurück</span>
               </Link>
               
               <div className="text-right">
                 <h1 className="text-3xl font-bold text-white mb-2">Impressum</h1>
-                <div className="text-cyan-400 font-mono text-sm uppercase tracking-wider">
+                <div className="text-white text-sm">
                   RECHTLICHE.INFORMATIONEN
                 </div>
               </div>
@@ -37,8 +37,8 @@ const ImpressumPage = () => {
           <div className="space-y-12">
             
             {/* Angaben gemäß § 5 TMG */}
-            <div className="bg-black/40 backdrop-blur-xl border border-cyan-500/30 rounded-2xl p-8">
-              <h2 className="text-xl font-bold text-cyan-400 mb-6 font-mono uppercase tracking-wider">
+            <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-8">
+              <h2 className="text-xl font-bold text-white mb-6">
                 Angaben gemäß § 5 TMG
               </h2>
               <div className="space-y-4 text-gray-300">
@@ -57,8 +57,8 @@ const ImpressumPage = () => {
             </div>
 
             {/* Verantwortlich für den Inhalt */}
-            <div className="bg-black/40 backdrop-blur-xl border border-cyan-500/30 rounded-2xl p-8">
-              <h2 className="text-xl font-bold text-cyan-400 mb-6 font-mono uppercase tracking-wider">
+            <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-8">
+              <h2 className="text-xl font-bold text-white mb-6">
                 Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
               </h2>
               <div className="space-y-4 text-gray-300">
@@ -70,8 +70,8 @@ const ImpressumPage = () => {
             </div>
 
             {/* Haftungsausschluss */}
-            <div className="bg-black/40 backdrop-blur-xl border border-cyan-500/30 rounded-2xl p-8">
-              <h2 className="text-xl font-bold text-cyan-400 mb-6 font-mono uppercase tracking-wider">
+            <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-8">
+              <h2 className="text-xl font-bold text-white mb-6">
                 Haftungsausschluss
               </h2>
               <div className="space-y-6 text-gray-300">
@@ -110,14 +110,14 @@ const ImpressumPage = () => {
             </div>
 
             {/* Streitschlichtung */}
-            <div className="bg-black/40 backdrop-blur-xl border border-cyan-500/30 rounded-2xl p-8">
-              <h2 className="text-xl font-bold text-cyan-400 mb-6 font-mono uppercase tracking-wider">
+            <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-8">
+              <h2 className="text-xl font-bold text-white mb-6">
                 Streitschlichtung
               </h2>
               <div className="text-gray-300">
                 <p>
                   Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
-                  <a href="https://ec.europa.eu/consumers/odr/" className="text-cyan-400 hover:text-cyan-300 ml-1" target="_blank" rel="noopener noreferrer">
+                  <a href="https://ec.europa.eu/consumers/odr/" className="text-white hover:opacity-70 ml-1" target="_blank" rel="noopener noreferrer">
                     https://ec.europa.eu/consumers/odr/
                   </a>
                 </p>
@@ -132,13 +132,13 @@ const ImpressumPage = () => {
         </div>
 
         {/* Footer info */}
-        <div className="border-t border-cyan-500/20 py-8">
+        <div className="border-t border-white/10 py-8">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center text-gray-400 text-sm">
               <p>Stand: {new Date().toLocaleDateString('de-DE')}</p>
               <p className="mt-2">
                 Bei Fragen zum Impressum wenden Sie sich gerne an: 
-                <a href="mailto:neoklar.info@gmail.com" className="text-cyan-400 hover:text-cyan-300 ml-1">
+                <a href="mailto:neoklar.info@gmail.com" className="text-white hover:opacity-70 ml-1">
                   neoklar.info@gmail.com
                 </a>
               </p>

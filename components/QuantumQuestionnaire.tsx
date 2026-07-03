@@ -3271,8 +3271,8 @@ const QuantumQuestionnaire = () => {
         return (
           <div className="space-y-8">
             <div>
-              <label className="block text-cyan-400 font-mono text-sm uppercase tracking-wider mb-4">
-                WEBSEITEN.TYP
+              <label className="block text-zinc-400 text-sm mb-4">
+                Art der Website
               </label>
               {/* Erste Zeile: 4 Haupttypen */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
@@ -3282,8 +3282,8 @@ const QuantumQuestionnaire = () => {
                     onClick={() => handleInputChange('projectType', type.value)}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left focus:outline-none ${
                       formData.projectType === type.value
-                        ? 'border-cyan-400 bg-cyan-400/10'
-                        : 'border-gray-600 hover:border-cyan-400/50'
+                        ? 'border-white/40 bg-white/10'
+                        : 'border-gray-600 hover:border-white/25'
                     }`}
                   >
                     <div className={`font-semibold text-base mb-1 ${
@@ -3303,8 +3303,8 @@ const QuantumQuestionnaire = () => {
                     onClick={() => handleInputChange('projectType', type.value)}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left focus:outline-none ${
                       formData.projectType === type.value
-                        ? 'border-cyan-400 bg-cyan-400/10'
-                        : 'border-gray-600 hover:border-cyan-400/50'
+                        ? 'border-white/40 bg-white/10'
+                        : 'border-gray-600 hover:border-white/25'
                     }`}
                   >
                     <div className={`font-semibold text-base mb-1 ${
@@ -3327,8 +3327,8 @@ const QuantumQuestionnaire = () => {
                   }}
                   className={`p-6 border-2 rounded-xl transition-all duration-300 cursor-pointer ${
                     formData.projectType === 'other'
-                      ? 'border-cyan-400 bg-cyan-400/10'
-                      : 'border-gray-600 hover:border-cyan-400/50'
+                      ? 'border-white/40 bg-white/10'
+                      : 'border-gray-600 hover:border-white/25'
                   }`}
                 >
                   <div className="flex items-start gap-4">
@@ -3358,7 +3358,7 @@ const QuantumQuestionnaire = () => {
                           }
                         }}
                         onClick={(e) => e.stopPropagation()}
-                        className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-white placeholder-gray-400 transition-all duration-300"
+                        className="w-full px-4 py-3 bg-white/[0.03] border border-white/10 rounded-xl focus:border-white/30 focus:ring-1 focus:ring-white/20 text-white placeholder-gray-400 transition-all duration-300"
                         placeholder="Beschreiben Sie Ihr Projekt..."
                         autoComplete="off"
                         autoCorrect="off"
@@ -3372,13 +3372,13 @@ const QuantumQuestionnaire = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-cyan-400 font-mono text-sm uppercase tracking-wider mb-4">
-                BRANCHE.SEKTOR
+              <label className="block text-zinc-400 text-sm mb-4">
+                Branche
               </label>
               <select
                 value={formData.industry}
                 onChange={(e) => handleInputChange('industry', e.target.value)}
-                className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-white transition-all duration-300"
+                className="w-full px-4 py-4 bg-white/[0.03] border border-white/10 rounded-xl focus:border-white/30 focus:ring-1 focus:ring-white/20 text-white transition-all duration-300"
               >
                 <option value="">Branche auswählen...</option>
                 {industries.map((industry) => (
@@ -3390,8 +3390,8 @@ const QuantumQuestionnaire = () => {
             </div>
 
             <div>
-              <label className="block text-cyan-400 font-mono text-sm uppercase tracking-wider mb-4">
-                UNTERNEHMENS.NAME
+              <label className="block text-zinc-400 text-sm mb-4">
+                Name des Unternehmens
               </label>
               <input
                 type="text"
@@ -3404,7 +3404,7 @@ const QuantumQuestionnaire = () => {
                 onInput={(e) => {
                   // Input onInput handler
                 }}
-                className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-xl focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-white placeholder-gray-400 transition-all duration-300 text-base"
+                className="w-full px-4 py-4 bg-white/[0.03] border border-white/10 rounded-xl focus:border-white/30 focus:ring-1 focus:ring-white/20 text-white placeholder-gray-400 transition-all duration-300 text-base"
                 placeholder="Ihr Unternehmen..."
                 autoComplete="off"
                 autoCapitalize="off"
@@ -3420,8 +3420,8 @@ const QuantumQuestionnaire = () => {
         return (
           <div className="space-y-8">
             <div>
-              <label className="block text-purple-400 font-mono text-sm uppercase tracking-wider mb-4">
-                TEXTE.VERFÜGBARKEIT
+              <label className="block text-zinc-400 text-sm mb-4">
+                Texte
               </label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
@@ -3435,8 +3435,8 @@ const QuantumQuestionnaire = () => {
                     onClick={() => handleInputChange('hasContent', option.value)}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left ${
                       formData.hasContent === option.value
-                        ? 'border-purple-400 bg-purple-400/10 text-purple-400'
-                        : 'border-gray-600 hover:border-purple-400/50 text-gray-300'
+                        ? 'border-white/40 bg-white/10 text-white'
+                        : 'border-gray-600 hover:border-white/25 text-gray-300'
                     }`}
                   >
                     {option.label}
@@ -3446,8 +3446,8 @@ const QuantumQuestionnaire = () => {
             </div>
 
             <div>
-              <label className="block text-purple-400 font-mono text-sm uppercase tracking-wider mb-4">
-                SEITEN.UMFANG
+              <label className="block text-zinc-400 text-sm mb-4">
+                Umfang der Website
               </label>
               <div className="grid grid-cols-3 gap-4">
                 {[
@@ -3460,8 +3460,8 @@ const QuantumQuestionnaire = () => {
                     onClick={() => handleInputChange('pageCount', option.value)}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-center ${
                       formData.pageCount === option.value
-                        ? 'border-purple-400 bg-purple-400/10 text-purple-400'
-                        : 'border-gray-600 hover:border-purple-400/50 text-gray-300'
+                        ? 'border-white/40 bg-white/10 text-white'
+                        : 'border-gray-600 hover:border-white/25 text-gray-300'
                     }`}
                   >
                     <div className="font-medium">{option.label}</div>
@@ -3471,8 +3471,8 @@ const QuantumQuestionnaire = () => {
             </div>
 
             <div>
-              <label className="block text-purple-400 font-mono text-sm uppercase tracking-wider mb-4">
-                BILDER.MATERIAL
+              <label className="block text-zinc-400 text-sm mb-4">
+                Bildmaterial
               </label>
               <div className="grid grid-cols-3 gap-4">
                 {[
@@ -3485,8 +3485,8 @@ const QuantumQuestionnaire = () => {
                     onClick={() => handleInputChange('hasImages', option.value)}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left ${
                       formData.hasImages === option.value
-                        ? 'border-purple-400 bg-purple-400/10 text-purple-400'
-                        : 'border-gray-600 hover:border-purple-400/50 text-gray-300'
+                        ? 'border-white/40 bg-white/10 text-white'
+                        : 'border-gray-600 hover:border-white/25 text-gray-300'
                     }`}
                   >
                     {option.label}
@@ -3503,8 +3503,8 @@ const QuantumQuestionnaire = () => {
 
             {/* Farbauswahl Sektion (Rechts) */}
             <div>
-              <label className="block text-green-400 font-mono text-sm uppercase tracking-wider mb-2">
-                FARB.PRÄFERENZEN (Mehrauswahl möglich)
+              <label className="block text-zinc-400 text-sm mb-2">
+                Farbwünsche (Mehrfachauswahl möglich)
               </label>
               <div className="text-sm text-gray-400 mb-4">
                 {formData.colors.length + formData.customColors.length}/2 Farbschemen ausgewählt
@@ -3534,10 +3534,10 @@ const QuantumQuestionnaire = () => {
                     disabled={isDisabled}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 focus:outline-none ${
                       isSelected
-                        ? 'border-green-400 bg-green-400/10'
+                        ? 'border-white/40 bg-white/10'
                         : isDisabled
                           ? 'border-gray-700 bg-gray-800/50 opacity-50 cursor-not-allowed'
-                        : 'border-gray-600 hover:border-green-400/50'
+                        : 'border-gray-600 hover:border-white/25'
                     }`}
                   >
                     <div className="flex flex-col space-y-3">
@@ -3841,9 +3841,7 @@ const QuantumQuestionnaire = () => {
         return (
           <div className="space-y-8">
             <div>
-              <label className="block text-orange-400 font-mono text-sm uppercase tracking-wider mb-4">
-                ZEITRAHMEN
-              </label>
+              <label className="block text-zinc-400 text-sm mb-4">Zeitrahmen</label>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 {[
                   { value: '2weeks', label: '2 Wochen' },
@@ -3857,8 +3855,8 @@ const QuantumQuestionnaire = () => {
                     }}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 flex items-center ${
                       formData.timeline === option.value
-                        ? 'border-orange-400 bg-orange-400/10 text-orange-400'
-                        : 'border-gray-600 hover:border-orange-400/50 text-gray-300'
+                        ? 'border-white/40 bg-white/10 text-white'
+                        : 'border-gray-600 hover:border-white/25 text-gray-300'
                     }`}
                   >
                     {option.label}
@@ -3881,8 +3879,8 @@ const QuantumQuestionnaire = () => {
             </div>
 
             <div>
-              <label className="block text-orange-400 font-mono text-sm uppercase tracking-wider mb-4">
-                BUDGET.RAHMEN
+              <label className="block text-zinc-400 text-sm mb-4">
+                Budget
               </label>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 {[
@@ -3898,8 +3896,8 @@ const QuantumQuestionnaire = () => {
                     }}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 flex items-center ${
                       formData.budget === option.value
-                        ? 'border-orange-400 bg-orange-400/10 text-orange-400'
-                        : 'border-gray-600 hover:border-orange-400/50 text-gray-300'
+                        ? 'border-white/40 bg-white/10 text-white'
+                        : 'border-gray-600 hover:border-white/25 text-gray-300'
                     }`}
                     style={{ fontSize: '13px' }}
                   >
@@ -3924,8 +3922,8 @@ const QuantumQuestionnaire = () => {
             </div>
 
             <div>
-              <label className="block text-orange-400 font-mono text-sm uppercase tracking-wider mb-4">
-                DOMAIN.STATUS inkl. LIVE CHECK
+              <label className="block text-zinc-400 text-sm mb-4">
+                Domain (mit Live-Prüfung)
               </label>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {[
@@ -3941,8 +3939,8 @@ const QuantumQuestionnaire = () => {
                     }}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left h-12 flex items-center justify-between relative group ${
                       formData.domain === option.value
-                        ? 'border-orange-400 bg-orange-400/10 text-orange-400'
-                        : 'border-gray-600 hover:border-orange-400/50 text-gray-300'
+                        ? 'border-white/40 bg-white/10 text-white'
+                        : 'border-gray-600 hover:border-white/25 text-gray-300'
                     }`}
                   >
                     <span>{option.label}</span>
@@ -4069,8 +4067,8 @@ const QuantumQuestionnaire = () => {
         return (
           <div className="space-y-8">
             <div>
-              <label className="block text-indigo-400 font-mono text-sm uppercase tracking-wider mb-4">
-                GEWÜNSCHTE.FUNKTIONEN (Mehrauswahl möglich)
+              <label className="block text-zinc-400 text-sm mb-4">
+                Gewünschte Funktionen (Mehrfachauswahl möglich)
               </label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {availableFeatures.map((feature) => (
@@ -4079,8 +4077,8 @@ const QuantumQuestionnaire = () => {
                       onClick={() => handleArrayToggle('features', feature.name)}
                       className={`w-full p-2 border-2 rounded-xl transition-all duration-300 text-left flex items-center justify-between ${
                         formData.features.includes(feature.name)
-                        ? 'border-indigo-400 bg-indigo-400/10 text-indigo-400'
-                        : 'border-gray-600 hover:border-indigo-400/50 text-gray-300'
+                        ? 'border-white/40 bg-white/10 text-white'
+                        : 'border-gray-600 hover:border-white/25 text-gray-300'
                     }`}
                   >
                       <span>{feature.name}</span>
@@ -4111,9 +4109,7 @@ const QuantumQuestionnaire = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <label className="block text-indigo-400 font-mono text-sm uppercase tracking-wider mb-4">
-                  BARRIEREFREIHEIT
-                </label>
+                <label className="block text-zinc-400 text-sm mb-4">Barrierefreiheit</label>
                 <div className="space-y-3">
                   {[
                     { value: 'important', label: 'Sehr wichtig' },
@@ -4125,8 +4121,8 @@ const QuantumQuestionnaire = () => {
                       onClick={() => handleInputChange('accessibility', option.value)}
                       className={`w-full p-3 border-2 rounded-lg transition-all duration-300 text-left ${
                         formData.accessibility === option.value
-                          ? 'border-indigo-400 bg-indigo-400/10 text-indigo-400'
-                          : 'border-gray-600 hover:border-indigo-400/50 text-gray-300'
+                          ? 'border-white/40 bg-white/10 text-white'
+                          : 'border-gray-600 hover:border-white/25 text-gray-300'
                       }`}
                     >
                       {option.label}
@@ -4136,8 +4132,8 @@ const QuantumQuestionnaire = () => {
               </div>
 
               <div>
-                <label className="block text-indigo-400 font-mono text-sm uppercase tracking-wider mb-4">
-                  SEO.OPTIMIERUNG
+                <label className="block text-zinc-400 text-sm mb-4">
+                  Suchmaschinen-Optimierung
                 </label>
                 <div className="space-y-3">
                   {[
@@ -4150,8 +4146,8 @@ const QuantumQuestionnaire = () => {
                       onClick={() => handleInputChange('seo', option.value)}
                       className={`w-full p-3 border-2 rounded-lg transition-all duration-300 text-left ${
                         formData.seo === option.value
-                          ? 'border-indigo-400 bg-indigo-400/10 text-indigo-400'
-                          : 'border-gray-600 hover:border-indigo-400/50 text-gray-300'
+                          ? 'border-white/40 bg-white/10 text-white'
+                          : 'border-gray-600 hover:border-white/25 text-gray-300'
                       }`}
                     >
                       {option.label}
@@ -4169,7 +4165,7 @@ const QuantumQuestionnaire = () => {
             {/* Project Summary */}
             <div className="bg-black/40 border border-teal-400/30 rounded-2xl p-6">
               <h3 className="text-teal-400 font-mono text-sm uppercase tracking-wider mb-4">
-                PROJEKT.ZUSAMMENFASSUNG
+                Zusammenfassung
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                 <div className="space-y-2">
@@ -4275,8 +4271,8 @@ const QuantumQuestionnaire = () => {
             </div>
             
             <div>
-              <label className="block text-teal-400 font-mono text-sm uppercase tracking-wider mb-4">
-                ANSPRECHPARTNER
+              <label className="block text-zinc-400 text-sm mb-4">
+                Ansprechpartner
               </label>
               <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -4284,14 +4280,14 @@ const QuantumQuestionnaire = () => {
                 type="text"
                     value={formData.contactPersonFirstName}
                     onChange={(e) => handleInputChange('contactPersonFirstName', e.target.value)}
-                className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-xl focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20 text-white placeholder-gray-400 transition-all duration-300"
+                className="w-full px-4 py-4 bg-white/[0.03] border border-white/10 rounded-xl focus:border-white/30 focus:ring-1 focus:ring-white/20 text-white placeholder-gray-400 transition-all duration-300"
                     placeholder="Vorname..."
                   />
                   <input
                     type="text"
                     value={formData.contactPersonLastName}
                     onChange={(e) => handleInputChange('contactPersonLastName', e.target.value)}
-                    className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-xl focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20 text-white placeholder-gray-400 transition-all duration-300"
+                    className="w-full px-4 py-4 bg-white/[0.03] border border-white/10 rounded-xl focus:border-white/30 focus:ring-1 focus:ring-white/20 text-white placeholder-gray-400 transition-all duration-300"
                     placeholder="Nachname..."
                   />
                 </div>
@@ -4300,14 +4296,14 @@ const QuantumQuestionnaire = () => {
                     type="email"
                     value={formData.contactEmail}
                     onChange={(e) => handleInputChange('contactEmail', e.target.value)}
-                    className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-xl focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20 text-white placeholder-gray-400 transition-all duration-300"
+                    className="w-full px-4 py-4 bg-white/[0.03] border border-white/10 rounded-xl focus:border-white/30 focus:ring-1 focus:ring-white/20 text-white placeholder-gray-400 transition-all duration-300"
                     placeholder="E-Mail Adresse..."
                   />
                   <input
                     type="tel"
                     value={formData.contactPhone}
                     onChange={(e) => handleInputChange('contactPhone', e.target.value)}
-                    className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-xl focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20 text-white placeholder-gray-400 transition-all duration-300"
+                    className="w-full px-4 py-4 bg-white/[0.03] border border-white/10 rounded-xl focus:border-white/30 focus:ring-1 focus:ring-white/20 text-white placeholder-gray-400 transition-all duration-300"
                     placeholder="Telefonnummer..."
                   />
                 </div>
@@ -4315,8 +4311,8 @@ const QuantumQuestionnaire = () => {
             </div>
 
             <div>
-              <label className="block text-teal-400 font-mono text-sm uppercase tracking-wider mb-4">
-                BEVORZUGTE.KOMMUNIKATION
+              <label className="block text-zinc-400 text-sm mb-4">
+                Bevorzugter Kontaktweg
               </label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
@@ -4328,8 +4324,8 @@ const QuantumQuestionnaire = () => {
                     onClick={() => handleInputChange('preferredContact', option.value)}
                     className={`p-2 border-2 rounded-xl transition-all duration-300 text-left ${
                       formData.preferredContact === option.value
-                        ? 'border-teal-400 bg-teal-400/10 text-teal-400'
-                        : 'border-gray-600 hover:border-teal-400/50 text-gray-300'
+                        ? 'border-white/40 bg-white/10 text-white'
+                        : 'border-gray-600 hover:border-white/25 text-gray-300'
                     }`}
                   >
                     {option.label}
@@ -4339,14 +4335,14 @@ const QuantumQuestionnaire = () => {
             </div>
 
             <div>
-              <label className="block text-teal-400 font-mono text-sm uppercase tracking-wider mb-4">
-                ZUSÄTZLICHE.INFORMATIONEN
+              <label className="block text-zinc-400 text-sm mb-4">
+                Weitere Informationen
               </label>
               <textarea
                 value={formData.additionalInfo}
                 onChange={(e) => handleInputChange('additionalInfo', e.target.value)}
                 rows={6}
-                className="w-full px-4 py-4 bg-black/50 border border-gray-600 rounded-xl focus:border-teal-400 focus:ring-2 focus:ring-teal-400/20 text-white placeholder-gray-400 resize-none transition-all duration-300"
+                className="w-full px-4 py-4 bg-white/[0.03] border border-white/10 rounded-xl focus:border-white/30 focus:ring-1 focus:ring-white/20 text-white placeholder-gray-400 resize-none transition-all duration-300"
                 placeholder="Weitere Details, spezielle Wünsche, Inspiration oder Referenzen..."
               />
             </div>
@@ -4360,71 +4356,45 @@ const QuantumQuestionnaire = () => {
 
   if (isCompleted) {
     return (
-      <div id="questionnaire" className="relative min-h-screen bg-transparent flex items-center justify-center py-24 overflow-hidden">
-        {/* Success Animation Background */}
-        <div className="absolute inset-0">
-          {Array.from({ length: 20 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-green-400 rounded-full animate-ping"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${i * 0.1}s`,
-                animationDuration: `${2 + Math.random() * 2}s`
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-          <div className="mb-8">
-            <div className="w-32 h-32 mx-auto mb-8 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center animate-pulse">
-              <span className="text-6xl">✓</span>
-            </div>
-            <h2 className="text-6xl md:text-8xl font-black text-white mb-6">
-              MISSION COMPLETED
-            </h2>
-            <p className="text-2xl text-white mb-8">
-              Ihr Fragebogen wurde erfolgreich übermittelt!
-            </p>
+      <div id="questionnaire" className="relative min-h-screen flex items-center justify-center py-28">
+        <div className="relative z-10 text-center max-w-2xl mx-auto px-5">
+          <div className="w-16 h-16 mx-auto mb-8 rounded-full border border-white/15 flex items-center justify-center">
+            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 13l4 4L19 7" />
+            </svg>
           </div>
+          <h2 className="heading-tight text-4xl sm:text-5xl font-semibold text-white mb-4">
+            Vielen Dank
+          </h2>
+          <p className="text-lg text-zinc-400 mb-10">
+            Ihre Angaben sind bei uns angekommen. Wir schauen sie uns an und melden
+            uns zeitnah bei Ihnen.
+          </p>
 
-          <div className="bg-black/60 backdrop-blur-xl border border-green-500/30 rounded-3xl p-8 mb-8">
-            <h3 className="text-2xl font-bold text-white mb-4">Was passiert als nächstes?</h3>
-            <div className="space-y-4 text-left">
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-black font-bold">1</div>
-                <div>
-                  <p className="text-white font-semibold">Analyse Ihrer Anfrage</p>
-                  <p className="text-gray-400">Wir analysieren Ihre Angaben und erstellen ein maßgeschneidertes Angebot</p>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 mb-10 text-left">
+            <h3 className="text-lg font-medium text-white mb-5">So geht es weiter</h3>
+            <div className="space-y-5">
+              {[
+                { t: 'Wir sichten Ihre Anfrage', d: 'Auf Basis Ihrer Angaben bereiten wir einen passenden Vorschlag vor.' },
+                { t: 'Wir melden uns', d: 'In der Regel innerhalb eines Werktags.' },
+                { t: 'Gemeinsames Gespräch', d: 'Wir klären die Details und Sie erhalten ein konkretes Angebot.' },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-4">
+                  <span className="w-7 h-7 flex-shrink-0 rounded-full border border-white/15 flex items-center justify-center text-sm text-zinc-400">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <p className="text-white font-medium">{item.t}</p>
+                    <p className="text-zinc-500 text-sm">{item.d}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-black font-bold">2</div>
-                <div>
-                  <p className="text-white font-semibold">Kontaktaufnahme</p>
-                  <p className="text-gray-400">Wir melden uns binnen 24 Stunden bei Ihnen</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-black font-bold">3</div>
-                <div>
-                  <p className="text-white font-semibold">Beratungsgespräch</p>
-                  <p className="text-gray-400">Gemeinsame Verfeinerung der Projektdetails</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
           <button
-            onClick={() => {
-              const element = document.querySelector('#home')
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' })
-              }
-            }}
-            className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105"
+            onClick={() => document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth' })}
+            className="px-7 py-3.5 rounded-full bg-white text-black font-medium transition-transform duration-300 hover:scale-[1.03]"
           >
             Zurück zur Startseite
           </button>
@@ -4434,17 +4404,18 @@ const QuantumQuestionnaire = () => {
   }
 
   return (
-    <div id="questionnaire" className="relative min-h-screen bg-transparent py-24 overflow-hidden hidden md:block">
+    <div id="questionnaire" className="relative py-28 sm:py-36 hidden md:block">
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-20 max-w-6xl mx-auto px-5 sm:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-8xl font-black text-white mb-6">
-            IHR WEB-PROJEKT
+        <div className="max-w-2xl mb-16">
+          <span className="text-sm text-zinc-500">Projekt-Check</span>
+          <h2 className="heading-tight mt-3 text-4xl sm:text-5xl font-semibold text-white">
+            Erzählen Sie uns von Ihrem Projekt
           </h2>
-          <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed">
-            Erzählen Sie uns von Ihrem Unternehmen - wir finden gemeinsam den 
-            <span className="text-cyan-400 font-semibold"> besten Weg zu Ihrer erfolgreichen Webseite</span>
+          <p className="mt-5 text-lg text-zinc-400 leading-relaxed">
+            Ein paar kurze Fragen, damit wir Ihr Vorhaben richtig einschätzen und
+            gemeinsam den passenden Weg zu Ihrer Website finden.
           </p>
         </div>
 
@@ -4460,81 +4431,51 @@ const QuantumQuestionnaire = () => {
               {getProjectSpecificPreview(formData.projectType, formData.designStyle)}
 
               {/* Design-Stil Auswahl */}
-              <div className="space-y-4">
-                <label className="block text-green-400 font-mono text-sm uppercase tracking-wider">
-                  DESIGN.STIL AUSWAHL
-                </label>
+              <div className="space-y-3">
+                <label className="block text-sm text-zinc-400">Design-Stil</label>
                 <div className="grid grid-cols-3 gap-3">
                   {designStyles.map((style) => (
                     <button
                       key={style.value}
                       onClick={() => handleInputChange('designStyle', style.value)}
-                      className={`p-2 border-2 rounded-xl transition-all duration-300 text-center focus:outline-none ${
+                      className={`p-3 border rounded-xl transition-colors duration-300 text-center focus:outline-none ${
                         formData.designStyle === style.value
-                          ? 'border-green-400 bg-green-400/10 text-green-400'
-                          : 'border-gray-600 hover:border-green-400/50 text-gray-300 hover:text-green-400'
+                          ? 'border-white/40 bg-white/10 text-white'
+                          : 'border-white/10 hover:border-white/25 text-zinc-400'
                       }`}
                     >
-                      <div className="font-mono text-sm uppercase tracking-wider">
-                        {style.label}
-                      </div>
+                      <div className="text-sm">{style.label}</div>
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* Progress Bar with Dots */}
-              <div className="space-y-4">
+              {/* Fortschritt */}
+              <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-cyan-400 font-mono text-sm">FORTSCHRITT.STATUS</span>
-                  <span className="text-cyan-400 font-mono text-sm">
+                  <span className="text-sm text-zinc-400">Fortschritt</span>
+                  <span className="text-sm text-zinc-400">
                     {Math.round(((currentStep + 1) / questionSteps.length) * 100)}%
                   </span>
                 </div>
-                
-                {/* Progress Bar with Step Dots */}
+
                 <div className="relative">
-                  {/* Background Line */}
-                  <div className="w-full h-1 bg-gray-800 rounded-full"></div>
-                  
-                  {/* Progress Line */}
-                  <div 
-                    className="absolute top-0 left-0 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full transition-all duration-500 ease-out"
+                  <div className="w-full h-1 bg-white/10 rounded-full"></div>
+                  <div
+                    className="absolute top-0 left-0 h-1 bg-white rounded-full transition-all duration-500 ease-out"
                     style={{ width: `${(currentStep / (questionSteps.length - 1)) * 100}%` }}
                   />
-                  
-                  {/* Step Dots */}
                   <div className="absolute top-0 left-0 w-full flex justify-between items-center transform -translate-y-1/2">
                     {questionSteps.map((step, index) => (
                       <div key={step.id} className="relative group">
-                        {/* Tooltip */}
-                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 px-3 py-2 bg-black/90 backdrop-blur-sm border border-cyan-500/50 rounded-lg text-cyan-400 text-xs font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-10">
-                          <div className="flex items-center space-x-2">
-                            <span>{step.icon}</span>
-                            <span>{step.title}</span>
-                          </div>
-                          {/* Tooltip Arrow */}
-                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-cyan-500/50"></div>
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 px-3 py-2 bg-[#111113] border border-white/15 rounded-lg text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-10">
+                          {step.title}
                         </div>
-                        
-                        {/* Dot */}
-                        <div 
-                          className={`w-4 h-4 rounded-full border-2 transition-all duration-300 cursor-pointer hover:scale-110 ${
-                            index <= currentStep
-                              ? 'bg-gradient-to-r from-cyan-400 to-purple-500 border-cyan-400 shadow-lg shadow-cyan-400/50'
-                              : 'bg-gray-800 border-gray-600'
+                        <div
+                          className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
+                            index <= currentStep ? 'bg-white' : 'bg-white/15'
                           }`}
-                        >
-                          {/* Inner glow for completed steps */}
-                          {index <= currentStep && (
-                            <div className="absolute inset-0 rounded-full bg-white/20 animate-pulse"></div>
-                          )}
-                          
-                          {/* Current step indicator */}
-                          {index === currentStep && (
-                            <div className="absolute inset-0 rounded-full border-2 border-cyan-300 animate-ping"></div>
-                          )}
-                        </div>
+                        />
                       </div>
                     ))}
                   </div>
@@ -4545,14 +4486,13 @@ const QuantumQuestionnaire = () => {
 
           {/* Right Side: Analysis Container */}
           <div className="space-y-6">
-            <div id={`step-${currentStep}`} className="bg-black/60 backdrop-blur-xl border border-cyan-500/30 rounded-3xl p-8">
+            <div id={`step-${currentStep}`} className="bg-white/[0.02] border border-white/10 rounded-2xl p-8">
             {/* Current Step Header */}
             <div className="mb-8">
-              <div className={`inline-flex items-center space-x-3 px-6 py-3 rounded-xl bg-gradient-to-r ${questionSteps[currentStep].color} mb-4`}>
-                <span className="text-white text-xl">{questionSteps[currentStep].icon}</span>
-                <span className="text-white font-mono font-bold">{questionSteps[currentStep].title}</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs text-zinc-400 mb-4">
+                Schritt {currentStep + 1} von {questionSteps.length}
               </div>
-              <h3 className="text-3xl font-bold text-white mb-2">
+              <h3 className="text-2xl font-medium text-white">
                 {questionSteps[currentStep].subtitle}
               </h3>
             </div>
@@ -4569,42 +4509,42 @@ const QuantumQuestionnaire = () => {
             <button
               onClick={prevStep}
               disabled={currentStep === 0}
-              className="px-8 py-4 border-2 border-gray-600 text-gray-400 font-bold rounded-xl hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-6 py-3 border border-white/15 text-white rounded-full transition-colors duration-300 hover:bg-white/5 disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              ← ZURÜCK
+              Zurück
             </button>
 
             <div className="text-center">
-              <div className="text-cyan-400 font-mono text-sm mb-2">
-                {currentStep + 1} VON {questionSteps.length}
+              <div className="text-sm text-zinc-500">
+                {currentStep + 1} von {questionSteps.length}
               </div>
             </div>
 
             {currentStep === questionSteps.length - 1 ? (
               <button
                 onClick={submitQuestionnaire}
-                className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105"
+                className="px-6 py-3 bg-white text-black font-medium rounded-full transition-transform duration-300 hover:scale-[1.03]"
               >
-                ABSENDEN →
+                Absenden
               </button>
             ) : (
               <div className="relative group">
                 <button
                   onClick={nextStep}
                   disabled={!isCurrentStepValid()}
-                  className={`px-8 py-4 font-bold rounded-xl transition-all duration-300 transform ${
+                  className={`px-6 py-3 font-medium rounded-full transition-all duration-300 ${
                     isCurrentStepValid()
-                      ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white hover:from-cyan-600 hover:to-purple-700 hover:scale-105 cursor-pointer'
-                      : 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                      ? 'bg-white text-black hover:scale-[1.03] cursor-pointer'
+                      : 'bg-white/10 text-zinc-500 cursor-not-allowed'
                   }`}
                 >
-                  WEITER →
+                  Weiter
                 </button>
-                
+
                 {/* Tooltip für fehlende Felder */}
                 {!isCurrentStepValid() && (
-                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 px-4 py-3 bg-black/90 backdrop-blur-sm border border-red-500/50 rounded-lg text-red-400 text-sm font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-50">
-                    <div className="font-semibold mb-2">Noch zu erledigen:</div>
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 px-4 py-3 bg-[#111113] border border-white/15 rounded-lg text-zinc-300 text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-50">
+                    <div className="font-medium mb-2 text-white">Noch zu erledigen:</div>
                     {getMissingFields().map((field, index) => (
                       <div key={index} className="flex items-center space-x-2">
                         <div className="w-1 h-1 bg-red-400 rounded-full"></div>
