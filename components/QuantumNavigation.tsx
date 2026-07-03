@@ -11,7 +11,7 @@ const QuantumNavigation = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 24)
 
-      const sections = ['tech-advantages', 'questionnaire', 'contact']
+      const sections = ['tech-advantages', 'projekte', 'questionnaire', 'contact']
       for (const section of sections) {
         const element = document.getElementById(section)
         if (element) {
@@ -37,6 +37,7 @@ const QuantumNavigation = () => {
 
   const navItems = [
     { id: 'tech-advantages', label: 'Vorteile', href: '#tech-advantages' },
+    { id: 'projekte', label: 'Projekte', href: '#projekte' },
     { id: 'questionnaire', label: 'Projekt-Check', href: '#questionnaire', mobileHidden: true },
     { id: 'contact', label: 'Kontakt', href: '#contact' },
   ]

@@ -14,6 +14,7 @@ const QuantumFooter = () => {
   const quickLinks = [
     { label: 'Start', href: '#home' },
     { label: 'Vorteile', href: '#tech-advantages' },
+    { label: 'Projekte', href: '#projekte' },
     { label: 'Projekt-Check', href: '#questionnaire' },
     { label: 'Kontakt', href: '#contact' },
   ]

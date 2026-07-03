@@ -3,6 +3,7 @@ import UltraModernHero from '@/components/UltraModernHero'
 import AnimatedShaderHero from '@/components/AnimatedShaderHero'
 import { HeroSectionOne } from '@/components/HeroSectionOne'
 import AbstractServices from '@/components/AbstractServices'
+import ProjectShowcase from '@/components/ProjectShowcase'
 import TechAdvantages from '@/components/TechAdvantages'
 import QuantumQuestionnaire from '@/components/QuantumQuestionnaire'
 import QuantumContact from '@/components/QuantumContact'
@@ -54,6 +55,7 @@ export default function Home() {
       {/* <HeroSectionOne /> */}
       <AbstractServices />
       <TechAdvantages />
+      <ProjectShowcase />
       <QuantumQuestionnaire />
       <QuantumContact />
       <QuantumFooter />
