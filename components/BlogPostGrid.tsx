@@ -100,117 +100,82 @@ const BlogPostGrid = () => {
     : blogPosts.filter(post => post.category === selectedCategory)
 
   return (
-    <div id="blog-posts" className="relative min-h-screen bg-transparent py-32 overflow-hidden">
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <div id="blog-posts" className="relative py-16 px-5">
+      <div className="max-w-6xl mx-auto">
+
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        <div className="flex flex-wrap justify-center gap-3 mb-14">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full font-mono text-sm uppercase tracking-wider transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full text-sm transition-colors duration-300 ${
                 selectedCategory === category
-                  ? 'bg-cyan-500 text-black font-bold'
-                  : 'bg-black/40 border border-gray-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400'
+                  ? 'bg-white text-black font-medium'
+                  : 'border border-white/10 text-zinc-400 hover:border-white/25 hover:text-white'
               }`}
             >
-              {category === 'all' ? 'ALLE' : category}
+              {category === 'all' ? 'Alle' : category}
             </button>
           ))}
         </div>
 
         {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPosts.map((post, index) => (
             <article
               key={post.id}
-              className={`group relative bg-black/40 backdrop-blur-xl border border-gray-700/50 rounded-3xl overflow-hidden transition-all duration-700 transform hover:scale-105 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-              } ${post.featured ? 'md:col-span-2 lg:col-span-1' : ''}`}
-              style={{
-                transitionDelay: `${200 + index * 150}ms`,
-                transitionDuration: '800ms'
-              }}
+              className={`group rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden transition-all duration-700 hover:border-white/20 ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
+              style={{ transitionDelay: `${index * 90}ms` }}
             >
-              {/* Featured Badge */}
-              {post.featured && (
-                <div className="absolute top-4 left-4 z-10">
-                  <div className="px-3 py-1 bg-gradient-to-r from-cyan-500 to-purple-600 text-white text-xs font-bold uppercase tracking-wider rounded-full">
-                    FEATURED
-                  </div>
-                </div>
-              )}
-
               {/* Post Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-44 overflow-hidden">
                 <Image
                   src={post.image}
                   alt={post.title}
                   width={600}
                   height={400}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                
-                {/* Category Badge */}
-                <div className="absolute top-4 right-4">
-                  <div className="px-3 py-1 bg-black/60 backdrop-blur-md text-cyan-400 text-xs font-mono uppercase tracking-wider rounded-full">
+                <div className="absolute top-3 left-3">
+                  <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-zinc-200 text-xs">
                     {post.category}
-                  </div>
+                  </span>
                 </div>
               </div>
 
               {/* Post Content */}
               <div className="p-6">
-                {/* Meta Info */}
-                <div className="flex items-center justify-between text-sm text-gray-400 font-mono mb-4">
-                  <span>{post.readTime} LESEZEIT</span>
+                <div className="flex items-center justify-between text-xs text-zinc-500 mb-3">
+                  <span>{post.readTime} Lesezeit</span>
                   <span>{new Date(post.date).toLocaleDateString('de-DE')}</span>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-xl font-black text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">
+                <h3 className="text-lg font-medium text-white mb-2 leading-snug">
                   {post.title}
                 </h3>
 
-                {/* Excerpt */}
-                <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                <p className="text-sm text-zinc-400 leading-relaxed mb-4">
                   {post.excerpt}
                 </p>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 bg-cyan-500/20 text-cyan-400 text-xs font-mono rounded"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Read More Button */}
-                <button className="group/btn flex items-center space-x-2 text-cyan-400 hover:text-white transition-colors duration-300">
-                  <span className="font-mono text-sm uppercase tracking-wider">WEITERLESEN</span>
+                <button className="group/btn flex items-center gap-2 text-sm text-white transition-opacity hover:opacity-70">
+                  Weiterlesen
                   <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
               </div>
-
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-cyber opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl"></div>
             </article>
           ))}
         </div>
 
         {/* Load More Button */}
-        <div className="text-center mt-16">
-          <button className="group relative px-12 py-4 bg-transparent border-2 border-cyan-500 text-cyan-400 font-bold uppercase tracking-wider hover:text-black transition-all duration-500 overflow-hidden rounded-3xl">
-            <span className="relative z-10">MEHR ARTIKEL LADEN</span>
-            <div className="absolute inset-0 bg-cyber-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+        <div className="text-center mt-14">
+          <button className="px-8 py-3 rounded-full border border-white/15 text-white transition-colors duration-300 hover:bg-white/5">
+            Mehr Artikel laden
           </button>
         </div>
       </div>

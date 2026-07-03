@@ -3,31 +3,24 @@
 import React, { useState, useEffect } from 'react'
 
 const TechAdvantages = () => {
-  const [activeCard, setActiveCard] = useState<number | null>(null)
   const [isVisible, setIsVisible] = useState(false)
-  const [firstTwoVisible, setFirstTwoVisible] = useState(false)
-  const [lastTwoVisible, setLastTwoVisible] = useState(false)
-  const [businessValuesVisible, setBusinessValuesVisible] = useState(false)
+  const [firstRowVisible, setFirstRowVisible] = useState(false)
+  const [secondRowVisible, setSecondRowVisible] = useState(false)
 
   useEffect(() => {
-    // Skip animations on mobile devices for better performance
     const isMobile = window.innerWidth < 768
     if (isMobile) {
       setIsVisible(true)
-      setFirstTwoVisible(true)
-      setLastTwoVisible(true)
-      setBusinessValuesVisible(true)
+      setFirstRowVisible(true)
+      setSecondRowVisible(true)
       return
     }
 
-    const observer = new IntersectionObserver(
+    const headerObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
-          setFirstTwoVisible(true)
-        } else {
-          setIsVisible(false)
-          setFirstTwoVisible(false)
+          setFirstRowVisible(true)
         }
       },
       { threshold: 0.1 }
@@ -35,329 +28,143 @@ const TechAdvantages = () => {
 
     const secondRowObserver = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setLastTwoVisible(true)
-        } else {
-          setLastTwoVisible(false)
-        }
-      },
-      { threshold: 0.3 }
-    )
-
-    const businessValuesObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setBusinessValuesVisible(true)
-        } else {
-          setBusinessValuesVisible(false)
-        }
+        if (entry.isIntersecting) setSecondRowVisible(true)
       },
       { threshold: 0.2 }
     )
 
     const section = document.getElementById('tech-advantages')
     const secondRow = document.getElementById('second-row-cards')
-    const businessValuesSection = document.getElementById('business-values-grid')
-    
-    if (section) observer.observe(section)
+
+    if (section) headerObserver.observe(section)
     if (secondRow) secondRowObserver.observe(secondRow)
-    if (businessValuesSection) businessValuesObserver.observe(businessValuesSection)
 
     return () => {
-      observer.disconnect()
+      headerObserver.disconnect()
       secondRowObserver.disconnect()
-      businessValuesObserver.disconnect()
     }
   }, [])
 
-  const customerAdvantages = [
+  const advantages = [
     {
       id: 'more-customers',
-      title: 'MEHR KUNDEN',
-      subtitle: 'ERHÖHTE SICHTBARKEIT',
+      title: 'Besser gefunden werden',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
-          <path d="M22 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.5" />
+          <path d="M21 21l-4.3-4.3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       ),
-      description: 'Ihre Website wird bei Google besser gefunden und zieht automatisch mehr potenzielle Kunden an',
-      benefits: [
-        'SEO optimiert',
-        'Mehr Website-Besucher',
-        'Höhere Conversion-Rate'
-      ],
-      color: 'from-blue-500 to-cyan-400'
+      description:
+        'Ihre Website erscheint weiter oben bei Google und bringt so mehr passende Anfragen statt zufälliger Klicks.',
+      benefits: ['Für Suchmaschinen optimiert', 'Mehr Besucher aus Ihrer Region', 'Anfragen statt Zufall'],
     },
     {
       id: 'legal-compliance',
-      title: 'RECHTSKONFORM',
-      subtitle: 'DSGVO & COMPLIANCE',
+      title: 'Rechtssicher von Anfang an',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       ),
-      description: 'Ihre Website erfüllt automatisch alle rechtlichen Anforderungen - DSGVO, Impressum und Cookie-Richtlinien',
-      benefits: [
-        'DSGVO-konforme Datenverarbeitung',
-        'Rechtssichere Cookie-Banner',
-        'Automatische Compliance-Updates'
-      ],
-      color: 'from-purple-500 to-pink-400'
+      description:
+        'DSGVO, Impressum und Cookie-Hinweis bauen wir korrekt ein, damit Sie sich um rechtliche Details keine Sorgen machen müssen.',
+      benefits: ['DSGVO-konform umgesetzt', 'Rechtssicherer Cookie-Hinweis', 'Sauberes Impressum'],
     },
     {
       id: 'professional-image',
-      title: 'PROFESSIONELL',
-      subtitle: 'VERTRAUEN SCHAFFEN',
+      title: 'Auftritt, der Vertrauen schafft',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-          <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 2l2.4 6.9L21 9.2l-5.2 4.3L17.6 21 12 17.2 6.4 21l1.8-7.5L3 9.2l6.6-.3L12 2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
         </svg>
       ),
-      description: 'Ihre Kunden vertrauen Ihnen mehr durch ein modernes, professionelles Erscheinungsbild',
-      benefits: [
-        'Hochwertiges Design',
-        'Vertrauensvolle Ausstrahlung',
-        'Seriöser Eindruck'
-      ],
-      color: 'from-emerald-500 to-teal-400'
+      description:
+        'Ein moderner, aufgeräumter Auftritt wirkt professionell, bevor das erste Gespräch überhaupt begonnen hat.',
+      benefits: ['Hochwertiges Design', 'Klare Struktur', 'Seriöser Eindruck'],
     },
     {
       id: 'mobile-reach',
-      title: 'ÜBERALL ERREICHBAR',
-      subtitle: 'MOBILE OPTIMIERUNG',
+      title: 'Überall erreichbar',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-          <rect x="5" y="2" width="14" height="20" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-          <line x1="12" y1="18" x2="12.01" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <rect x="6" y="2" width="12" height="20" rx="2.5" stroke="currentColor" strokeWidth="1.5" />
+          <line x1="11" y1="18" x2="13" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       ),
-      description: 'Ihre Website funktioniert perfekt auf Handys, Tablets und Computern - verlieren Sie keine Kunden',
-      benefits: [
-        'Perfekt auf allen Geräten',
-        'Schnelle mobile Ladezeiten',
-        'Einfache Bedienung'
-      ],
-      color: 'from-orange-500 to-red-400'
+      description:
+        'Ihre Seite funktioniert auf Handy, Tablet und Desktop gleich gut. So verlieren Sie unterwegs keine Interessenten.',
+      benefits: ['Optimiert für jedes Gerät', 'Schnelle Ladezeiten', 'Einfache Bedienung'],
     },
     {
       id: 'all-in-one',
-      title: 'ALLES UNTER EINEM DACH',
-      subtitle: 'VOLLSERVICE MIT OPTIONALEM HOSTING',
+      title: 'Alles aus einer Hand',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <circle cx="12" cy="8" r="2" stroke="currentColor" strokeWidth="2"/>
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M9 22V12h6v10" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
         </svg>
       ),
-      description: 'Von der Entwicklung bis zum optionalen Hosting - wir kümmern uns um alles.',
-      benefits: [
-        'Komplette Website-Entwicklung',
-        'Optional: Professionelles Hosting (kleine monatl. Pauschale)',
-        'Flexible Service-Auswahl'
-      ],
-      color: 'from-indigo-500 to-purple-400'
-    }
+      description:
+        'Von der Entwicklung bis zum optionalen Hosting kümmern wir uns um alles. Sie haben einen Ansprechpartner statt vieler Baustellen.',
+      benefits: ['Komplette Umsetzung', 'Optionales Hosting zum kleinen Monatspreis', 'Flexible Auswahl'],
+    },
   ]
 
+  const Card = ({ advantage, show, index }: { advantage: (typeof advantages)[number]; show: boolean; index: number }) => (
+    <div
+      className={`group rounded-2xl border border-white/10 bg-white/[0.02] p-7 transition-all duration-700 ease-out hover:border-white/20 hover:bg-white/[0.04] ${
+        show ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+      }`}
+      style={{ transitionDelay: `${index * 90}ms` }}
+    >
+      <div className="w-11 h-11 flex items-center justify-center rounded-xl border border-white/10 text-white">
+        <div className="w-5 h-5">{advantage.icon}</div>
+      </div>
+      <h3 className="mt-5 text-xl font-medium text-white">{advantage.title}</h3>
+      <p className="mt-3 text-zinc-400 leading-relaxed">{advantage.description}</p>
+      <ul className="mt-5 space-y-2.5 border-t border-white/10 pt-5">
+        {advantage.benefits.map((benefit, i) => (
+          <li key={i} className="flex items-center gap-3 text-sm text-zinc-300">
+            <svg className="w-4 h-4 flex-shrink-0 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+            </svg>
+            {benefit}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 
   return (
-    <div id="tech-advantages" className="relative min-h-screen bg-transparent py-24 overflow-hidden">
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Quantum Header */}
-        <div className="text-center mb-20">
-          <div className={`transform transition-all duration-2000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <div className="inline-block relative mb-8">
-              <div className="absolute inset-0 bg-gradient-cyber blur-2xl opacity-40"></div>
-              <h2 className="relative text-6xl md:text-8xl font-black text-white">
-                IHRE VORTEILE
-              </h2>
-            </div>
-            
-            <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed mb-8">
-              Was eine professionelle Website für <span className="text-cyan-400 font-semibold">Ihr Geschäft</span> bedeutet - 
-              <span className="text-purple-400 font-semibold"> mehr Kunden</span>, 
-              <span className="text-emerald-400 font-semibold"> weniger Aufwand</span> und 
-              <span className="text-pink-400 font-semibold"> höhere Umsätze</span>.
-            </p>
-
-            {/* Abstract Divider */}
-            <div className="flex items-center justify-center space-x-4">
-              <div className="w-16 h-px bg-gradient-to-r from-transparent to-cyan-400"></div>
-              <div className="w-3 h-3 border-2 border-cyan-400 rotate-45"></div>
-              <div className="w-16 h-px bg-gradient-to-l from-transparent to-emerald-400"></div>
-            </div>
-          </div>
+    <section id="tech-advantages" className="relative py-28 sm:py-36">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        {/* Header */}
+        <div className={`max-w-2xl transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <span className="text-sm text-zinc-500">Ihre Vorteile</span>
+          <h2 className="heading-tight mt-3 text-4xl sm:text-5xl font-semibold text-white">
+            Was eine gute Website konkret bringt
+          </h2>
+          <p className="mt-5 text-lg text-zinc-400 leading-relaxed">
+            Mehr Anfragen, weniger Aufwand und ein Auftritt, auf den Sie sich
+            verlassen können. Darum geht es bei jedem Projekt.
+          </p>
         </div>
 
-        {/* Main Advantages */}
-        <div className="space-y-8 mb-24">
-          {/* First Row - Cards 1, 2 & 3 */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {customerAdvantages.slice(0, 3).map((advantage, index) => (
-              <div
-                key={advantage.id}
-                className={`group relative bg-black/30 backdrop-blur-2xl border border-gray-700/30 rounded-3xl p-8 transition-all duration-700 overflow-hidden ${
-                  firstTwoVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-                }`}
-                style={{
-                  transitionDelay: `${500 + index * 200}ms`,
-                  transitionDuration: '800ms'
-                }}
-                onMouseEnter={() => setActiveCard(index)}
-                onMouseLeave={() => setActiveCard(null)}
-              >
-                {/* Türkis Neon Gradient obere Kante */}
-                <div 
-                  className="absolute top-0 left-0 right-0 h-32 pointer-events-none opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0"
-                  style={{
-                    background: 'linear-gradient(to bottom, rgba(6, 182, 212, 0.5), rgba(34, 211, 238, 0.3), transparent)',
-                    filter: 'blur(30px)',
-                    WebkitFilter: 'blur(30px)',
-                    transform: 'translateY(-50%)'
-                  }}
-                />
-                <div 
-                  className="absolute top-0 left-0 right-0 h-16 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0"
-                  style={{
-                    background: 'linear-gradient(to bottom, rgba(34, 211, 238, 0.7), rgba(6, 182, 212, 0.4), transparent)',
-                    filter: 'blur(15px)',
-                    WebkitFilter: 'blur(15px)',
-                    transform: 'translateY(-50%)'
-                  }}
-                />
-                
-                {/* Header with Icon and Metric */}
-                <div className="relative z-10 flex items-start justify-between mb-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 flex items-center justify-center border-2 border-gray-600 bg-black/50 rounded-xl transition-all duration-500 text-cyan-400">
-                      <div className="w-8 h-8">
-                        {advantage.icon}
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-black text-white transition-colors duration-500">
-                        {advantage.title}
-                      </h3>
-                      <p className="text-cyan-400 font-mono text-sm uppercase tracking-wider">
-                        {advantage.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <p className="relative z-10 text-gray-300 text-lg leading-relaxed mb-6">
-                  {advantage.description}
-                </p>
-
-                {/* Benefits List */}
-                <div className="relative z-10 space-y-3">
-                  {advantage.benefits.map((benefit, i) => (
-                    <div key={i} className="flex items-center space-x-3">
-                      <svg className="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      <span className="text-gray-200 font-medium">{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-
-
-              </div>
-            ))}
-          </div>
-
-          {/* Second Row - Cards 4 & 5 */}
-          <div id="second-row-cards" className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {customerAdvantages.slice(3, 5).map((advantage, index) => (
-              <div
-                key={advantage.id}
-                className={`group relative bg-black/30 backdrop-blur-2xl border border-gray-700/30 rounded-3xl p-8 transition-all duration-700 overflow-hidden ${
-                  lastTwoVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-                }`}
-                style={{
-                  transitionDelay: `${300 + index * 200}ms`,
-                  transitionDuration: '800ms'
-                }}
-                onMouseEnter={() => setActiveCard(index + 3)}
-                onMouseLeave={() => setActiveCard(null)}
-              >
-                {/* Türkis Neon Gradient obere Kante */}
-                <div 
-                  className="absolute top-0 left-0 right-0 h-32 pointer-events-none opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-0"
-                  style={{
-                    background: 'linear-gradient(to bottom, rgba(6, 182, 212, 0.5), rgba(34, 211, 238, 0.3), transparent)',
-                    filter: 'blur(30px)',
-                    WebkitFilter: 'blur(30px)',
-                    transform: 'translateY(-50%)'
-                  }}
-                />
-                <div 
-                  className="absolute top-0 left-0 right-0 h-16 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0"
-                  style={{
-                    background: 'linear-gradient(to bottom, rgba(34, 211, 238, 0.7), rgba(6, 182, 212, 0.4), transparent)',
-                    filter: 'blur(15px)',
-                    WebkitFilter: 'blur(15px)',
-                    transform: 'translateY(-50%)'
-                  }}
-                />
-                
-                {/* Header with Icon and Metric */}
-                <div className="relative z-10 flex items-start justify-between mb-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 flex items-center justify-center border-2 border-gray-600 bg-black/50 rounded-xl transition-all duration-500 text-cyan-400">
-                      <div className="w-8 h-8">
-                        {advantage.icon}
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-black text-white transition-colors duration-500">
-                        {advantage.title}
-                      </h3>
-                      <p className="text-cyan-400 font-mono text-sm uppercase tracking-wider">
-                        {advantage.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <p className="relative z-10 text-gray-300 text-lg leading-relaxed mb-6">
-                  {advantage.description}
-                </p>
-
-                {/* Benefits List */}
-                <div className="relative z-10 space-y-3">
-                  {advantage.benefits.map((benefit, i) => (
-                    <div key={i} className="flex items-center space-x-3">
-                      <svg className="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      <span className="text-gray-200 font-medium">{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-
-
-              </div>
-            ))}
-          </div>
+        {/* Karten */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {advantages.slice(0, 3).map((advantage, index) => (
+            <Card key={advantage.id} advantage={advantage} show={firstRowVisible} index={index} />
+          ))}
         </div>
-
-
+        <div id="second-row-cards" className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {advantages.slice(3, 5).map((advantage, index) => (
+            <Card key={advantage.id} advantage={advantage} show={secondRowVisible} index={index} />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 
